@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineProfile } from "react-icons/ai";
 import { FaDoorOpen } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Avatar from "../Avatar";
@@ -31,6 +31,11 @@ const UserMenu = () => {
               label="Sign In"
               onClick={() => router.push("/login")}
               Icon={FaDoorOpen}
+            />
+            <MenuItem
+              label="Register"
+              onClick={() => router.push("/register")}
+              Icon={AiOutlineProfile}
             />
           </div>
         </div>
