@@ -12,7 +12,7 @@ const UserMenu = () => {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       <div
         className="flex items-center gap-8 rounded-xl bg-white border-[1px] shadow-md"
         onClick={toggleOpen}
@@ -20,6 +20,13 @@ const UserMenu = () => {
         <AiOutlineMenu />
         <Avatar />
       </div>
+      {openStatus && (
+        <div className="absolute right-4 top-14 text-md rounded-md">
+          <div className="flex flex-col items-center justify-center">
+            <MenuItem />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
