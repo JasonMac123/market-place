@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import Avatar from "../Avatar";
 
 const UserMenu = () => {
   const [openStatus, setOpenStatus] = useState(false);
