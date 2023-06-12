@@ -2,10 +2,14 @@
 
 import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
+import { FaDoorOpen } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import Avatar from "../Avatar";
+import MenuItem from "./MenuBar";
 
 const UserMenu = () => {
   const [openStatus, setOpenStatus] = useState(false);
+  const router = useRouter();
 
   const toggleOpen = useCallback(() => {
     setOpenStatus(!openStatus);
@@ -23,7 +27,11 @@ const UserMenu = () => {
       {openStatus && (
         <div className="absolute right-4 top-14 text-md rounded-md">
           <div className="flex flex-col items-center justify-center">
-            <MenuItem />
+            <MenuItem
+              label="Sign In"
+              onClick={() => router.push("/login")}
+              Icon={FaDoorOpen}
+            />
           </div>
         </div>
       )}
