@@ -10,8 +10,8 @@ const Logo = () => {
     <Image
       alt="logo"
       className="block coursor-pointer object-scale-down"
-      height="100"
-      width="100"
+      height="200"
+      width="200"
       src="/images/Logo.png"
       onClick={() => router.push("/")}
     />
