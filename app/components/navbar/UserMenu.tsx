@@ -25,13 +25,14 @@ const UserMenu = () => {
         <Avatar />
       </div>
       {openStatus && (
-        <div className="absolute right-4 top-14 text-md rounded-md">
+        <div className="absolute right-8 top-14 text-md rounded-md bg-white">
           <div className="flex flex-col items-center justify-center">
             <MenuItem
               label="Sign In"
               onClick={() => router.push("/login")}
               Icon={FaDoorOpen}
             />
+            <hr />
             <MenuItem
               label="Register"
               onClick={() => router.push("/register")}
