@@ -12,7 +12,7 @@ const UserMenu = () => {
   const router = useRouter();
 
   const toggleOpen = useCallback(() => {
-    setOpenStatus(!openStatus);
+    setOpenStatus((value) => !value);
   }, []);
 
   return (
