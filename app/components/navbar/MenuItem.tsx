@@ -9,9 +9,12 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ Icon, label, onClick }) => {
   return (
-    <div className="flex justify-between" onClick={onClick}>
-      <div className="text-md">{label}</div>
-      <Icon />
+    <div
+      className="flex justify-between items-center space-x-8"
+      onClick={onClick}
+    >
+      <div className="text-lg">{label}</div>
+      <Icon size={30} />
     </div>
   );
 };
