@@ -18,21 +18,21 @@ const UserMenu = () => {
   return (
     <div className="relative">
       <div
-        className="flex items-center justify-center gap-8 rounded-xl bg-white border-[1px] shadow-md mr-8 w-32 py-4"
+        className="flex items-center justify-center gap-8 rounded-2xl bg-white border-[1px] shadow-md mr-8 w-32 py-4"
         onClick={toggleOpen}
       >
         <AiOutlineMenu />
         <Avatar />
       </div>
       {openStatus && (
-        <div className="absolute right-8 top-14 text-md rounded-md bg-white">
-          <div className="flex flex-col items-center justify-center">
+        <div className="absolute right-12 top-20 text-md rounded-md bg-white py-8 px-4">
+          <div className="flex flex-col items-center justify-center space-y-2">
             <MenuItem
               label="Sign In"
               onClick={() => router.push("/login")}
               Icon={FaDoorOpen}
             />
-            <hr />
+            <hr className="border-black w-3/4" />
             <MenuItem
               label="Register"
               onClick={() => router.push("/register")}
