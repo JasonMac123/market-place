@@ -18,7 +18,7 @@ const UserMenu = () => {
   return (
     <div className="relative">
       <div
-        className="flex items-center gap-8 rounded-xl bg-white border-[1px] shadow-md"
+        className="flex items-center justify-center gap-8 rounded-xl bg-white border-[1px] shadow-md mr-8 w-32 py-4"
         onClick={toggleOpen}
       >
         <AiOutlineMenu />
