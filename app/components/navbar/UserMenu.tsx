@@ -5,7 +5,7 @@ import { AiOutlineMenu, AiOutlineProfile } from "react-icons/ai";
 import { FaDoorOpen } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Avatar from "../Avatar";
-import MenuItem from "./MenuBar";
+import MenuItem from "./MenuItem";
 
 const UserMenu = () => {
   const [openStatus, setOpenStatus] = useState(false);
