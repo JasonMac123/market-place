@@ -1,0 +1,22 @@
+"use client";
+
+import Link from "next/link";
+import { IconType } from "react-icons";
+
+interface MediaLinkProps {
+  Icon: IconType;
+  label: string;
+  href?: string;
+}
+
+const MediaLink: React.FC<MediaLinkProps> = ({ Icon, label, href }) => {
+  return (
+    <div className="flex space-x-4">
+      <div>
+        <Link href={href || "https://github.com/JasonMac123"}></Link>
+      </div>
+    </div>
+  );
+};
+
+export default MediaLink;
