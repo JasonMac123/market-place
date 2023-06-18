@@ -10,7 +10,7 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ Icon, label, onClick }) => {
   return (
     <div
-      className="flex justify-between items-center space-x-8"
+      className="flex justify-between items-center space-x-8 hover:bg-neutral-500 p-2 rounded-md"
       onClick={onClick}
     >
       <div className="text-lg">{label}</div>
