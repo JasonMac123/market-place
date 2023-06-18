@@ -25,7 +25,7 @@ const UserMenu = () => {
         <Avatar />
       </div>
       {openStatus && (
-        <div className="absolute right-12 top-20 text-md rounded-md bg-white py-8 px-4">
+        <div className="absolute right-12 top-20 text-md rounded-md bg-neutral-200 py-8 px-4 border-[2px]">
           <div className="flex flex-col items-center justify-center space-y-2">
             <MenuItem
               label="Sign In"
