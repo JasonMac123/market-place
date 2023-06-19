@@ -3,16 +3,20 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const Logo = () => {
+interface LogoProps {
+  alt?: boolean;
+}
+
+const Logo: React.FC<LogoProps> = ({ alt }) => {
   const router = useRouter();
 
   return (
     <Image
       alt="logo"
       className="block coursor-pointer object-scale-down"
-      height="200"
-      width="200"
-      src="/images/Logo.png"
+      height={alt ? "400" : "200"}
+      width={alt ? "400" : "200"}
+      src={alt ? "/images/LogoAlt.png" : "/images/Logo.png"}
       onClick={() => router.push("/")}
     />
   );
