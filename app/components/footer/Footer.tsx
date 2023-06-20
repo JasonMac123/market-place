@@ -59,8 +59,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex">
-        <div>Terms</div>
-        <div>Privacy</div>@ 2023 - Jason Mac All rights reserved
+        <div className="mr-4 text-gray-600">Terms</div>
+        <div className="mr-4 text-gray-600">Privacy</div>@ 2023 - Jason Mac All
+        rights reserved
       </div>
     </div>
   );
