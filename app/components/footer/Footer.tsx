@@ -17,7 +17,7 @@ const Footer = () => {
       <div className="flex justify-around">
         <div className="flex">
           <Logo alt />
-          <div className="flex flex-col justify-start">
+          <div className="flex flex-col gap-4 justify-start">
             <h3 className="text-lg">Visit us at our physical stores</h3>
             <StoreLocation
               streetName="Steeles Avenue West"
