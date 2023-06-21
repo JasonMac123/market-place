@@ -14,14 +14,14 @@ const StoreLocation: React.FC<StoreLocationProps> = ({
   postalCode,
 }) => {
   return (
-    <>
+    <div>
       <h4>
         {streetNumber}, {streetName}
       </h4>
       <h4>
         {city}, {region} {postalCode}
       </h4>
-    </>
+    </div>
   );
 };
 
