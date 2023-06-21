@@ -11,9 +11,15 @@ interface MediaLinkProps {
 
 const MediaLink: React.FC<MediaLinkProps> = ({ Icon, label, href }) => {
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-4 hover:text-black hover:underline">
       <div>
-        <Link href={href || "https://github.com/JasonMac123"}></Link>
+        <Link
+          className="flex items-center space-x-2"
+          href={href || "https://github.com/JasonMac123"}
+        >
+          <Icon size={30} />
+          <h3>{label}</h3>
+        </Link>
       </div>
     </div>
   );
