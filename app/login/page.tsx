@@ -1,9 +1,14 @@
 import Container from "../components/Container";
+import FormInput from "../components/Input/FormInput";
 
 const LoginPage = () => {
   return (
     <Container>
-      <div>Hi</div>
+      <div>
+        <div>
+          <FormInput />
+        </div>
+      </div>
     </Container>
   );
 };
