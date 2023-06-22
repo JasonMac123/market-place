@@ -29,13 +29,19 @@ const UserMenu = () => {
           <div className="flex flex-col items-center justify-center space-y-2">
             <MenuItem
               label="Sign In"
-              onClick={() => router.push("/login")}
+              onClick={() => {
+                toggleOpen();
+                router.push("/login");
+              }}
               Icon={FaDoorOpen}
             />
             <hr className="border-black w-3/4" />
             <MenuItem
               label="Register"
-              onClick={() => router.push("/register")}
+              onClick={() => {
+                toggleOpen();
+                router.push("/register");
+              }}
               Icon={AiOutlineProfile}
             />
           </div>
