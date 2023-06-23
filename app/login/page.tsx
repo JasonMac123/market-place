@@ -1,3 +1,4 @@
+import ClientContainer from "../components/ClientContainer";
 import Container from "../components/Container";
 import FormInput from "../components/Input/FormInput";
 
@@ -16,26 +17,28 @@ const LoginPage = () => {
   });
 
   return (
-    <Container>
-      <div>
+    <ClientContainer>
+      <Container>
         <div>
-          <FormInput
-            id="email"
-            label="Email"
-            register={register}
-            errors={errors}
-            required
-          />
-          <FormInput
-            id="password"
-            label="Password"
-            register={register}
-            errors={errors}
-            required
-          />
+          <div>
+            <FormInput
+              id="email"
+              label="Email"
+              register={register}
+              errors={errors}
+              required
+            />
+            <FormInput
+              id="password"
+              label="Password"
+              register={register}
+              errors={errors}
+              required
+            />
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </ClientContainer>
   );
 };
 
