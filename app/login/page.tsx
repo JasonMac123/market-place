@@ -1,40 +1,14 @@
 import ClientContainer from "../components/ClientContainer";
-import Container from "../components/Container";
-import FormInput from "../components/Input/FormInput";
-
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import Container from "../components/containers/Container";
+import LoginContainer from "../components/containers/LoginContainer";
 
 const LoginPage = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
-
   return (
     <ClientContainer>
       <Container>
         <div>
           <div>
-            <FormInput
-              id="email"
-              label="Email"
-              register={register}
-              errors={errors}
-              required
-            />
-            <FormInput
-              id="password"
-              label="Password"
-              register={register}
-              errors={errors}
-              required
-            />
+            <LoginContainer />
           </div>
         </div>
       </Container>
