@@ -12,6 +12,8 @@ const RegisterPage = () => {
     defaultValues: {
       email: "",
       password: "",
+      name: "",
+      address: "",
     },
   });
 
