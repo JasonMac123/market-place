@@ -32,7 +32,7 @@ const FormInput: React.FC<FormInputProps> = ({
         ${errors[id] ? "focus:border-rose-600" : "focus:border-black"}`}
       />
       <label
-        className={`absolute text-sm duration-150 transform -translate-y-3 top-5 z-10 origin-[0] 
+        className={`absolute text-sm duration-150 transform -translate-y-3 top-5 z-10 origin-[0] left-4 
         ${errors[id] ? "text-rose-600" : ""}
         peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4`}
       >
