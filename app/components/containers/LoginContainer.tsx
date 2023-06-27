@@ -20,10 +20,11 @@ const LoginContainer = () => {
   });
 
   const provider = new GoogleAuthProvider();
-  const auth = getAuth();
+  const auth = getAuth(firebase_app);
 
   const signIn = async () => {
     const result = await signInWithPopup(auth, provider);
+    console.log(result);
   };
 
   return (
