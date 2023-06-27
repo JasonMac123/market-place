@@ -1,7 +1,11 @@
 "use client";
 
+import Button from "../Button";
 import FormInput from "../Input/FormInput";
+import firebase_app from "@/app/firebase/config";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginContainer = () => {
   const {
@@ -14,6 +18,13 @@ const LoginContainer = () => {
       password: "",
     },
   });
+
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth();
+
+  const signIn = async () => {
+    const result = await signInWithPopup(auth, provider);
+  };
 
   return (
     <>
@@ -31,6 +42,7 @@ const LoginContainer = () => {
         errors={errors}
         required
       />
+      <Button label={"Login with Google!"} Icon={FcGoogle} onClick={signIn} />
     </>
   );
 };
