@@ -3,7 +3,7 @@
 import Button from "../Button";
 import FormInput from "../Input/FormInput";
 import firebase_app from "@/app/firebase/config";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -12,7 +12,6 @@ import { useRouter } from "next/navigation";
 const LoginContainer = () => {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
@@ -30,9 +29,11 @@ const LoginContainer = () => {
     router.push("/");
   }
 
-  const signIn = async () => {
+  const signInWithGoogle = async () => {
     const result = await signInWithPopup(auth, provider);
   };
+
+  const signInWithNative = async () => {};
 
   return (
     <>
@@ -50,7 +51,11 @@ const LoginContainer = () => {
         errors={errors}
         required
       />
-      <Button label={"Login with Google!"} Icon={FcGoogle} onClick={signIn} />
+      <Button
+        label={"Login with Google!"}
+        Icon={FcGoogle}
+        onClick={signInWithGoogle}
+      />
     </>
   );
 };
