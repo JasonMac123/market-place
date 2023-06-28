@@ -3,6 +3,9 @@ import Footer from "./components/footer/Footer";
 import NavBar from "./components/navbar/NavBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import firebase_app from "./firebase/config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth } from "firebase/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const auth = getAuth(firebase_app);
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <html lang="en">
       <body>
