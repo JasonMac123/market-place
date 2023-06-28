@@ -1,6 +1,9 @@
 "use client";
+import signUp from "@/app/firebase/auth/signup";
+import Button from "../Button";
 import FormInput from "../Input/FormInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 const RegisterContainer = () => {
   const {
@@ -11,10 +14,22 @@ const RegisterContainer = () => {
     defaultValues: {
       email: "",
       password: "",
-      name: "",
-      address: "",
     },
   });
+
+  const router = useRouter();
+
+  const registerWithNative: SubmitHandler<FieldValues> = async (data) => {
+    const { email, password } = data;
+    const { result, error } = await signUp(email, password);
+
+    if (error) {
+      console.log(error);
+    }
+
+    return router.push("/");
+  };
+
   return (
     <>
       <FormInput
@@ -30,6 +45,10 @@ const RegisterContainer = () => {
         register={register}
         errors={errors}
         required
+      />
+      <Button
+        label={"Register your Account!"}
+        onClick={handleSubmit(registerWithNative)}
       />
     </>
   );
