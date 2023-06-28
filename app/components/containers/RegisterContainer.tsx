@@ -31,20 +31,6 @@ const RegisterContainer = () => {
         errors={errors}
         required
       />
-      <FormInput
-        id="name"
-        label="Name"
-        register={register}
-        errors={errors}
-        required
-      />
-      <FormInput
-        id="address"
-        label="Address"
-        register={register}
-        errors={errors}
-        required
-      />
     </>
   );
 };
