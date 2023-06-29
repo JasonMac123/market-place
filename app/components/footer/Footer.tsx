@@ -8,7 +8,9 @@ import {
   AiFillInstagram,
   AiOutlineTwitter,
   AiFillLinkedin,
+  AiFillPhone,
 } from "react-icons/ai";
+import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -38,8 +40,14 @@ const Footer = () => {
         <div>
           <div className="text-4xl mb-2">Contact us!</div>
           <div className="space-y-2">
-            <h3>Phone Number : (416) - 111 - 1111</h3>
-            <h3>Email : Jason@LookOfJapan.com</h3>
+            <div className="flex gap-2 items-center">
+              <AiFillPhone size={20} />
+              <h3> (416) - 111 - 1111</h3>
+            </div>
+            <div className="flex gap-2 items-center">
+              <MdEmail size={20} />
+              <h3> Jason@LookOfJapan.com</h3>
+            </div>
           </div>
         </div>
         <div className="flex flex-col">
