@@ -31,7 +31,7 @@ const RegisterContainer = () => {
   };
 
   return (
-    <>
+    <div className="w-1/2 px-40 space-y-4">
       <FormInput
         id="email"
         type="email"
@@ -52,7 +52,7 @@ const RegisterContainer = () => {
         label={"Register your Account!"}
         onClick={handleSubmit(registerWithNative)}
       />
-    </>
+    </div>
   );
 };
 

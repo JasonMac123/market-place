@@ -44,7 +44,7 @@ const LoginContainer = () => {
   };
 
   return (
-    <>
+    <div className="w-1/2 px-20 space-y-4">
       <FormInput
         id="email"
         type="email"
@@ -70,7 +70,7 @@ const LoginContainer = () => {
         Icon={FcGoogle}
         onClick={signInWithGoogle}
       />
-    </>
+    </div>
   );
 };
 
