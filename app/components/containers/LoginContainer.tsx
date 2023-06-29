@@ -27,9 +27,6 @@ const LoginContainer = () => {
   const [user, loading] = useAuthState(auth);
 
   const router = useRouter();
-  if (user) {
-    router.push("/");
-  }
 
   const signInWithGoogle = async () => {
     const result = await signInWithPopup(auth, provider);
@@ -50,6 +47,7 @@ const LoginContainer = () => {
     <>
       <FormInput
         id="email"
+        type="email"
         label="Email"
         register={register}
         errors={errors}
@@ -57,6 +55,7 @@ const LoginContainer = () => {
       />
       <FormInput
         id="password"
+        type="password"
         label="Password"
         register={register}
         errors={errors}

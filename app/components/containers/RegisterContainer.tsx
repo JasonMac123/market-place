@@ -34,6 +34,7 @@ const RegisterContainer = () => {
     <>
       <FormInput
         id="email"
+        type="email"
         label="Email"
         register={register}
         errors={errors}
@@ -41,6 +42,7 @@ const RegisterContainer = () => {
       />
       <FormInput
         id="password"
+        type="password"
         label="Password"
         register={register}
         errors={errors}
