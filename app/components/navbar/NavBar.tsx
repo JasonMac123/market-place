@@ -12,7 +12,7 @@ const NavBar = () => {
   const [user, loading, error] = useAuthState(auth);
 
   return (
-    <div className="fixed z-20 flex justify-between items-center bg-blue-500 w-full h-[20vh]">
+    <div className="fixed z-20 flex justify-between items-center bg-lapis w-full h-[20vh]">
       <Logo />
       <SearchBar />
       <UserMenu />

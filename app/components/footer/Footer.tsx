@@ -14,7 +14,7 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div className="w-full h-88 bg-blue-400 flex flex-col pt-12 justify-around text-white">
+    <div className="w-full h-88 bg-lapis flex flex-col pt-12 justify-around text-alice">
       <div className="flex justify-around pb-8">
         <div className="flex">
           <Logo alt />
