@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-alice">
         <ClientContainer>
           <NavBar />
           <div className="pt-44 pb-20">{children}</div>
