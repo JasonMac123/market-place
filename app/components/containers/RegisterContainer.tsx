@@ -4,6 +4,7 @@ import Button from "../Button";
 import FormInput from "../Input/FormInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const RegisterContainer = () => {
   const {
@@ -25,6 +26,9 @@ const RegisterContainer = () => {
 
     if (error) {
       console.log(error);
+      return toast.error(
+        "Could not register, Please try again or with another emaiil."
+      );
     }
 
     return router.push("/");

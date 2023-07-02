@@ -10,6 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/navigation";
 import signIn from "@/app/firebase/auth/signin";
 import { useCallback } from "react";
+import { toast } from "react-toastify";
 
 const LoginContainer = () => {
   const {
@@ -39,6 +40,7 @@ const LoginContainer = () => {
 
     if (error) {
       console.log(error);
+      return toast.error("Could not Log in. Please try again.");
     }
 
     return router.push("/");
