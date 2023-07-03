@@ -13,9 +13,10 @@ const Logo: React.FC<LogoProps> = ({ alt }) => {
   return (
     <Image
       alt="logo"
-      className="block coursor-pointer object-scale-down"
-      height={alt ? "400" : "200"}
-      width={alt ? "400" : "200"}
+      className="block coursor-pointer w-auto h-auto object-scale-down"
+      height="0"
+      width="0"
+      sizes={alt ? "400px" : "200px"}
       src={alt ? "/images/LogoAlt.png" : "/images/Logo.png"}
       onClick={() => router.push("/")}
     />
