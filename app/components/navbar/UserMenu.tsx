@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { getAuth } from "@firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase_app from "@/app/firebase/config";
+import { toast } from "react-toastify";
 
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
@@ -92,6 +93,7 @@ const UserMenu = () => {
                   label="Logout"
                   onClick={() => {
                     toggleOpen();
+                    toast.success("Succesfully Logged Out!");
                     logOut();
                   }}
                   Icon={AiOutlineLogout}
