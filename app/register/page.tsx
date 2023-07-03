@@ -8,7 +8,7 @@ const RegisterPage = () => {
     <ClientContainer>
       <Container>
         <div>
-          <div className="pt-40 pb-20 flex">
+          <div className="my-10 mx-auto flex h-[100vh] w-2/3 items-center justify-center rounded-xl overflow-hidden bg-white">
             <RegisterContainer />
             <InfoCard />
           </div>
