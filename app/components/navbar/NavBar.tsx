@@ -6,7 +6,7 @@ import UserMenu from "./UserMenu";
 
 const NavBar = () => {
   return (
-    <div className="fixed flex justify-between items-center bg-blue-500 w-full h-[20vh]">
+    <div className="fixed z-30 flex justify-between items-center bg-lapis w-full h-[20vh]">
       <Logo />
       <SearchBar />
       <UserMenu />

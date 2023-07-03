@@ -1,3 +1,5 @@
+import ClientContainer from "./components/ClientContainer";
+import NotificationContainer from "./components/containers/NotificationContainer";
 import Footer from "./components/footer/Footer";
 import NavBar from "./components/navbar/NavBar";
 import "./globals.css";
@@ -17,10 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <NavBar />
-        <div className="pt-44 pb-20">{children}</div>
-        <Footer />
+      <body className="bg-alice">
+        <ClientContainer>
+          <NavBar />
+          <NotificationContainer />
+          <div className="pt-44 pb-20">{children}</div>
+          <Footer />
+        </ClientContainer>
       </body>
     </html>
   );
