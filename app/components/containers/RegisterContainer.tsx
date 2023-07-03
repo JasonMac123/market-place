@@ -5,6 +5,7 @@ import FormInput from "../Input/FormInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useCallback } from "react";
 
 const RegisterContainer = () => {
   const {
@@ -34,8 +35,16 @@ const RegisterContainer = () => {
     return router.push("/");
   };
 
+  const redirectLogin = useCallback(() => {
+    router.push("/login");
+  }, []);
+
   return (
-    <div className="w-1/2 px-40 space-y-4">
+    <div className="w-1/2 px-20 h-full space-y-4 relative flex flex-col items-center justify-center">
+      <div className="mb-8 space-y-4">
+        <h1 className="w-full text-center text-3xl">Create a new account!</h1>
+        <h2 className="text-md text-left w-full">START FOR FREE</h2>
+      </div>
       <FormInput
         id="email"
         type="email"
@@ -56,6 +65,15 @@ const RegisterContainer = () => {
         label={"Register your Account!"}
         onClick={handleSubmit(registerWithNative)}
       />
+      <div className="flex absolute bottom-3 left-4 gap-2 text-gray-600">
+        <h4>Already have an Account?</h4>
+        <h4
+          onClick={redirectLogin}
+          className="cursor-pointer hover:underline hover:text-gray-400 transition"
+        >
+          Log-in here!
+        </h4>
+      </div>
     </div>
   );
 };
