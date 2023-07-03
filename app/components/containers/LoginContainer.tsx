@@ -31,7 +31,13 @@ const LoginContainer = () => {
   const router = useRouter();
 
   const signInWithGoogle = async () => {
-    const result = await signInWithPopup(auth, provider);
+    try {
+      const result = await signInWithPopup(auth, provider);
+      toast.success("Logged in succesfully!");
+      return router.push("/");
+    } catch (e: any) {
+      toast.error(e.message);
+    }
   };
 
   const signInWithNative: SubmitHandler<FieldValues> = async (data) => {
