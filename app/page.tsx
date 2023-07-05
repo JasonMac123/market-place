@@ -1,3 +1,10 @@
+import Container from "./components/containers/Container";
+import StoreItems from "./components/StoreItems";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <Container>
+      <StoreItems />
+    </Container>
+  );
 }
