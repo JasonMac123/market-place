@@ -9,10 +9,12 @@ const StoreNavBar = () => {
   return (
     <div className="flex">
       <div className="flex">
-        <div>Food</div>
-        <div>Clothing</div>
-        <div>Stationary</div>
-        <div>Kitchenware</div>
+        <div onClick={() => router.push("/?category=food")}>Food</div>
+        <div onClick={() => router.push("/?category=clothing")}>Clothing</div>
+        <div onClick={() => router.push("/?category=stationary")}>
+          Stationary
+        </div>
+        <div onClick={() => router.push("/?category=kitchen")}>Kitchenware</div>
       </div>
       <div className="flex" onClick={() => router.push("/cart")}>
         <AiOutlineShoppingCart size={20} />
