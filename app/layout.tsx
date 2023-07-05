@@ -23,6 +23,7 @@ export default function RootLayout({
         <ClientContainer>
           <NavBar />
           <NotificationContainer />
+          <StoreNavBar />
           <div className="pt-44 pb-20">{children}</div>
           <Footer />
         </ClientContainer>
