@@ -1,14 +1,7 @@
-import firebase_app from "../firebase/config";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import getItems from "@/app/firebase/items";
 
 const StoreItems = async () => {
-  const items: any = [];
-  const db = getFirestore(firebase_app);
-  const itemSnapShot = await getDocs(collection(db, "items"));
-  itemSnapShot.forEach((doc) => {
-    items.push({ ...doc.data(), id: doc.id });
-  });
-
+  const items = getItems();
   return <div></div>;
 };
 
