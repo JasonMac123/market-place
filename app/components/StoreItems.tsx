@@ -1,4 +1,5 @@
 import getItems from "@/app/firebase/items";
+import ItemCard from "./cards/ItemCard";
 
 interface Item {
   [name: string]: string;
