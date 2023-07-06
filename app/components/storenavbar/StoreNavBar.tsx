@@ -7,7 +7,7 @@ const StoreNavBar = () => {
   const router = useRouter();
 
   return (
-    <div className="flex w-3/4 h-20 mx-auto items-center justify-between bg-cerulean">
+    <div className="flex w-3/4 h-20 mx-auto items-center justify-between bg-celestial px-12 rounded-lg">
       <div className="flex gap-4 w-1/2 h-full items-center">
         <div
           className="hover:underline"
