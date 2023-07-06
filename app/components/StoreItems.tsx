@@ -1,7 +1,7 @@
 import getItems from "@/app/firebase/items";
 
 const StoreItems = async () => {
-  const items = getItems();
+  const items = await getItems();
   return <div></div>;
 };
 
