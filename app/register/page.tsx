@@ -1,5 +1,5 @@
-import ClientContainer from "../components/ClientContainer";
-import InfoCard from "../components/InfoCard";
+import ClientContainer from "../components/containers/ClientContainer";
+import InfoCard from "../components/cards/InfoCard";
 import Container from "../components/containers/Container";
 import RegisterContainer from "../components/containers/RegisterContainer";
 
