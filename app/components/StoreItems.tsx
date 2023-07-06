@@ -20,7 +20,7 @@ const StoreItems = async () => {
           maker={item.maker}
           rating={item.rating}
           price={item.price}
-          title={item.title}
+          name={item.name}
         />;
       })}
     </div>

@@ -10,7 +10,7 @@ interface ItemCardProps {
   maker: string | number;
   rating: string | number;
   price: string | number;
-  title: string | number;
+  name: string | number;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -23,7 +23,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   maker,
   rating,
   price,
-  title,
+  name,
 }) => {
   return <div>{label}</div>;
 };
