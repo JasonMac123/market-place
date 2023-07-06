@@ -1,4 +1,4 @@
-import ClientContainer from "./components/ClientContainer";
+import ClientContainer from "./components/containers/ClientContainer";
 import NotificationContainer from "./components/containers/NotificationContainer";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
