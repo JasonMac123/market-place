@@ -8,7 +8,7 @@ import queryString from "query-string";
 
 interface StoreCategoryProps {
   label: string;
-  Icon: IconType;
+  Icon?: IconType;
   selected?: Boolean;
 }
 
@@ -49,7 +49,7 @@ const StoreCategory: React.FC<StoreCategoryProps> = ({
       ${selected ? "bg-cerulean" : ""}`}
       onClick={handleClick}
     >
-      <Icon size={20} />
+      {Icon && <Icon size={20} />}
       {label}
     </div>
   );
