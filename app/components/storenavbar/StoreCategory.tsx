@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
 import queryString from "query-string";
@@ -45,7 +45,7 @@ const StoreCategory: React.FC<StoreCategoryProps> = ({
 
   return (
     <div
-      className={`text-alice text-lg hover:bg-cerulean h-3/4 flex items-center px-4 
+      className={`text-alice text-lg hover:bg-cerulean h-3/4 flex items-center px-2 rounded-lg w-1/4 gap-4
       ${selected ? "bg-cerulean" : ""}`}
       onClick={handleClick}
     >
