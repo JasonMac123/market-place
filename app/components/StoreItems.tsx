@@ -1,12 +1,16 @@
+"use client";
+
 import getItems from "@/app/firebase/items";
 import ItemCard from "./cards/ItemCard";
+import { useSearchParams } from "next/navigation";
 
 interface Item {
   [name: string]: string | number;
 }
 
 const StoreItems = async () => {
-  const items = await getItems();
+  const searchParams = useSearchParams();
+  const items = await getItems(searchParams);
   return (
     <div>
       {items.map((item: Item) => {
