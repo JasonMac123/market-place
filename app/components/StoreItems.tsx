@@ -12,6 +12,7 @@ const StoreItems = async () => {
       {items.map((item: Item) => {
         return (
           <ItemCard
+            key={item.id}
             id={item.id}
             label={item.name}
             description={item.description}
