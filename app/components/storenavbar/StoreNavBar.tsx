@@ -2,6 +2,17 @@
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import { LuUtensilsCrossed } from "react-icons/lu";
+import { FaTshirt, FaPenFancy } from "react-icons/fa";
+import { MdKitchen } from "react-icons/md";
+
+const categories = [
+  { label: "Food", Icon: LuUtensilsCrossed },
+  { label: "Clothing", Icon: FaTshirt },
+  { label: "Stationary", Icon: FaPenFancy },
+  { label: "Kitchen-Ware", Icon: MdKitchen },
+  { label: "All" },
+];
 
 const StoreNavBar = () => {
   const router = useRouter();
