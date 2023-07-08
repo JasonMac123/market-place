@@ -1,16 +1,22 @@
-"use client";
-
 import getItems from "@/app/firebase/items";
 import ItemCard from "./cards/ItemCard";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Item {
   [name: string]: string | number;
 }
 
-const StoreItems = async () => {
-  const searchParams = useSearchParams();
+interface StoreItemsProps {
+  searchParams: Query;
+}
+
+interface Query {
+  category: string;
+}
+
+const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
   const items = await getItems(searchParams);
+
   return (
     <div>
       {items.map((item: Item) => {
