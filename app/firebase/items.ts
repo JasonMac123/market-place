@@ -28,7 +28,7 @@ export default async function getItems(searchParams: Query) {
 
   const queryItems = await query(
     itemSnapShot,
-    where("category", "==", "Clothing")
+    where("category", "==", category)
   );
 
   const queriedItems = await getDocs(queryItems);
