@@ -24,11 +24,14 @@ export default function RootLayout({
         <ClientContainer>
           <Header />
           <NotificationContainer />
-          <div className="pt-44 pb-20">
-            {" "}
+        </ClientContainer>
+        <div className="pt-44 pb-20">
+          <ClientContainer>
             <StoreNavBar />
-            {children}
-          </div>
+          </ClientContainer>
+          {children}
+        </div>
+        <ClientContainer>
           <Footer />
         </ClientContainer>
       </body>
