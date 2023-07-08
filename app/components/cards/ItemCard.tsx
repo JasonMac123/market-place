@@ -25,7 +25,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   price,
   name,
 }) => {
-  return <div>{label}</div>;
+  return <div className="w-full bg-cerulean">{label}</div>;
 };
 
 export default ItemCard;

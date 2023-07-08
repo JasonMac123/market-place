@@ -7,10 +7,13 @@ import {
   where,
 } from "firebase/firestore";
 
-export default async function getItems(searchParams) {
+interface Query {
+  category: string;
+}
+
+export default async function getItems(searchParams: Query) {
   const { category } = searchParams;
   const db = getFirestore(firebase_app);
-
   const items: any = [];
   const itemSnapShot = collection(db, "items");
 
