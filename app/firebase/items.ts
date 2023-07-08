@@ -1,11 +1,29 @@
 import firebase_app from "./config";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { getFirestore, getDocs, collection, query } from "firebase/firestore";
 
-export default async function getItems() {
-  const items: any = [];
+export default async function getItems(searchParams) {
+  const { category } = searchParams;
   const db = getFirestore(firebase_app);
-  const itemSnapShot = await getDocs(collection(db, "items"));
-  itemSnapShot.forEach((doc) => {
+
+  const items: any = [];
+  const itemSnapShot = collection(db, "items");
+
+  if (Object.keys(searchParams).length === 0) {
+    const allItems = await getDocs(itemSnapShot);
+    allItems.forEach((doc) => {
+      items.push({ ...doc.data(), id: doc.id });
+    });
+
+    return items;
+  }
+
+  const queryItems = await query(
+    itemSnapShot,
+    where("category", "==", "Clothing")
+  );
+
+  const queriedItems = await getDocs(queryItems);
+  queriedItems.forEach((doc) => {
     items.push({ ...doc.data(), id: doc.id });
   });
 
