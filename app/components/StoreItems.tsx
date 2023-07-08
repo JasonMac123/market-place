@@ -3,7 +3,17 @@ import ItemCard from "./cards/ItemCard";
 import { useEffect, useState } from "react";
 
 interface Item {
-  [name: string]: string | number;
+  category: string;
+  description: string;
+  image: string;
+  label: string;
+  maker: string;
+  name: string;
+  price: number;
+  quantity: number;
+  region: string;
+  id: string;
+  rating: number;
 }
 
 interface StoreItemsProps {
