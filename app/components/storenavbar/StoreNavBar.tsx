@@ -8,7 +8,7 @@ import { MdKitchen } from "react-icons/md";
 import StoreCategory from "./StoreCategory";
 
 const categories = [
-  { label: "All items" },
+  { label: "All-items" },
   { label: "Food", Icon: LuUtensilsCrossed },
   { label: "Clothing", Icon: FaTshirt },
   { label: "Stationary", Icon: FaPenFancy },
