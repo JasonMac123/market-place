@@ -1,5 +1,11 @@
 import firebase_app from "./config";
-import { getFirestore, getDocs, collection, query } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 
 export default async function getItems(searchParams) {
   const { category } = searchParams;
