@@ -14,7 +14,7 @@ export default async function getItems(searchParams) {
   const items: any = [];
   const itemSnapShot = collection(db, "items");
 
-  if (Object.keys(searchParams).length === 0 || category === "All items") {
+  if (Object.keys(searchParams).length === 0 || category === "All-items") {
     const allItems = await getDocs(itemSnapShot);
     allItems.forEach((doc) => {
       items.push({ ...doc.data(), id: doc.id });
