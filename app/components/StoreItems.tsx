@@ -10,7 +10,7 @@ interface Item {
 
 const StoreItems = async () => {
   const searchParams = useSearchParams();
-  const items = await getItems();
+  const items = await getItems(searchParams);
   return (
     <div>
       {items.map((item: Item) => {
