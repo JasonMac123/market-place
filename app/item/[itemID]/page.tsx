@@ -1,5 +1,7 @@
+import getSpecificItemByID from "@/app/firebase/getSpecificItemByID";
+
 interface itemParams {
-  itemID?: string;
+  itemID: string;
 }
 
 const ItemPage = async ({ params }: { params: itemParams }) => {
