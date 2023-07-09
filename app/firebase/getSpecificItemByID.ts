@@ -1,7 +1,11 @@
 import firebase_app from "./config";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
-export default async function getSpecificItemByID(searchParams) {
+interface ItemQuery {
+  itemID: string;
+}
+
+export default async function getSpecificItemByID(searchParams: ItemQuery) {
   const { itemID } = searchParams;
 
   const db = getFirestore(firebase_app);
