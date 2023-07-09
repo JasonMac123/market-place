@@ -6,10 +6,14 @@ interface ItemQuery {
 }
 
 export default async function getSpecificItemByID(searchParams: ItemQuery) {
-  const { itemID } = searchParams;
+  try {
+    const { itemID } = searchParams;
 
-  const db = getFirestore(firebase_app);
-  const itemRef = doc(db, "items", itemID);
+    const db = getFirestore(firebase_app);
+    const itemRef = doc(db, "items", itemID);
 
-  return itemRef;
+    return itemRef;
+  } catch (e) {
+    return e;
+  }
 }
