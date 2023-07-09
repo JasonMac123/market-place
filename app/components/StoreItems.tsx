@@ -1,4 +1,4 @@
-import getItems from "@/app/firebase/items";
+import getItems from "@/app/firebase/getItems";
 import ItemCard from "./cards/ItemCard";
 import { useEffect, useState } from "react";
 
