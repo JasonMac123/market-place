@@ -1,6 +1,7 @@
 import getItems from "@/app/firebase/getItems";
 import ItemCard from "./cards/ItemCard";
 import { useEffect, useState } from "react";
+import NoItems from "./NoItems";
 
 interface Item {
   category: string;
@@ -26,6 +27,14 @@ interface Query {
 
 const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
   const items = await getItems(searchParams);
+
+  if (items.length === 0) {
+    return (
+      <div>
+        <NoItems />
+      </div>
+    );
+  }
 
   return (
     <div>
