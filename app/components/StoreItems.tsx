@@ -35,9 +35,7 @@ const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
             key={item.id}
             id={item.id}
             label={item.name}
-            description={item.description}
             image={item.image}
-            quantity={item.quantity}
             region={item.region}
             maker={item.maker}
             rating={item.rating}
