@@ -3,5 +3,7 @@ interface itemParams {
 }
 
 const ItemPage = async ({ params }: { params: itemParams }) => {
+  const item = await getSpecificItemByID(params);
+
   return <div></div>;
 };
