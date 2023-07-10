@@ -12,6 +12,7 @@ interface ItemCardProps {
   rating: number;
   price: number;
   name: string;
+  description: string;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -23,12 +24,13 @@ const ItemCard: React.FC<ItemCardProps> = ({
   rating,
   price,
   name,
+  description,
 }) => {
   const router = useRouter();
 
   return (
     <div
-      className="w-1/3 h-1/3 flex flex-col p-4 rounded-lg hover:bg-neutral-300 cursor-pointer"
+      className="w-1/4 h-1/2 flex flex-col p-4 rounded-lg bg-neutral-200 hover:bg-neutral-300 cursor-pointer justify-center items-center"
       onClick={() => {
         router.push(`/item/${id}`);
       }}
@@ -38,10 +40,11 @@ const ItemCard: React.FC<ItemCardProps> = ({
           "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
         }
         alt="picture of item"
-        width={200}
-        height={200}
+        width={400}
+        height={400}
       />
-      <h3 className="text-md">{label}</h3>
+      <h3 className="text-lg mt-4 text-left w-full ml-2">{label}</h3>
+      <h4 className="text-mg text-left w-full ml-2 mt-4">{description}</h4>
     </div>
   );
 };
