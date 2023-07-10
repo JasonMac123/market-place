@@ -37,21 +37,9 @@ const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
   }
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-16 w-3/4 mx-auto">
       {items.map((item: Item) => {
-        return (
-          <ItemCard
-            key={item.id}
-            id={item.id}
-            label={item.name}
-            image={item.image}
-            region={item.region}
-            maker={item.maker}
-            rating={item.rating}
-            price={item.price}
-            name={item.name}
-          />
-        );
+        return <ItemCard key={item.id} {...item} />;
       })}
     </div>
   );
