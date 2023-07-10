@@ -38,6 +38,8 @@ const ItemCard: React.FC<ItemCardProps> = ({
           "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
         }
         alt="picture of item"
+        width={200}
+        height={200}
       />
       <h3 className="text-md">{label}</h3>
     </div>
