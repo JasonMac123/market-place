@@ -6,6 +6,7 @@ interface itemParams {
 
 const ItemPage = async ({ params }: { params: itemParams }) => {
   const item = await getSpecificItemByID(params);
-
-  return <div></div>;
+  return <div>Test</div>;
 };
+
+export default ItemPage;
