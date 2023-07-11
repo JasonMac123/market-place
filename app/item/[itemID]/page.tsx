@@ -1,3 +1,4 @@
+import ItemFront from "@/app/components/itemdisplays/ItemFront";
 import getSpecificItemByID from "@/app/firebase/getSpecificItemByID";
 
 interface itemParams {
@@ -6,7 +7,11 @@ interface itemParams {
 
 const ItemPage = async ({ params }: { params: itemParams }) => {
   const item = await getSpecificItemByID(params);
-  return <div>Test</div>;
+  return (
+    <div>
+      <ItemFront />
+    </div>
+  );
 };
 
 export default ItemPage;
