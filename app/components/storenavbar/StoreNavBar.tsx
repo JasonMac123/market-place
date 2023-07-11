@@ -21,7 +21,7 @@ const StoreNavBar = () => {
   const category = params?.get("category");
 
   return (
-    <div className="flex w-3/4 h-20 mx-auto items-center justify-between bg-celestial px-12 rounded-lg my-12">
+    <div className="flex w-4/5 h-20 mx-auto items-center justify-between bg-celestial px-12 rounded-lg my-12">
       <div className="flex gap-4 w-1/2 h-full items-center">
         {categories.map((item) => {
           return (
