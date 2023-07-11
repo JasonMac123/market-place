@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import NoItems from "./NoItems";
 
 interface Item {
+  options: [];
   category: string;
   description: string;
   image: string;
