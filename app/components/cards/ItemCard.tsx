@@ -48,8 +48,8 @@ const ItemCard: React.FC<ItemCardProps> = ({
         <h3 className="text-lg mt-4 text-left w-full ml-2">{label}</h3>
         <h4 className="text-mg text-left w-full ml-2 mt-4">{description}</h4>
         <div className="flex w-full justify-end">
-          <h4 className="text-lg text-green-600">$</h4>
-          <h4 className="text-lg text-green-600">{price}</h4>
+          <h4 className="text-xl text-green-600">$</h4>
+          <h4 className="text-xl text-green-600">{price}</h4>
         </div>
       </div>
       <Button
