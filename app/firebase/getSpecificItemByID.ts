@@ -1,4 +1,3 @@
-import { AiOutlineConsoleSql } from "react-icons/ai";
 import firebase_app from "./config";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
@@ -16,7 +15,7 @@ export default async function getSpecificItemByID(searchParams: ItemQuery) {
     const itemData = itemSnap.data();
 
     return itemData;
-  } catch (e) {
-    return e;
+  } catch (e: any) {
+    throw new Error(e);
   }
 }
