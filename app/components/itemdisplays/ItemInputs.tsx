@@ -11,7 +11,13 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   rating,
   options,
 }) => {
-  return <div></div>;
+  return (
+    <div className="border-[1px]">
+      <h3>{rating}</h3>
+      <h3>{quantity}</h3>
+      <h3>{price}</h3>
+    </div>
+  );
 };
 
 export default ItemInputs;
