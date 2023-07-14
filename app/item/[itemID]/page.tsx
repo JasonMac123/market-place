@@ -1,5 +1,7 @@
 import DataError from "@/app/components/DataError";
 import ItemFront from "@/app/components/itemdisplays/ItemFront";
+import ItemInputs from "@/app/components/itemdisplays/ItemInputs";
+
 import getSpecificItemByID from "@/app/firebase/getSpecificItemByID";
 
 import Image from "next/image";
