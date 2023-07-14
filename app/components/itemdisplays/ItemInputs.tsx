@@ -1,8 +1,13 @@
 "use client";
 
-import { useForm, FieldValues } from "react-hook-form";
+import { useForm, FieldValues, SubmitHandler, Field } from "react-hook-form";
+
 import QuantityCounter from "../Input/QuantityCounter";
 import MultiSelect from "../Input/MultiSelect";
+import Button from "../Input/Button";
+
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 interface ItemInputsProps {
   quantity: number;
@@ -39,6 +44,13 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     });
   };
 
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    if (option === null) {
+      toast.error("Please choose an option type");
+      return;
+    }
+  };
+
   return (
     <div className="border-[1px]">
       <h3>{quantity}</h3>
@@ -53,6 +65,11 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         maxValue={quantity}
         value={counter}
         onChange={(value) => setFormValue("counter", value)}
+      />
+      <Button
+        label="Add to Cart"
+        Icon={AiOutlineShoppingCart}
+        onClick={handleSubmit(onSubmit)}
       />
     </div>
   );
