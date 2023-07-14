@@ -8,6 +8,20 @@ interface MultiSelectProps {
   onChange: (value: string) => void;
 }
 
+interface objectOption {
+  value: string;
+  label: string;
+}
+
+const convertOptions = (array: []) => {
+  const newArray = [];
+  for (const element of array) {
+    let newOption: objectOption = { value: element, label: element };
+    newArray.push(newOption);
+  }
+  return newArray;
+};
+
 const MultiSelect: React.FC<MultiSelectProps> = ({
   value,
   onChange,
@@ -20,12 +34,14 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
     }),
   };
 
+  const newOptionList = convertOptions(optionList);
+
   return (
     <div>
       <Select
-        placeholder="Select Toronto region below"
+        placeholder="Select"
         isClearable
-        options={optionList}
+        options={newOptionList}
         value={value}
         onChange={(value) => onChange(value as string)}
         styles={customStyles}

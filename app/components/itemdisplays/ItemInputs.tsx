@@ -2,6 +2,7 @@
 
 import { useForm, FieldValues } from "react-hook-form";
 import QuantityCounter from "../Input/QuantityCounter";
+import MultiSelect from "../Input/MultiSelect";
 
 interface ItemInputsProps {
   quantity: number;
@@ -42,6 +43,11 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     <div className="border-[1px]">
       <h3>{quantity}</h3>
       <h3>{price}</h3>
+      <MultiSelect
+        optionList={options}
+        value={option}
+        onChange={(value) => setFormValue("option", value)}
+      />
       <QuantityCounter
         title="How many?"
         maxValue={quantity}
