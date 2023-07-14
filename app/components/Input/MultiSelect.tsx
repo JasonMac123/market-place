@@ -8,7 +8,7 @@ interface MultiSelectProps {
   onChange: (value: string) => void;
 }
 
-const DropDownSelect: React.FC<MultiSelectProps> = ({
+const MultiSelect: React.FC<MultiSelectProps> = ({
   value,
   onChange,
   optionList,
@@ -34,4 +34,4 @@ const DropDownSelect: React.FC<MultiSelectProps> = ({
   );
 };
 
-export default DropDownSelect;
+export default MultiSelect;
