@@ -2,8 +2,10 @@
 
 import { useCallback } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { toast } from "react-toastify";
 
 interface QuantityCounterProps {
+  maxValue: number;
   title: string;
   value: number;
   onChange: (value: number) => void;
@@ -13,6 +15,7 @@ const QuantityCounter: React.FC<QuantityCounterProps> = ({
   title,
   value,
   onChange,
+  maxValue,
 }) => {
   const onAdd = useCallback(() => {
     onChange(value + 1);
@@ -20,7 +23,12 @@ const QuantityCounter: React.FC<QuantityCounterProps> = ({
 
   const onMinus = useCallback(() => {
     if (value === 1) {
+      toast.error("Cannot order less than 1");
       return;
+    }
+
+    if (value === maxValue) {
+      toast.error("Cannot order more as this is max quantity");
     }
 
     onChange(value - 1);

@@ -44,6 +44,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       <h3>{price}</h3>
       <QuantityCounter
         title="How many?"
+        maxValue={quantity}
         value={counter}
         onChange={(value) => setFormValue("counter", value)}
       />
