@@ -28,6 +28,12 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
           description={item.description}
           region={item.region}
         />
+        <ItemInputs
+          quantity={item.quantity}
+          price={item.price}
+          options={item.options}
+          rating={item.ratings}
+        />
       </div>
     </div>
   );
