@@ -13,6 +13,7 @@ const ItemFront: React.FC<ItemFrontProps> = ({
   description,
   region,
   rating,
+  maker,
 }) => {
   return (
     <div className="flex flex-col">
