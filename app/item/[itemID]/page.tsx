@@ -29,12 +29,12 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
           name={item.name}
           description={item.description}
           region={item.region}
+          rating={item.rating}
         />
         <ItemInputs
           quantity={item.quantity}
           price={item.price}
           options={item.options}
-          rating={item.ratings}
         />
       </div>
     </div>

@@ -4,9 +4,15 @@ interface ItemFrontProps {
   name: string;
   description: string;
   region: string;
+  rating: number;
 }
 
-const ItemFront: React.FC<ItemFrontProps> = ({ name, description, region }) => {
+const ItemFront: React.FC<ItemFrontProps> = ({
+  name,
+  description,
+  region,
+  rating,
+}) => {
   return (
     <div className="flex flex-col">
       <h2>{name}</h2>
@@ -15,6 +21,7 @@ const ItemFront: React.FC<ItemFrontProps> = ({ name, description, region }) => {
         <h3>{region}</h3>
       </div>
       <h3>{description}</h3>
+      <h3>{rating}</h3>
     </div>
   );
 };
