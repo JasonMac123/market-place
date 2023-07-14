@@ -8,17 +8,10 @@ interface MultiSelectProps {
   onChange: (value: string) => void;
 }
 
-interface objectOption {
-  value: string;
-  label: string;
-}
-
-const convertOptions = (array: []) => {
-  const newArray = [];
-  for (const element of array) {
-    let newOption: objectOption = { value: element, label: element };
-    newArray.push(newOption);
-  }
+const convertOptions = (array: any[]) => {
+  const newArray = array.map((element) => {
+    return { label: element, value: element };
+  });
   return newArray;
 };
 
@@ -34,7 +27,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
     }),
   };
 
-  const newOptionList = convertOptions(optionList);
+  const newOptionList: any[] = convertOptions(optionList);
 
   return (
     <div>
