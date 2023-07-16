@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase_app from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
 
 interface ItemInputsProps {
   quantity: number;
@@ -26,6 +27,8 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
 }) => {
   const auth = getAuth(firebase_app);
   const [user, loading] = useAuthState(auth);
+
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -59,6 +62,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
 
     if (!user) {
       toast.error("Please log in to add to cart!");
+      router.push("/login");
       return;
     }
   };
