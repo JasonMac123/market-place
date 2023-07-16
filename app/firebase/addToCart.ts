@@ -61,6 +61,7 @@ export default async function addToCart(params: Params) {
         { merge: true }
       );
     }
+    return true;
   } catch (e) {
     return e;
   }
