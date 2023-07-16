@@ -9,6 +9,10 @@ import Button from "../Input/Button";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { toast } from "react-toastify";
 
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import firebase_app from "@/app/firebase/config";
+
 interface ItemInputsProps {
   quantity: number;
   price: number;
@@ -20,6 +24,9 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   price,
   options,
 }) => {
+  const auth = getAuth(firebase_app);
+  const [user, loading] = useAuthState(auth);
+
   const {
     handleSubmit,
     setValue,
@@ -47,6 +54,11 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     if (option === null) {
       toast.error("Please choose an option type");
+      return;
+    }
+
+    if (!user) {
+      toast.error("Please log in to add to cart!");
       return;
     }
   };
