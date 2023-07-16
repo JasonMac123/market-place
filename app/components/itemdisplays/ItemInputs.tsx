@@ -13,17 +13,20 @@ import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase_app from "@/app/firebase/config";
 import { useRouter } from "next/navigation";
+import addToCart from "@/app/firebase/addToCart";
 
 interface ItemInputsProps {
   quantity: number;
   price: number;
   options: [];
+  id: string;
 }
 
 const ItemInputs: React.FC<ItemInputsProps> = ({
   quantity,
   price,
   options,
+  id,
 }) => {
   const auth = getAuth(firebase_app);
   const [user, loading] = useAuthState(auth);
@@ -54,7 +57,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     if (option === null) {
       toast.error("Please choose an option type");
       return;
@@ -63,6 +66,21 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     if (!user) {
       toast.error("Please log in to add to cart!");
       router.push("/login");
+      return;
+    }
+
+    const addItem = await addToCart({
+      orderAmount: counter,
+      optionType: option,
+      userID: user.uid,
+      itemID: id,
+    });
+
+    if (addItem) {
+      toast.success("Succesfully added item!");
+      return;
+    } else {
+      toast.error("Unsuccessfully added item.");
       return;
     }
   };
