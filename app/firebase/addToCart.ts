@@ -15,24 +15,24 @@ interface Params {
   orderAmount: number;
   optionType: string;
   itemID: string;
-  userid: string;
+  userID: string;
 }
 
 export default async function addToCart(params: Params) {
   try {
-    const { orderAmount, optionType, itemID, userid } = params;
+    const { orderAmount, optionType, itemID, userID } = params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
 
     const queryUserCart = await query(
       cartSnapShot,
-      where("userid", "==", userid)
+      where("userid", "==", userID)
     );
 
     if (!queryUserCart) {
       await addDoc(cartSnapShot, {
-        userid: userid,
+        userid: userID,
         items: {
           orderAmount: orderAmount,
           optionType: optionType,
