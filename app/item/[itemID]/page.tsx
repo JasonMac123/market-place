@@ -22,9 +22,9 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
   }
 
   return (
-    <div className="flex w-3/4 mx-auto py-12">
+    <div className="flex w-3/4 mx-auto py-12 gap-8">
       <Image src={item.image} alt="picture of item" width={600} height={1000} />
-      <div>
+      <div className="flex flex-col gap-4 bg-white border-[1px] rounded-lg">
         <ItemFront
           name={item.name}
           description={item.description}
