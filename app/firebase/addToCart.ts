@@ -8,6 +8,7 @@ import {
   where,
   addDoc,
   setDoc,
+  doc,
 } from "firebase/firestore";
 
 interface Params {
@@ -39,7 +40,14 @@ export default async function addToCart(params: Params) {
         },
       });
     } else {
-      const docRef = doc(db, "cart", queryUserCart.id);
+      let cart = "";
+      const userCart = await getDocs(queryUserCart);
+
+      userCart.forEach((doc) => {
+        cart = doc.id;
+      });
+
+      const docRef = doc(db, "cart", cart);
 
       setDoc(
         docRef,
