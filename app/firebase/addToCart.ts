@@ -42,16 +42,28 @@ export default async function addToCart(params: Params) {
         },
       });
     } else {
-      let cart = "";
+      let items: any = {};
       const userCart = await getDocs(queryUserCart);
 
       userCart.forEach((doc) => {
-        cart = doc.id;
+        items = { ...doc.data(), id: doc.id };
       });
 
-      const docRef = doc(db, "cart", cart);
+      const docRef = doc(db, "cart", items.id);
 
-      setDoc(
+      for (const orderedItem of items.items) {
+        if (
+          orderedItem.itemID === itemID &&
+          orderedItem.optionType === optionType
+        ) {
+          orderedItem.orderAmount += orderAmount;
+
+          await setDoc(docRef, items, { merge: true });
+          return true;
+        }
+      }
+
+      await setDoc(
         docRef,
         {
           items: {
