@@ -36,7 +36,7 @@ const QuantityCounter: React.FC<QuantityCounterProps> = ({
 
   return (
     <div className="flex items-center justify-between">
-      <div>{title}</div>
+      <div className="text-xl">{title}</div>
       <div className="flex items-center space-x-4">
         <div
           onClick={onAdd}
