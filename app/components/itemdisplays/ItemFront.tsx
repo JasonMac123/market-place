@@ -16,7 +16,7 @@ const ItemFront: React.FC<ItemFrontProps> = ({
   maker,
 }) => {
   return (
-    <div className="flex flex-col border-[1px] rounded-xl items-center justify-between">
+    <div className="flex flex-col border-[1px] rounded-xl items-center justify-between m-8">
       <h2>{name}</h2>
       <div className="flex gap-4">
         <h3>Made in</h3>

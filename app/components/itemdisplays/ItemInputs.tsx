@@ -57,7 +57,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     });
   };
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async () => {
     if (option === null) {
       toast.error("Please choose an option type");
       return;
@@ -87,7 +87,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   };
 
   return (
-    <div className="border-[1px]">
+    <div className="border-[1px] m-8 gap-4">
       <h3>{quantity}</h3>
       <h3>{price}</h3>
       <MultiSelect
