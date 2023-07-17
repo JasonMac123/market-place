@@ -87,20 +87,28 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   };
 
   return (
-    <div className="border-[1px] m-8 gap-4">
-      <h3>{quantity}</h3>
-      <h3>{price}</h3>
+    <div className="flex flex-col border-[1px] m-8 gap-4 p-8">
       <MultiSelect
         optionList={options}
         value={option}
         onChange={(value) => setFormValue("option", value)}
       />
+      {quantity < 10 ? (
+        <div className="flex gap-2">
+          <h3>Only</h3>
+          <h3>{quantity}</h3>
+          <h3>in stock now.</h3>
+        </div>
+      ) : (
+        <h3>In stock now!</h3>
+      )}
       <QuantityCounter
         title="How many?"
         maxValue={quantity}
         value={counter}
         onChange={(value) => setFormValue("counter", value)}
       />
+      <h3>{price}</h3>
       <Button
         label="Add to Cart"
         Icon={AiOutlineShoppingCart}
