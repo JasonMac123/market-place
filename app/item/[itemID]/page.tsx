@@ -36,7 +36,7 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
           quantity={item.quantity}
           price={item.price}
           options={item.options}
-          id={item.id}
+          id={params.itemID}
         />
       </div>
     </div>
