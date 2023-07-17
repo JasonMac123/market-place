@@ -52,12 +52,6 @@ const ItemCard: React.FC<ItemCardProps> = ({
           <h4 className="text-xl text-green-600">{price}</h4>
         </div>
       </div>
-      <Button
-        label="Add to Cart!"
-        onClick={() => {
-          router.push("/login");
-        }}
-      />
     </div>
   );
 };
