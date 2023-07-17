@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({ label, onClick, Icon, disabled }) => {
         disabled ? "bg-red-400 border-red-400" : "bg-green-400 border-green-400"
       }`}
     >
-      {Icon && <Icon size={24} className="absolute left-3 top-3" />}
+      {Icon && <Icon size={24} className="absolute left-3 top-4" />}
       {label}
     </button>
   );

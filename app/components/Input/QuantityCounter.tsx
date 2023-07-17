@@ -44,7 +44,7 @@ const QuantityCounter: React.FC<QuantityCounterProps> = ({
         >
           <AiOutlinePlus />
         </div>
-        <div className="border-[1px] p-4">{value}</div>
+        <div className="border-[1px] py-4 px-20">{value}</div>
         <div
           onClick={onMinus}
           className="flex w-10 h-10 rounded-full border-[1px] items-center justify-center cursor-pointer transition hover:border-black"
