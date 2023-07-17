@@ -12,10 +12,14 @@ interface Item {
   maker: string;
   name: string;
   price: number;
-  quantity: number;
+  quantity: ItemQuantity;
   region: string;
   id: string;
   rating: number;
+}
+
+interface ItemQuantity {
+  [key: string]: number;
 }
 
 interface StoreItemsProps {
