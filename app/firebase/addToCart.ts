@@ -13,10 +13,15 @@ import {
 
 interface Params {
   orderAmount: number;
-  optionType: string;
+  optionType: OptionSelect;
   itemID: string;
   userID: string;
   amount: number;
+}
+
+interface OptionSelect {
+  value: string;
+  label: string;
 }
 
 export default async function addToCart(params: Params) {
@@ -36,47 +41,43 @@ export default async function addToCart(params: Params) {
         userid: userID,
         items: {
           orderAmount: orderAmount,
-          optionType: optionType,
+          optionType: optionType.value,
           itemID: itemID,
           totalAmount: amount,
         },
       });
     } else {
-      let items: any = {};
+      console.log("hello");
+      let cart: any = {};
       const userCart = await getDocs(queryUserCart);
 
       userCart.forEach((doc) => {
-        items = { ...doc.data(), id: doc.id };
+        cart = { ...doc.data(), id: doc.id };
       });
 
-      const docRef = doc(db, "cart", items.id);
+      const docRef = doc(db, "cart", cart.id);
 
-      for (const orderedItem of items.items) {
+      for (const orderedItem of cart.items) {
         if (
-          orderedItem.itemID === itemID &&
-          orderedItem.optionType === optionType
+          orderedItem?.itemID === itemID &&
+          orderedItem?.optionType.value === optionType.value
         ) {
           orderedItem.orderAmount += orderAmount;
 
-          await setDoc(docRef, items, { merge: true });
+          await setDoc(docRef, cart, { merge: true });
           return true;
         }
       }
+      cart.items.push({
+        orderAmount: orderAmount,
+        optionType: optionType,
+        itemID: itemID,
+      });
 
-      await setDoc(
-        docRef,
-        {
-          items: {
-            orderAmount: orderAmount,
-            optionType: optionType,
-            itemID: itemID,
-          },
-        },
-        { merge: true }
-      );
+      await setDoc(docRef, cart, { merge: true });
     }
     return true;
-  } catch (e) {
-    return e;
+  } catch (e: any) {
+    throw new Error(e);
   }
 }
