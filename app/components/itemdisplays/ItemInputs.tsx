@@ -87,6 +87,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
 
     if (addItem) {
       toast.success("Succesfully added item!");
+      reset();
       return;
     } else {
       toast.error("Unsuccessfully added item.");
