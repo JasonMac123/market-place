@@ -28,7 +28,9 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
     <div className="flex w-3/4 mx-auto py-12 gap-8">
       <ClientContainer>
         <Image
-          src={item.image}
+          src={
+            "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
+          }
           alt="picture of item"
           width={600}
           height={1000}
