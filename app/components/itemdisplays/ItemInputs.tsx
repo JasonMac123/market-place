@@ -6,7 +6,7 @@ import QuantityCounter from "../Input/QuantityCounter";
 import MultiSelect from "../Input/MultiSelect";
 import Button from "../Input/Button";
 
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineStop } from "react-icons/ai";
 import { toast } from "react-toastify";
 
 import { getAuth } from "firebase/auth";
@@ -109,11 +109,20 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         onChange={(value) => setFormValue("counter", value)}
       />
       <h3 className="w-full text-right text-2xl text-green-500">${price}</h3>
-      <Button
-        label="Add to Cart"
-        Icon={AiOutlineShoppingCart}
-        onClick={handleSubmit(onSubmit)}
-      />
+      {quantity ? (
+        <Button
+          label="Add to Cart"
+          Icon={AiOutlineShoppingCart}
+          onClick={handleSubmit(onSubmit)}
+        />
+      ) : (
+        <Button
+          label="Sold Out"
+          Icon={AiOutlineStop}
+          disabled
+          onClick={() => toast.error("Sorry cannot add item to cart")}
+        />
+      )}
     </div>
   );
 };
