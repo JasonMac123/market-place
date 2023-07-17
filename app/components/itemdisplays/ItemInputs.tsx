@@ -16,10 +16,14 @@ import { useRouter } from "next/navigation";
 import addToCart from "@/app/firebase/addToCart";
 
 interface ItemInputsProps {
-  quantity: number;
+  quantity: ItemQuantity;
   price: number;
   options: [];
   id: string;
+}
+
+interface ItemQuantity {
+  [key: string]: number;
 }
 
 const ItemInputs: React.FC<ItemInputsProps> = ({
@@ -50,6 +54,10 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   const option = watch("option");
 
   const setFormValue = (id: string, value: any) => {
+    if (id === option) {
+      reset();
+    }
+
     setValue(id, value, {
       shouldDirty: true,
       shouldTouch: true,
@@ -93,10 +101,12 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         value={option}
         onChange={(value) => setFormValue("option", value)}
       />
-      {quantity < 10 ? (
+      {quantity[option.value] < 10 ? (
         <div className="flex gap-2 items-center">
           <h3 className="text-lg">Only</h3>
-          <h3 className="text-xl text-red-600">{quantity} in stock</h3>
+          <h3 className="text-xl text-red-600">
+            {quantity[option.value]} in stock
+          </h3>
           <h3 className="text-lg">now.</h3>
         </div>
       ) : (
@@ -104,7 +114,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       )}
       <QuantityCounter
         title="How many?"
-        maxValue={quantity}
+        maxValue={quantity[option.value]}
         value={counter}
         onChange={(value) => setFormValue("counter", value)}
       />
