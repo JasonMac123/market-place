@@ -94,10 +94,10 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         onChange={(value) => setFormValue("option", value)}
       />
       {quantity < 10 ? (
-        <div className="flex gap-2">
-          <h3>Only</h3>
-          <h3>{quantity}</h3>
-          <h3>in stock now.</h3>
+        <div className="flex gap-2 items-center">
+          <h3 className="text-lg">Only</h3>
+          <h3 className="text-xl text-red-600">{quantity} in stock</h3>
+          <h3 className="text-lg">now.</h3>
         </div>
       ) : (
         <h3>In stock now!</h3>
@@ -108,7 +108,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         value={counter}
         onChange={(value) => setFormValue("counter", value)}
       />
-      <h3>{price}</h3>
+      <h3 className="w-full text-right text-2xl text-green-500">${price}</h3>
       <Button
         label="Add to Cart"
         Icon={AiOutlineShoppingCart}
