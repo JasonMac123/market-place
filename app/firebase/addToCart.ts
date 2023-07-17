@@ -49,13 +49,15 @@ export default async function addToCart(params: Params) {
     } else {
       console.log("hello");
       let cart: any = {};
+      let cartID = "";
       const userCart = await getDocs(queryUserCart);
 
       userCart.forEach((doc) => {
-        cart = { ...doc.data(), id: doc.id };
+        cart = { ...doc.data() };
+        cartID = doc.id;
       });
 
-      const docRef = doc(db, "cart", cart.id);
+      const docRef = doc(db, "cart", cartID);
 
       for (const orderedItem of cart.items) {
         if (
