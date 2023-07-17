@@ -16,11 +16,12 @@ interface Params {
   optionType: string;
   itemID: string;
   userID: string;
+  amount: number;
 }
 
 export default async function addToCart(params: Params) {
   try {
-    const { orderAmount, optionType, itemID, userID } = params;
+    const { orderAmount, optionType, itemID, userID, amount } = params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
@@ -37,6 +38,7 @@ export default async function addToCart(params: Params) {
           orderAmount: orderAmount,
           optionType: optionType,
           itemID: itemID,
+          totalAmount: amount,
         },
       });
     } else {

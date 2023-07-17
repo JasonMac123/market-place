@@ -74,6 +74,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       optionType: option,
       userID: user.uid,
       itemID: id,
+      amount: counter * price,
     });
 
     if (addItem) {
