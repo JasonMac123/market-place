@@ -3,7 +3,7 @@
 import Select from "react-select";
 
 interface MultiSelectProps {
-  optionList: [];
+  optionList: [Object, ...Object[]];
   value?: string;
   onChange: (value: string) => void;
 }

@@ -18,7 +18,7 @@ import addToCart from "@/app/firebase/addToCart";
 interface ItemInputsProps {
   quantity: ItemQuantity;
   price: number;
-  options: [];
+  options: [Object, ...Object[]];
   id: string;
 }
 
@@ -46,7 +46,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   } = useForm<FieldValues>({
     defaultValues: {
       counter: 1,
-      option: null,
+      option: { label: options[0], value: options[0] },
     },
   });
 
