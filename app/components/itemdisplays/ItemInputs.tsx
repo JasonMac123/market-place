@@ -119,7 +119,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         value={counter}
         onChange={(value) => setFormValue("counter", value)}
       />
-      <h3 className="w-full text-right text-2xl text-green-500">${price}</h3>
+      <h3 className="w-full text-right text-4xl text-green-500">${price}</h3>
       {quantity[option.value] > 0 ? (
         <Button
           label="Add to Cart"
