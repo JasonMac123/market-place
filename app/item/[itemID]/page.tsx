@@ -35,12 +35,11 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
           width={600}
           height={1000}
         />
-        <div className="flex flex-col gap-4 bg-white border-[1px] rounded-lg">
+        <div className="flex flex-col bg-white border-[1px] rounded-lg">
           <ItemFront
             name={item.name}
             description={item.description}
             region={item.region}
-            rating={item.rating}
             maker={item.maker}
           />
           <ItemInputs
