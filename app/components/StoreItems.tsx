@@ -15,7 +15,6 @@ interface Item {
   quantity: ItemQuantity;
   region: string;
   id: string;
-  rating: number;
 }
 
 interface ItemQuantity {

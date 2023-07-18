@@ -10,7 +10,6 @@ interface ItemCardProps {
   image: string;
   region: string;
   maker: string;
-  rating: number;
   price: number;
   name: string;
   description: string;
@@ -22,7 +21,6 @@ const ItemCard: React.FC<ItemCardProps> = ({
   image,
   region,
   maker,
-  rating,
   price,
   name,
   description,

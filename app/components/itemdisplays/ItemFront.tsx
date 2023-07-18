@@ -4,7 +4,6 @@ interface ItemFrontProps {
   name: string;
   description: string;
   region: string;
-  rating: number;
   maker: string;
 }
 
@@ -12,7 +11,6 @@ const ItemFront: React.FC<ItemFrontProps> = ({
   name,
   description,
   region,
-  rating,
   maker,
 }) => {
   return (
@@ -25,7 +23,6 @@ const ItemFront: React.FC<ItemFrontProps> = ({
         <h3>{maker}</h3>
       </div>
       <h3>{description}</h3>
-      <h3>{rating}</h3>
     </div>
   );
 };
