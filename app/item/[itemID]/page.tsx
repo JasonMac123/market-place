@@ -6,6 +6,7 @@ import ItemInputs from "@/app/components/itemdisplays/ItemInputs";
 import getSpecificItemByID from "@/app/firebase/getSpecificItemByID";
 
 import Image from "next/image";
+import { BsArrowReturnLeft } from "react-icons/bs";
 
 interface itemParams {
   itemID: string;
@@ -25,8 +26,11 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
   }
 
   return (
-    <div className="flex w-3/4 mx-auto py-12 gap-8">
-      <ClientContainer>
+    <ClientContainer>
+      <div className="flex w-4/5 mx-auto py-12 gap-8">
+        <div className="bg-cerulean rounded-xl text-white w-1/12 h-20 flex items-center justify-center">
+          <BsArrowReturnLeft size={40} />
+        </div>
         <Image
           src={
             "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
@@ -35,7 +39,7 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
           width={600}
           height={1000}
         />
-        <div className="flex flex-col bg-white border-[1px] rounded-lg">
+        <div className="flex flex-col w-1/2 bg-white border-[1px] rounded-lg">
           <ItemFront
             name={item.name}
             description={item.description}
@@ -49,8 +53,8 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
             id={params.itemID}
           />
         </div>
-      </ClientContainer>
-    </div>
+      </div>
+    </ClientContainer>
   );
 };
 
