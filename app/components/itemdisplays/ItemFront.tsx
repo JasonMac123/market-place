@@ -14,14 +14,11 @@ const ItemFront: React.FC<ItemFrontProps> = ({
   maker,
 }) => {
   return (
-    <div className="flex flex-col border-[1px] rounded-xl items-center justify-between m-8 p-8">
-      <h2>{name}</h2>
-      <div className="flex gap-4">
-        <h3>Made in</h3>
-        <h3>{region}</h3>
-        <h3>by</h3>
-        <h3>{maker}</h3>
-      </div>
+    <div className="flex flex-col border-[1px] items-center justify-between mt-8 mx-8 p-8 gap-4">
+      <h2 className="w-full text-left text-4xl">{name}</h2>
+      <h3 className="w-full text-left">
+        Made in {region}, Tokyo by {maker}
+      </h3>
       <h3>{description}</h3>
     </div>
   );
