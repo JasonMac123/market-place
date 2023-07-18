@@ -2,11 +2,11 @@ import DataError from "@/app/components/DataError";
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import ItemFront from "@/app/components/itemdisplays/ItemFront";
 import ItemInputs from "@/app/components/itemdisplays/ItemInputs";
+import ItemReturn from "@/app/components/itemdisplays/ItemReturn";
 
 import getSpecificItemByID from "@/app/firebase/getSpecificItemByID";
 
 import Image from "next/image";
-import { BsArrowReturnLeft } from "react-icons/bs";
 
 interface itemParams {
   itemID: string;
@@ -27,10 +27,8 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
 
   return (
     <ClientContainer>
-      <div className="flex w-4/5 mx-auto py-12 gap-8">
-        <div className="bg-cerulean rounded-xl text-white w-1/12 h-20 flex items-center justify-center">
-          <BsArrowReturnLeft size={40} />
-        </div>
+      <div className="relative flex w-4/5 mx-auto py-12 gap-8">
+        <ItemReturn />
         <Image
           src={
             "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
