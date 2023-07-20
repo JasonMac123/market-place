@@ -1,7 +1,8 @@
-import ClientContainer from "./components/ClientContainer";
+import ClientContainer from "./components/containers/ClientContainer";
 import NotificationContainer from "./components/containers/NotificationContainer";
 import Footer from "./components/footer/Footer";
-import NavBar from "./components/navbar/NavBar";
+import Header from "./components/header/Header";
+import StoreNavBar from "./components/storenavbar/StoreNavBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -21,9 +22,16 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-alice">
         <ClientContainer>
-          <NavBar />
+          <Header />
           <NotificationContainer />
-          <div className="pt-44 pb-20">{children}</div>
+        </ClientContainer>
+        <div className="pt-44 pb-20">
+          <ClientContainer>
+            <StoreNavBar />
+          </ClientContainer>
+          {children}
+        </div>
+        <ClientContainer>
           <Footer />
         </ClientContainer>
       </body>
