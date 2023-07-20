@@ -83,6 +83,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       userID: user.uid,
       itemID: id,
       amount: counter * price,
+      maxQuantity: quantity,
     });
 
     if (addItem) {

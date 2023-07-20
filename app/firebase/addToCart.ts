@@ -62,7 +62,8 @@ export default async function addToCart(params: Params) {
       for (const orderedItem of cart.items) {
         if (
           orderedItem?.itemID === itemID &&
-          orderedItem?.optionType.value === optionType.value
+          orderedItem?.optionType.value === optionType.value && 
+          (orderAmount + orderedItem.orderAmount) > maxQuantity
         ) {
           orderedItem.orderAmount += orderAmount;
 
