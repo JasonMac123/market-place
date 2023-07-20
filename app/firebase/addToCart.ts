@@ -17,6 +17,7 @@ interface Params {
   itemID: string;
   userID: string;
   amount: number;
+  maxQuantity: number;
 }
 
 interface OptionSelect {
@@ -26,7 +27,7 @@ interface OptionSelect {
 
 export default async function addToCart(params: Params) {
   try {
-    const { orderAmount, optionType, itemID, userID, amount } = params;
+    const { orderAmount, optionType, itemID, userID, amount, maxQuantity } = params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
