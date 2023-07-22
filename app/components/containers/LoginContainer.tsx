@@ -2,15 +2,17 @@
 
 import Button from "../Input/Button";
 import FormInput from "../Input/FormInput";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+
 import firebase_app from "@/app/firebase/config";
-import { Field, FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { FcGoogle } from "react-icons/fc";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useRouter } from "next/navigation";
 import signIn from "@/app/firebase/auth/signin";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 import { useCallback } from "react";
+import { useRouter } from "next/navigation";
+
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginContainer = () => {
   const {
@@ -26,7 +28,6 @@ const LoginContainer = () => {
 
   const provider = new GoogleAuthProvider();
   const auth = getAuth(firebase_app);
-  const [user, loading] = useAuthState(auth);
 
   const router = useRouter();
 

@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { LuUtensilsCrossed } from "react-icons/lu";
 import { FaTshirt, FaPenFancy } from "react-icons/fa";
 import { MdKitchen } from "react-icons/md";
+
 import StoreCategory from "./StoreCategory";
 import StoreCart from "./StoreCart";
 

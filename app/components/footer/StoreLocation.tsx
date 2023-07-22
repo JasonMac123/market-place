@@ -1,3 +1,5 @@
+"use client";
+
 interface StoreLocationProps {
   streetNumber: number;
   streetName: string;

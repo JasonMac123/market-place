@@ -1,11 +1,15 @@
 "use client";
-import signUp from "@/app/firebase/auth/signup";
+
 import Button from "../Input/Button";
 import FormInput from "../Input/FormInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+
+import signUp from "@/app/firebase/auth/signup";
+
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 import { useCallback } from "react";
+
+import { toast } from "react-toastify";
 
 const RegisterContainer = () => {
   const {
