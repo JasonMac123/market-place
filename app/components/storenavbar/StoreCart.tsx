@@ -33,7 +33,7 @@ const StoreCart = async () => {
   return (
     <div
       className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg"
-      onClick={() => router.push("/cart")}
+      onClick={() => router.push(`/cart/${user.uid}`)}
     >
       {countedCart}
       <AiOutlineShoppingCart size={20} />
