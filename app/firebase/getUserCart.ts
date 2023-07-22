@@ -6,36 +6,42 @@ import {
   collection,
   query,
   where,
+  addDoc,
 } from "firebase/firestore";
 
 interface Params {
   userID: string;
 }
 
-export default async function getUserCart (params: Params) {
+export default async function getUserCart(params: Params) {
   try {
-    const { userID } = params
+    const { userID } = params;
 
-    const db = getFirestore(firebase_app)
-    const cartSnapShot = collection(db, 'cart')
+    const db = getFirestore(firebase_app);
+    const cartSnapShot = collection(db, "cart");
 
     const queryUserCart = await query(
-        cartSnapShot,
-        where("userid", "==", userID)
-      );
+      cartSnapShot,
+      where("userid", "==", userID)
+    );
 
     if (!queryUserCart) {
-        return "Empty"
+      const newCart = await addDoc(cartSnapShot, { userid: userID, items: [] });
+      let items: any[] = [];
+      return items;
     }
-    let cart = {}
+
     const userCart = await getDocs(queryUserCart);
 
+    let items: any[] = [];
+
     userCart.forEach((doc) => {
-      cart = {...doc.data(), id: doc.id}
+      const cart = { ...doc.data() };
+      items = items.concat(cart.items);
     });
 
-    return cart;
+    return items;
   } catch (e: any) {
-    throw new Error(e)
+    throw new Error(e);
   }
 }
