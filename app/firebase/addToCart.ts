@@ -11,13 +11,17 @@ import {
   doc,
 } from "firebase/firestore";
 
+interface ItemQuantity {
+  [key: string]: number;
+}
+
 interface Params {
   orderAmount: number;
   optionType: OptionSelect;
   itemID: string;
   userID: string;
   amount: number;
-  maxQuantity: number;
+  maxQuantity: ItemQuantity;
 }
 
 interface OptionSelect {
@@ -67,7 +71,7 @@ export default async function addToCart(params: Params) {
         if (
           orderedItem?.itemID === itemID &&
           orderedItem?.optionType.value === optionType.value &&
-          orderAmount + orderedItem.orderAmount > maxQuantity
+          orderAmount + orderedItem.orderAmount > maxQuantity.optionType
         ) {
           orderedItem.orderAmount += orderAmount;
 
