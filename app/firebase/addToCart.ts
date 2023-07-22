@@ -27,7 +27,8 @@ interface OptionSelect {
 
 export default async function addToCart(params: Params) {
   try {
-    const { orderAmount, optionType, itemID, userID, amount, maxQuantity } = params;
+    const { orderAmount, optionType, itemID, userID, amount, maxQuantity } =
+      params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
@@ -40,12 +41,14 @@ export default async function addToCart(params: Params) {
     if (!queryUserCart) {
       await addDoc(cartSnapShot, {
         userid: userID,
-        items: {
-          orderAmount: orderAmount,
-          optionType: optionType.value,
-          itemID: itemID,
-          totalAmount: amount,
-        },
+        items: [
+          {
+            orderAmount: orderAmount,
+            optionType: optionType.value,
+            itemID: itemID,
+            totalAmount: amount,
+          },
+        ],
       });
     } else {
       console.log("hello");
@@ -63,8 +66,8 @@ export default async function addToCart(params: Params) {
       for (const orderedItem of cart.items) {
         if (
           orderedItem?.itemID === itemID &&
-          orderedItem?.optionType.value === optionType.value && 
-          (orderAmount + orderedItem.orderAmount) > maxQuantity
+          orderedItem?.optionType.value === optionType.value &&
+          orderAmount + orderedItem.orderAmount > maxQuantity
         ) {
           orderedItem.orderAmount += orderAmount;
 
