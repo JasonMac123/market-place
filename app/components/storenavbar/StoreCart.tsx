@@ -27,13 +27,13 @@ const StoreCart = async () => {
   }
 
   const cart = await getUserCart({ userID: user.uid });
-
+  const countedCart = cart.reduce((acc, value) => value.orderAmount + acc, 0);
   return (
     <div
       className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg"
       onClick={() => router.push("/cart")}
     >
-      {cart.length}
+      {countedCart}
       <AiOutlineShoppingCart size={20} />
     </div>
   );
