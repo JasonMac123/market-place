@@ -7,7 +7,13 @@ interface UserParams {
 const Page = async ({ params }: { params: UserParams }) => {
   const userCart = await getUserCart(params);
 
-  return <div></div>;
+  return (
+    <div>
+      {userCart.map((item) => {
+        return <ItemOrderCard {...item} />;
+      })}
+    </div>
+  );
 };
 
 export default Page;
