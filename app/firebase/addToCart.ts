@@ -16,11 +16,11 @@ interface ItemQuantity {
 }
 
 interface Params {
-  orderAmount: number;
+  orderQuantity: number;
   optionType: OptionSelect;
   itemID: string;
   userID: string;
-  amount: number;
+  orderAmount: number;
   image: string;
   itemName: string;
   maxQuantity: ItemQuantity;
@@ -34,11 +34,11 @@ interface OptionSelect {
 export default async function addToCart(params: Params) {
   try {
     const {
-      orderAmount,
+      orderQuantity,
       optionType,
       itemID,
       userID,
-      amount,
+      orderAmount,
       image,
       itemName,
       maxQuantity,
@@ -57,12 +57,12 @@ export default async function addToCart(params: Params) {
         userid: userID,
         items: [
           {
-            orderAmount: orderAmount,
+            orderQuantity: orderQuantity,
             optionType: optionType.value,
             itemID: itemID,
             image: image,
             itemName: itemName,
-            amount: amount,
+            orderAmount: orderAmount,
           },
         ],
       });
@@ -83,16 +83,17 @@ export default async function addToCart(params: Params) {
         if (
           orderedItem?.itemID === itemID &&
           orderedItem?.optionType.value === optionType.value &&
-          orderAmount + orderedItem.orderAmount > maxQuantity.optionType
+          orderAmount + orderedItem.orderQuantity > maxQuantity.optionType
         ) {
+          orderedItem.orderQunaity += orderQuantity;
           orderedItem.orderAmount += orderAmount;
-          orderedItem.amount += amount;
 
           await setDoc(docRef, cart, { merge: true });
           return true;
         }
       }
       cart.items.push({
+        orderQuantity: orderQuantity,
         orderAmount: orderAmount,
         optionType: optionType,
         itemID: itemID,

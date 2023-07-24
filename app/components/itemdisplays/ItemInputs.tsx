@@ -76,11 +76,11 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     }
 
     const addItem = await addToCart({
-      orderAmount: counter,
+      orderQuantity: counter,
       optionType: option,
       userID: user.uid,
       itemID: id,
-      amount: counter * price,
+      orderAmount: counter * price,
       maxQuantity: quantity,
       image: imageSrc,
       itemName: itemName,
