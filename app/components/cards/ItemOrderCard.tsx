@@ -41,7 +41,7 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
         <h3>{amount}</h3>
       </div>
       <div>
-        <h3>{orderAmount}</h3>
+        <h3 className="text-2xl">{orderAmount}</h3>
       </div>
     </div>
   );
