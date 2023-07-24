@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "../Input/Button";
-import FormInput from "../Input/FormInput";
+import Button from "../input/Button";
+import FormInput from "../input/FormInput";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 import signUp from "@/app/firebase/auth/signup";
