@@ -14,6 +14,11 @@ const Page = async ({ params }: { params: UserParams }) => {
   return (
     <div className="mx-20 my-4 p-4">
       <h1>Cart</h1>
+      <div className="flex">
+        <h2>Image</h2>
+        <h2>Description</h2>
+        <h2>Price</h2>
+      </div>
       {userCart.map((item) => {
         return <ItemOrderCard {...item} />;
       })}
