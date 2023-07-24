@@ -1,8 +1,8 @@
 "use client";
 
-import QuantityCounter from "../Input/QuantityCounter";
-import MultiSelect from "../Input/MultiSelect";
-import Button from "../Input/Button";
+import QuantityCounter from "../input/QuantityCounter";
+import MultiSelect from "../input/MultiSelect";
+import Button from "../input/Button";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 
 import { AiOutlineShoppingCart, AiOutlineStop } from "react-icons/ai";
@@ -17,6 +17,8 @@ import { useRouter } from "next/navigation";
 
 interface ItemInputsProps {
   quantity: ItemQuantity;
+  imageSrc: string;
+  itemName: string;
   price: number;
   options: [Object, ...Object[]];
   id: string;
@@ -29,6 +31,8 @@ interface ItemQuantity {
 const ItemInputs: React.FC<ItemInputsProps> = ({
   quantity,
   price,
+  imageSrc,
+  itemName,
   options,
   id,
 }) => {
@@ -78,6 +82,8 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       itemID: id,
       amount: counter * price,
       maxQuantity: quantity,
+      image: imageSrc,
+      itemName: itemName,
     });
 
     if (addItem) {

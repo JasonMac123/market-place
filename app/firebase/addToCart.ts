@@ -21,6 +21,8 @@ interface Params {
   itemID: string;
   userID: string;
   amount: number;
+  image: string;
+  itemName: string;
   maxQuantity: ItemQuantity;
 }
 
@@ -31,8 +33,16 @@ interface OptionSelect {
 
 export default async function addToCart(params: Params) {
   try {
-    const { orderAmount, optionType, itemID, userID, amount, maxQuantity } =
-      params;
+    const {
+      orderAmount,
+      optionType,
+      itemID,
+      userID,
+      amount,
+      image,
+      itemName,
+      maxQuantity,
+    } = params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
@@ -50,7 +60,8 @@ export default async function addToCart(params: Params) {
             orderAmount: orderAmount,
             optionType: optionType.value,
             itemID: itemID,
-            totalAmount: amount,
+            image: image,
+            itemName: itemName,
           },
         ],
       });
@@ -83,6 +94,8 @@ export default async function addToCart(params: Params) {
         orderAmount: orderAmount,
         optionType: optionType,
         itemID: itemID,
+        image: image,
+        itemName: itemName,
       });
 
       await setDoc(docRef, cart, { merge: true });
