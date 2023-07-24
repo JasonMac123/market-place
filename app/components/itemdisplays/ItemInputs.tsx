@@ -86,7 +86,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       itemName: itemName,
     });
 
-    if (addItem) {
+    if (addItem === "Successfully added item to cart!") {
       toast.success("Succesfully added item!");
       reset();
       return;
