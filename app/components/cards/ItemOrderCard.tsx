@@ -39,6 +39,8 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
         <h3>{itemName}</h3>
         <h3>{optionType.label}</h3>
         <h3>{amount}</h3>
+      </div>
+      <div>
         <h3>{orderAmount}</h3>
       </div>
     </div>
