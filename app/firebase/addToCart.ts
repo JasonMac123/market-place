@@ -66,44 +66,49 @@ export default async function addToCart(params: Params) {
           },
         ],
       });
-    } else {
-      console.log("hello");
-      let cart: any = {};
-      let cartID = "";
-      const userCart = await getDocs(queryUserCart);
+      return "Successfully added item to cart!";
+    }
 
-      userCart.forEach((doc) => {
-        cart = { ...doc.data() };
-        cartID = doc.id;
-      });
+    let cart: any = {};
+    let cartID = "";
 
-      const docRef = doc(db, "cart", cartID);
+    const userCart = await getDocs(queryUserCart);
 
-      for (const orderedItem of cart.items) {
-        if (
-          orderedItem?.itemID === itemID &&
-          orderedItem?.optionType.value === optionType.value &&
-          orderAmount + orderedItem.orderQuantity > maxQuantity.optionType
-        ) {
+    userCart.forEach((doc) => {
+      cart = { ...doc.data() };
+      cartID = doc.id;
+    });
+
+    const docRef = doc(db, "cart", cartID);
+
+    for (const orderedItem of cart.items) {
+      if (
+        orderedItem?.itemID === itemID &&
+        orderedItem?.optionType.value === optionType.value
+      ) {
+        if (orderAmount + orderedItem.orderQuantity <= maxQuantity.optionType) {
           orderedItem.orderQunaity += orderQuantity;
           orderedItem.orderAmount += orderAmount;
 
           await setDoc(docRef, cart, { merge: true });
-          return true;
+          return "Successfully added item to cart!";
         }
-      }
-      cart.items.push({
-        orderQuantity: orderQuantity,
-        orderAmount: orderAmount,
-        optionType: optionType,
-        itemID: itemID,
-        image: image,
-        itemName: itemName,
-      });
 
-      await setDoc(docRef, cart, { merge: true });
+        return "Cannot add anymore items due insufficient stock";
+      }
     }
-    return true;
+
+    cart.items.push({
+      orderQuantity: orderQuantity,
+      orderAmount: orderAmount,
+      optionType: optionType,
+      itemID: itemID,
+      image: image,
+      itemName: itemName,
+    });
+
+    await setDoc(docRef, cart, { merge: true });
+    return "Successfully added item to cart!";
   } catch (e: any) {
     throw new Error(e);
   }
