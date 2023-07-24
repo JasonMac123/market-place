@@ -20,6 +20,7 @@ const Page = async ({ params }: { params: UserParams }) => {
         <h2 className="text-3xl">Description</h2>
         <h2 className="text-3xl">Price</h2>
       </div>
+      <hr className="border-black w-4/5" />
       <ClientContainer>
         {userCart.map((item) => {
           return <ItemOrderCard {...item} />;
