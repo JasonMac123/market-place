@@ -62,6 +62,7 @@ export default async function addToCart(params: Params) {
             itemID: itemID,
             image: image,
             itemName: itemName,
+            amount: amount,
           },
         ],
       });
@@ -85,6 +86,7 @@ export default async function addToCart(params: Params) {
           orderAmount + orderedItem.orderAmount > maxQuantity.optionType
         ) {
           orderedItem.orderAmount += orderAmount;
+          orderedItem.amount += amount;
 
           await setDoc(docRef, cart, { merge: true });
           return true;
