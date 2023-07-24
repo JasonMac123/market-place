@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface ItemOrderCardProps {
   itemID: string;
@@ -24,8 +25,15 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
   amount,
   itemName,
 }) => {
+  const router = useRouter();
+
   return (
-    <div className="flex">
+    <div
+      className="flex"
+      onClick={() => {
+        router.push(`/item/${itemID}`);
+      }}
+    >
       <Image src={image} alt="picture of product" width={200} height={200} />
       <div>
         <h3>{itemName}</h3>
