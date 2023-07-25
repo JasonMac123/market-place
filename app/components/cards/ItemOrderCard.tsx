@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { FcCancel } from "react-icons/fc";
 
 interface ItemOrderCardProps {
   itemID: string;
@@ -10,6 +11,7 @@ interface ItemOrderCardProps {
   image: string;
   itemName: string;
   amount: number;
+  removeItem: (name: string, optionType: string) => void;
 }
 
 interface Option {
@@ -24,6 +26,7 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
   image,
   amount,
   itemName,
+  removeItem,
 }) => {
   const router = useRouter();
 
@@ -44,6 +47,10 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
         <div>
           <h3 className="text-2xl">{orderAmount}</h3>
         </div>
+        <FcCancel
+          size={20}
+          onClick={() => removeItem(itemID, optionType.label)}
+        />
       </div>
       <hr className="border-black w-4/5" />
     </>
