@@ -2,6 +2,7 @@ import getUserCart from "@/app/firebase/getUserCart";
 
 import ItemOrderCard from "@/app/components/cards/ItemOrderCard";
 import ClientContainer from "@/app/components/containers/ClientContainer";
+import Button from "@/app/components/input/Button";
 
 interface UserParams {
   userID: string;
@@ -37,6 +38,7 @@ const Page = async ({ params }: { params: UserParams }) => {
           {totalAmount + totalAmount * 0.13}
         </div>
       </div>
+      <Button label="Checkout" onClick={() => {}} />
     </div>
   );
 };
