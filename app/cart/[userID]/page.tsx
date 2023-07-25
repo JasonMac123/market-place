@@ -1,4 +1,5 @@
 import getUserCart from "@/app/firebase/getUserCart";
+import removeItemFromCart from "@/app/firebase/removeItemFromCart";
 
 import ItemOrderCard from "@/app/components/cards/ItemOrderCard";
 import ClientContainer from "@/app/components/containers/ClientContainer";
@@ -18,8 +19,12 @@ const Page = async ({ params }: { params: UserParams }) => {
     0
   );
 
-  const removeItem = (name: string, label: string) => {
-    const result = removeItemFromCart(params, name, label);
+  const removeItem = async (name: string, label: string) => {
+    const result = await removeItemFromCart({
+      userID: params,
+      itemID: name,
+      itemLabel: label,
+    });
 
     if (result) {
       toast.success("Item removed successfully");
