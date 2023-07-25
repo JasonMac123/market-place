@@ -19,7 +19,7 @@ const Page = async ({ params }: { params: UserParams }) => {
   );
 
   const removeItem = (name: string, label: string) => {
-    const result = removeItemFromCart(name, label);
+    const result = removeItemFromCart(params, name, label);
 
     if (result) {
       toast.success("Item removed successfully");
