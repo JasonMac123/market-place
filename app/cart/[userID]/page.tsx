@@ -4,6 +4,8 @@ import ItemOrderCard from "@/app/components/cards/ItemOrderCard";
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import Button from "@/app/components/input/Button";
 
+import { toast } from "react-toastify";
+
 interface UserParams {
   userID: string;
 }
@@ -15,6 +17,16 @@ const Page = async ({ params }: { params: UserParams }) => {
     (acc, value) => value.orderAmount + acc,
     0
   );
+
+  const removeItem = (name: string, label: string) => {
+    const result = removeItemFromCart(name, label);
+
+    if (result) {
+      toast.success("Item removed successfully");
+    } else {
+      toast.error("Error, could not remove item from cart.");
+    }
+  };
 
   return (
     <div className="mx-auto my-4 p-4 w-3/4">
