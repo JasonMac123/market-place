@@ -10,7 +10,10 @@ interface UserParams {
 const Page = async ({ params }: { params: UserParams }) => {
   const userCart = await getUserCart(params);
 
-  const totalAmount = userCart.reduce((acc, value) => value.amount + acc, 0);
+  const totalAmount = userCart.reduce(
+    (acc, value) => value.orderAmount + acc,
+    0
+  );
 
   return (
     <div className="mx-auto my-4 p-4 w-3/4">
