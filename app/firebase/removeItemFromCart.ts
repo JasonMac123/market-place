@@ -11,24 +11,27 @@ import {
 } from "firebase/firestore";
 
 interface Params {
-  userID: UserParams;
+  userParams: UserParams;
   itemID: string;
   itemLabel: string;
 }
 
 interface UserParams {
-  id: string;
+  userID: string;
 }
 
 export default async function removeItemFromCart(params: Params) {
   try {
-    const { userID, itemID, itemLabel } = params;
-    const { id } = userID;
+    const { userParams, itemID, itemLabel } = params;
+    const { userID } = userParams;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
 
-    const queryUserCart = await query(cartSnapShot, where("userid", "==", id));
+    const queryUserCart = await query(
+      cartSnapShot,
+      where("userid", "==", userID)
+    );
 
     let cart: any = {};
     let cartID = "";

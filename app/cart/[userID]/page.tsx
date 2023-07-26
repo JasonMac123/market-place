@@ -21,7 +21,7 @@ const Page = async ({ params }: { params: UserParams }) => {
 
   const removeItem = async (name: string, label: string) => {
     const result = await removeItemFromCart({
-      userID: params,
+      userParams: params,
       itemID: name,
       itemLabel: label,
     });
