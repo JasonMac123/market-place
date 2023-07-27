@@ -12,7 +12,7 @@ interface UserParams {
 }
 
 const Page = async ({ params }: { params: UserParams }) => {
-  const userCart = await getUserCart(params);
+  let userCart = await getUserCart(params);
 
   const totalAmount = userCart.reduce(
     (acc, value) => value.orderAmount + acc,
@@ -27,6 +27,9 @@ const Page = async ({ params }: { params: UserParams }) => {
     });
 
     if (result) {
+      userCart = userCart.filter(
+        (item) => item.itemID !== name && item.optionType.label !== label
+      );
       toast.success("Item removed successfully");
     } else {
       toast.error("Error, could not remove item from cart.");
