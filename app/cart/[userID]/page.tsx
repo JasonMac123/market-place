@@ -36,29 +36,37 @@ const Page = async ({ params }: { params: UserParams }) => {
     }
   };
 
+  if (!userCart.length) {
+    return (
+      <div className="flex flex-col w-full items-center justify-center">
+        <h1>You have no items currently!</h1>
+        <h2>Add some items</h2>
+      </div>
+    );
+  }
   return (
     <div className="mx-auto my-4 p-4 w-3/4">
-      <h1>Cart</h1>
+      <h1 className="text-4xl mb-8">Cart</h1>
       <div className="flex justify-between items-center">
         <h2 className="text-3xl">Image</h2>
         <h2 className="text-3xl">Description</h2>
         <h2 className="text-3xl">Price</h2>
       </div>
-      <hr className="border-black w-4/5" />
+      <hr className="border-black w-full mb-4" />
       <ClientContainer>
         {userCart.map((item) => {
-          return <ItemOrderCard {...item} removeItem={removeItem} />;
+          return <ItemOrderCard {...item} />;
         })}
       </ClientContainer>
-      <div className="flex jusitfy-end">
-        <div>Your Subtotal: {totalAmount}</div>
-        <div>Your tax: {totalAmount * 0.13}</div>
+      <div className="flex flex-col jusitfy-end items-end">
+        <div>Your Subtotal : {totalAmount}</div>
+        <div>Your tax : {(totalAmount * 0.13).toFixed(2)}</div>
         <div>
-          Your Total including tax (GST + HST):
-          {totalAmount + totalAmount * 0.13}
+          Your Total including tax (GST + HST) :
+          {(totalAmount + totalAmount * 0.13).toFixed(2)}
         </div>
       </div>
-      <Button label="Checkout" onClick={() => {}} />
+      <Button label="Checkout" />
     </div>
   );
 };
