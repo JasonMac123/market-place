@@ -44,7 +44,7 @@ const Page = async ({ params }: { params: UserParams }) => {
       <hr className="border-black w-4/5" />
       <ClientContainer>
         {userCart.map((item) => {
-          return <ItemOrderCard {...item} />;
+          return <ItemOrderCard {...item} removeItem={removeItem} />;
         })}
       </ClientContainer>
       <div className="flex jusitfy-end">
