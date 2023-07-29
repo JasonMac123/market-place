@@ -72,7 +72,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
             {(totalAmount + totalAmount * 0.13).toFixed(2)}
           </div>
         </div>
-        <Button label="Checkout" />
+        <Button label="Checkout" onClick={() => {}} />
       </div>
     </ClientContainer>
   );
