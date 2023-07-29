@@ -1,18 +1,6 @@
 "use client";
 
-interface OptionSelect {
-  label: string;
-  value: string;
-}
-
-interface Item {
-  image: string;
-  itemID: string;
-  itemName: string;
-  optionType: OptionSelect;
-  orderAmount: number;
-  orderQuantity: number;
-}
+import { Item } from "@/app/types/types";
 
 interface ItemOrderContainerProps {
   userCart: Item[];
