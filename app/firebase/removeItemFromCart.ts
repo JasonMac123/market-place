@@ -1,3 +1,4 @@
+import { UserParams } from "../types/types";
 import firebase_app from "./config";
 import {
   collection,
@@ -10,7 +11,7 @@ import {
 } from "firebase/firestore";
 
 interface Params {
-  userParams: string;
+  userParams: UserParams;
   itemID: string;
   itemLabel: string;
 }
@@ -18,13 +19,14 @@ interface Params {
 export default async function removeItemFromCart(params: Params) {
   try {
     const { userParams, itemID, itemLabel } = params;
+    const { userID } = userParams;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
 
     const queryUserCart = await query(
       cartSnapShot,
-      where("userid", "==", userParams)
+      where("userid", "==", userID)
     );
 
     let cart: any = {};
