@@ -30,9 +30,10 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
     });
 
     if (result) {
-      userCart = userCart.filter(
+      const newCart = userCart.filter(
         (item) => item.itemID !== name && item.optionType.label !== label
       );
+      setCart(newCart);
       toast.success("Item removed successfully");
     } else {
       toast.error("Error, could not remove item from cart.");
