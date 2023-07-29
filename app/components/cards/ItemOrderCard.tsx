@@ -4,19 +4,16 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FcCancel } from "react-icons/fc";
 
+import { OptionSelect } from "@/app/types/types";
+
 interface ItemOrderCardProps {
   itemID: string;
-  optionType: Option;
+  optionType: OptionSelect;
   orderAmount: number;
   image: string;
   itemName: string;
   orderQuantity: number;
   removeItem: (name: string, optionType: string) => void;
-}
-
-interface Option {
-  label: string;
-  value: string;
 }
 
 const ItemOrderCard: React.FC<ItemOrderCardProps> = ({

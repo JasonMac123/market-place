@@ -1,5 +1,4 @@
 import firebase_app from "./config";
-
 import {
   getFirestore,
   getDocs,
@@ -9,11 +8,9 @@ import {
   addDoc,
 } from "firebase/firestore";
 
-interface Params {
-  userID: string;
-}
+import { UserParams } from "../types/types";
 
-export default async function getUserCart(params: Params) {
+export default async function getUserCart(params: UserParams) {
   try {
     const { userID } = params;
 

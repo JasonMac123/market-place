@@ -1,5 +1,4 @@
 import firebase_app from "./config";
-
 import {
   collection,
   getFirestore,
@@ -10,14 +9,12 @@ import {
   setDoc,
 } from "firebase/firestore";
 
+import { UserParams } from "../types/types";
+
 interface Params {
   userParams: UserParams;
   itemID: string;
   itemLabel: string;
-}
-
-interface UserParams {
-  userID: string;
 }
 
 export default async function removeItemFromCart(params: Params) {

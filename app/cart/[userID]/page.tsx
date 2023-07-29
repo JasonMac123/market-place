@@ -7,9 +7,7 @@ import Button from "@/app/components/input/Button";
 
 import { toast } from "react-toastify";
 
-interface UserParams {
-  userID: string;
-}
+import { UserParams } from "@/app/types/types";
 
 const Page = async ({ params }: { params: UserParams }) => {
   let userCart = await getUserCart(params);
