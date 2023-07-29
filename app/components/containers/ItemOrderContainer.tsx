@@ -62,7 +62,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
         </div>
         <hr className="border-black w-full mb-4" />
         {userCart.map((item) => {
-          return <ItemOrderCard {...item} />;
+          return <ItemOrderCard {...item} removeItem={removeItem} />;
         })}
         <div className="flex flex-col jusitfy-end items-end">
           <div>Your Subtotal : {totalAmount}</div>
