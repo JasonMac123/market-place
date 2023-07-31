@@ -22,6 +22,8 @@ interface Params {
   image: string;
   itemName: string;
   maxQuantity: ItemQuantity;
+  stripeID: number;
+  stripeQuantity: number;
 }
 
 export default async function addToCart(params: Params) {
@@ -35,6 +37,8 @@ export default async function addToCart(params: Params) {
       image,
       itemName,
       maxQuantity,
+      stripeID,
+      stripeQuantity,
     } = params;
 
     const db = getFirestore(firebase_app);
@@ -56,6 +60,8 @@ export default async function addToCart(params: Params) {
             image: image,
             itemName: itemName,
             orderAmount: orderAmount,
+            stripeID: stripeID,
+            stripeQuantity: stripeQuantity,
           },
         ],
       });
@@ -98,6 +104,8 @@ export default async function addToCart(params: Params) {
       itemID: itemID,
       image: image,
       itemName: itemName,
+      stripeID: stripeID,
+      stripeQuantity: stripeQuantity,
     });
 
     await setDoc(docRef, cart, { merge: true });
