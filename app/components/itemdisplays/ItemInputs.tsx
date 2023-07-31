@@ -24,7 +24,6 @@ interface ItemInputsProps {
   options: [Object, ...Object[]];
   id: string;
   stripeID: number;
-  stripeQuantity: number;
 }
 
 const ItemInputs: React.FC<ItemInputsProps> = ({
@@ -34,7 +33,6 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   itemName,
   options,
   id,
-  stripeQuantity,
   stripeID,
 }) => {
   const auth = getAuth(firebase_app);
@@ -86,7 +84,6 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       image: imageSrc,
       itemName: itemName,
       stripeID: stripeID,
-      stripeQuantity: stripeQuantity,
     });
 
     if (addItem === "Successfully added item to cart!") {
