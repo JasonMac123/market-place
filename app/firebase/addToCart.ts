@@ -11,9 +11,7 @@ import {
   doc,
 } from "firebase/firestore";
 
-interface ItemQuantity {
-  [key: string]: number;
-}
+import { OptionSelect, ItemQuantity } from "../types/types";
 
 interface Params {
   orderQuantity: number;
@@ -24,11 +22,6 @@ interface Params {
   image: string;
   itemName: string;
   maxQuantity: ItemQuantity;
-}
-
-interface OptionSelect {
-  value: string;
-  label: string;
 }
 
 export default async function addToCart(params: Params) {
