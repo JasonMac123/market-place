@@ -51,6 +51,7 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
             id={params.itemID}
             imageSrc={item.image}
             itemName={item.name}
+            stripeID={item.stripeID}
           />
         </div>
       </div>
