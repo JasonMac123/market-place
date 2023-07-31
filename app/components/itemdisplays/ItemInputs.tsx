@@ -14,6 +14,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import addToCart from "@/app/firebase/addToCart";
 
 import { useRouter } from "next/navigation";
+import { ItemQuantity } from "@/app/types/types";
 
 interface ItemInputsProps {
   quantity: ItemQuantity;
@@ -22,10 +23,6 @@ interface ItemInputsProps {
   price: number;
   options: [Object, ...Object[]];
   id: string;
-}
-
-interface ItemQuantity {
-  [key: string]: number;
 }
 
 const ItemInputs: React.FC<ItemInputsProps> = ({
