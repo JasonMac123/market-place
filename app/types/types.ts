@@ -23,3 +23,7 @@ export interface UserParams {
 export interface ItemQuery {
   itemID: string;
 }
+
+export interface ItemQuantity {
+  [key: string]: number;
+}
