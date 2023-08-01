@@ -1,49 +1,46 @@
 "use client";
 
-import { useForm, FieldValues, SubmitHandler, Field } from "react-hook-form";
-
-import QuantityCounter from "../Input/QuantityCounter";
-import MultiSelect from "../Input/MultiSelect";
-import Button from "../Input/Button";
+import QuantityCounter from "../input/QuantityCounter";
+import MultiSelect from "../input/MultiSelect";
+import Button from "../input/Button";
+import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 
 import { AiOutlineShoppingCart, AiOutlineStop } from "react-icons/ai";
 import { toast } from "react-toastify";
 
+import firebase_app from "@/app/firebase/config";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import firebase_app from "@/app/firebase/config";
-import { useRouter } from "next/navigation";
 import addToCart from "@/app/firebase/addToCart";
+
+import { useRouter } from "next/navigation";
+import { ItemQuantity } from "@/app/types/types";
 
 interface ItemInputsProps {
   quantity: ItemQuantity;
+  imageSrc: string;
+  itemName: string;
   price: number;
   options: [Object, ...Object[]];
   id: string;
-}
-
-interface ItemQuantity {
-  [key: string]: number;
+  stripeID: number;
 }
 
 const ItemInputs: React.FC<ItemInputsProps> = ({
   quantity,
   price,
+  imageSrc,
+  itemName,
   options,
   id,
+  stripeID,
 }) => {
   const auth = getAuth(firebase_app);
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const router = useRouter();
 
-  const {
-    handleSubmit,
-    setValue,
-    watch,
-    formState: { errors },
-    reset,
-  } = useForm<FieldValues>({
+  const { handleSubmit, setValue, watch, reset } = useForm<FieldValues>({
     defaultValues: {
       counter: 1,
       option: { label: options[0], value: options[0] },
@@ -78,15 +75,18 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     }
 
     const addItem = await addToCart({
-      orderAmount: counter,
+      orderQuantity: counter,
       optionType: option,
       userID: user.uid,
       itemID: id,
-      amount: counter * price,
+      orderAmount: counter * price,
       maxQuantity: quantity,
+      image: imageSrc,
+      itemName: itemName,
+      stripeID: stripeID,
     });
 
-    if (addItem) {
+    if (addItem === "Successfully added item to cart!") {
       toast.success("Succesfully added item!");
       reset();
       return;

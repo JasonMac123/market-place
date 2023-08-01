@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
+
 import {
   AiOutlineMenu,
   AiOutlineProfile,
@@ -10,10 +12,10 @@ import {
 } from "react-icons/ai";
 import { FaDoorOpen } from "react-icons/fa";
 
-import { useRouter } from "next/navigation";
 import { getAuth } from "@firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase_app from "@/app/firebase/config";
+
 import { toast } from "react-toastify";
 
 import Avatar from "../Avatar";
@@ -23,7 +25,7 @@ const UserMenu = () => {
   const router = useRouter();
   const auth = getAuth(firebase_app);
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [openStatus, setOpenStatus] = useState(false);
 
   const toggleOpen = useCallback(() => {

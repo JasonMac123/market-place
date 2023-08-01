@@ -1,6 +1,5 @@
 import getItems from "@/app/firebase/getItems";
 import ItemCard from "./cards/ItemCard";
-import { useEffect, useState } from "react";
 import NoItems from "./NoItems";
 
 interface Item {

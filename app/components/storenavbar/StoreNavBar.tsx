@@ -1,11 +1,12 @@
 "use client";
 
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { LuUtensilsCrossed } from "react-icons/lu";
 import { FaTshirt, FaPenFancy } from "react-icons/fa";
 import { MdKitchen } from "react-icons/md";
+
 import StoreCategory from "./StoreCategory";
+import StoreCart from "./StoreCart";
 
 const categories = [
   { label: "All-items" },
@@ -16,7 +17,6 @@ const categories = [
 ];
 
 const StoreNavBar = () => {
-  const router = useRouter();
   const params = useSearchParams();
   const category = params?.get("category");
 
@@ -34,13 +34,7 @@ const StoreNavBar = () => {
           );
         })}
       </div>
-      <div
-        className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg"
-        onClick={() => router.push("/cart")}
-      >
-        Number
-        <AiOutlineShoppingCart size={20} />
-      </div>
+      <StoreCart />
     </div>
   );
 };

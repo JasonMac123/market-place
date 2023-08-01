@@ -11,23 +11,33 @@ import {
   doc,
 } from "firebase/firestore";
 
+import { OptionSelect, ItemQuantity } from "../types/types";
+
 interface Params {
-  orderAmount: number;
+  orderQuantity: number;
   optionType: OptionSelect;
   itemID: string;
   userID: string;
-  amount: number;
-  maxQuantity: number;
-}
-
-interface OptionSelect {
-  value: string;
-  label: string;
+  orderAmount: number;
+  image: string;
+  itemName: string;
+  maxQuantity: ItemQuantity;
+  stripeID: number;
 }
 
 export default async function addToCart(params: Params) {
   try {
-    const { orderAmount, optionType, itemID, userID, amount, maxQuantity } = params;
+    const {
+      orderQuantity,
+      optionType,
+      itemID,
+      userID,
+      orderAmount,
+      image,
+      itemName,
+      maxQuantity,
+      stripeID,
+    } = params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
@@ -40,47 +50,62 @@ export default async function addToCart(params: Params) {
     if (!queryUserCart) {
       await addDoc(cartSnapShot, {
         userid: userID,
-        items: {
-          orderAmount: orderAmount,
-          optionType: optionType.value,
-          itemID: itemID,
-          totalAmount: amount,
-        },
+        items: [
+          {
+            orderQuantity: orderQuantity,
+            optionType: optionType.value,
+            itemID: itemID,
+            image: image,
+            itemName: itemName,
+            orderAmount: orderAmount,
+            stripeID: stripeID,
+          },
+        ],
       });
-    } else {
-      console.log("hello");
-      let cart: any = {};
-      let cartID = "";
-      const userCart = await getDocs(queryUserCart);
+      return "Successfully added item to cart!";
+    }
 
-      userCart.forEach((doc) => {
-        cart = { ...doc.data() };
-        cartID = doc.id;
-      });
+    let cart: any = {};
+    let cartID = "";
 
-      const docRef = doc(db, "cart", cartID);
+    const userCart = await getDocs(queryUserCart);
 
-      for (const orderedItem of cart.items) {
-        if (
-          orderedItem?.itemID === itemID &&
-          orderedItem?.optionType.value === optionType.value && 
-          (orderAmount + orderedItem.orderAmount) > maxQuantity
-        ) {
+    userCart.forEach((doc) => {
+      cart = { ...doc.data() };
+      cartID = doc.id;
+    });
+
+    const docRef = doc(db, "cart", cartID);
+
+    for (const orderedItem of cart.items) {
+      if (
+        orderedItem?.itemID === itemID &&
+        orderedItem?.optionType.value === optionType.value
+      ) {
+        if (orderAmount + orderedItem.orderQuantity <= maxQuantity.optionType) {
+          orderedItem.orderQunaity += orderQuantity;
           orderedItem.orderAmount += orderAmount;
 
           await setDoc(docRef, cart, { merge: true });
-          return true;
+          return "Successfully added item to cart!";
         }
-      }
-      cart.items.push({
-        orderAmount: orderAmount,
-        optionType: optionType,
-        itemID: itemID,
-      });
 
-      await setDoc(docRef, cart, { merge: true });
+        return "Cannot add anymore items due insufficient stock";
+      }
     }
-    return true;
+
+    cart.items.push({
+      orderQuantity: orderQuantity,
+      orderAmount: orderAmount,
+      optionType: optionType,
+      itemID: itemID,
+      image: image,
+      itemName: itemName,
+      stripeID: stripeID,
+    });
+
+    await setDoc(docRef, cart, { merge: true });
+    return "Successfully added item to cart!";
   } catch (e: any) {
     throw new Error(e);
   }

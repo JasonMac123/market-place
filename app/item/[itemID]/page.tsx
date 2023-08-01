@@ -49,6 +49,9 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
             price={item.price}
             options={item.options}
             id={params.itemID}
+            imageSrc={item.image}
+            itemName={item.name}
+            stripeID={item.stripeID}
           />
         </div>
       </div>

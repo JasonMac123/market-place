@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import { GrCheckmark } from "react-icons/gr";
 
 const InfoCard = () => {

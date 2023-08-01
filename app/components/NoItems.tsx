@@ -1,6 +1,7 @@
 "use client";
 
-import Button from "./Input/Button";
+import Button from "./input/Button";
+
 import { useRouter } from "next/navigation";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
