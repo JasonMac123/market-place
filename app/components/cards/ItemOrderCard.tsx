@@ -43,7 +43,7 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
             <h3>{orderQuantity}</h3>
           </div>
         </div>
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-4 items-center">
           <h3 className="text-2xl">${orderAmount}</h3>
           <FcCancel
             size={20}
