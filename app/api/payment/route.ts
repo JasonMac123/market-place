@@ -21,12 +21,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const params: Stripe.Checkout.SessionCreateParams = {
       submit_type: "donate",
       payment_method_types: ["card"],
-      line_items: [
-        {
-          price: "price_1NaNwMJxcB1myVoNTi2ERe6n",
-          quantity: 1,
-        },
-      ],
+      line_items: newCart,
       success_url: "localhost:3000",
     };
 
