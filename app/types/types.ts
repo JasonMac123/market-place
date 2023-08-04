@@ -1,6 +1,7 @@
 export interface OptionSelect {
   label: string;
   value: string;
+  stripeID: string;
 }
 
 export interface Item {
