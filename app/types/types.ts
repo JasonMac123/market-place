@@ -10,6 +10,7 @@ export interface Item {
   optionType: OptionSelect;
   orderAmount: number;
   orderQuantity: number;
+  stripeID: string;
 }
 
 export interface ItemOrderContainerProps {
