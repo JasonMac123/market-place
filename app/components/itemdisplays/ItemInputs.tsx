@@ -98,7 +98,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     <div className="flex flex-col border-[1px] m-8 gap-4 p-8">
       <MultiSelect
         optionList={options}
-        value={option}
+        value={option.option}
         onChange={(value) => setFormValue("option", value)}
       />
       {quantity[option.value] < 10 ? (

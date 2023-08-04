@@ -10,7 +10,7 @@ interface MultiSelectProps {
 
 const convertOptions = (array: any[]) => {
   const newArray = array.map((element) => {
-    return { label: element, value: element };
+    return { label: element.option, value: element.option };
   });
   return newArray;
 };
