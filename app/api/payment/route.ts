@@ -7,6 +7,17 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
+    const body = await req.json();
+    const { cart } = body;
+
+    if (!cart) {
+      return NextResponse.error();
+    }
+
+    const newCart = cart.map((item) => {
+      return { price: item.stripeID, quantity: item.orderQuantity };
+    });
+
     const params: Stripe.Checkout.SessionCreateParams = {
       submit_type: "donate",
       payment_method_types: ["card"],
