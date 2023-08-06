@@ -14,14 +14,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import addToCart from "@/app/firebase/addToCart";
 
 import { useRouter } from "next/navigation";
-import { ItemQuantity } from "@/app/types/types";
+import { ItemQuantity, Option } from "@/app/types/types";
 
 interface ItemInputsProps {
   quantity: ItemQuantity;
   imageSrc: string;
   itemName: string;
   price: number;
-  options: [Object, ...Object[]];
+  options: [Option, ...Option[]];
   id: string;
 }
 
@@ -41,12 +41,18 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   const { handleSubmit, setValue, watch, reset } = useForm<FieldValues>({
     defaultValues: {
       counter: 1,
-      option: { label: options[0], value: options[0] },
+      option: {
+        label: options[0].option,
+        value: options[0].option,
+        stripeID: options[0].stripeID,
+      },
     },
   });
 
   const counter = watch("counter");
   const option = watch("option");
+
+  console.log(option);
 
   const setFormValue = (id: string, value: any) => {
     if (id === option) {
@@ -98,7 +104,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
     <div className="flex flex-col border-[1px] m-8 gap-4 p-8">
       <MultiSelect
         optionList={options}
-        value={option.option}
+        value={option}
         onChange={(value) => setFormValue("option", value)}
       />
       {quantity[option.value] < 10 ? (
