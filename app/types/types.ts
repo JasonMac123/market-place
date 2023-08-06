@@ -1,3 +1,8 @@
+export interface Option {
+  option: string;
+  stripeID: string;
+}
+
 export interface OptionSelect {
   label: string;
   value: string;
