@@ -42,7 +42,9 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   };
 
   const orderItem = useCallback(() => {
-    axios.post("/api/payment", { userCart });
+    axios.post("/api/payment", { userCart }).then((result) => {
+      console.log(result);
+    });
   }, [userCart]);
 
   if (!userCart.length) {
@@ -67,7 +69,13 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
         </div>
         <hr className="border-black w-full mb-4" />
         {userCart.map((item) => {
-          return <ItemOrderCard {...item} removeItem={removeItem} />;
+          return (
+            <ItemOrderCard
+              {...item}
+              removeItem={removeItem}
+              key={item.itemID}
+            />
+          );
         })}
         <div className="flex flex-col jusitfy-end items-end">
           <div>Your Subtotal : {totalAmount}</div>
