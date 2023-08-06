@@ -77,7 +77,7 @@ const UserMenu = () => {
                   label="My Cart"
                   onClick={() => {
                     toggleOpen();
-                    router.push("/cart");
+                    router.push(`/cart/${user.uid}`);
                   }}
                   Icon={AiOutlineShoppingCart}
                 />
