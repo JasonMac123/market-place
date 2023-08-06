@@ -77,15 +77,21 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
             />
           );
         })}
-        <div className="flex flex-col jusitfy-end items-end">
-          <div>Your Subtotal : {totalAmount}</div>
-          <div>Your tax : {(totalAmount * 0.13).toFixed(2)}</div>
-          <div>
+        <div className="flex flex-col jusitfy-end items-end mb-4">
+          <div className="text-2xl">Your Subtotal : {totalAmount}</div>
+          <div className="text-2xl">
+            Your tax : {(totalAmount * 0.13).toFixed(2)}
+          </div>
+          <div className="text-2xl">
             Your Total including tax (GST + HST) :
             {(totalAmount + totalAmount * 0.13).toFixed(2)}
           </div>
         </div>
-        <Button label="Checkout" onClick={() => orderItem} />
+        <div className="flex justify-end">
+          <div className="flex w-1/3">
+            <Button label="Checkout" onClick={() => orderItem} />
+          </div>
+        </div>
       </div>
     </ClientContainer>
   );
