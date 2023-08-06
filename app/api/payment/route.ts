@@ -28,6 +28,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
     const checkoutSession: Stripe.Checkout.Session =
       await stripe.checkout.sessions.create(params);
+
+    return NextResponse.json(checkoutSession.url);
   } catch (e: any) {
     throw new Error(e);
   }
