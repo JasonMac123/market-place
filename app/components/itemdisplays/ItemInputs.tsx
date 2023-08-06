@@ -52,8 +52,6 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   const counter = watch("counter");
   const option = watch("option");
 
-  console.log(option);
-
   const setFormValue = (id: string, value: any) => {
     if (id === option) {
       reset();
