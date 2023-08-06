@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
 import { Item, UserParams } from "@/app/types/types";
 
@@ -41,11 +41,16 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
     }
   };
 
-  const orderItem = useCallback(() => {
-    axios.post("/api/payment", { userCart }).then((result) => {
-      console.log(result);
+  const orderCart = async () => {
+    const result = await axios.post("/api/checkout-session", {
+      cart,
     });
-  }, [userCart]);
+
+    if (!result) {
+      toast.error("Unable to checkout");
+    }
+    console.log(result);
+  };
 
   if (!userCart.length) {
     return (
@@ -89,7 +94,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
         </div>
         <div className="flex justify-end">
           <div className="flex w-1/3">
-            <Button label="Checkout" onClick={() => orderItem} />
+            <Button label="Checkout" onClick={orderCart} />
           </div>
         </div>
       </div>
