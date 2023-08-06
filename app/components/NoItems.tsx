@@ -11,11 +11,13 @@ const NoItems = () => {
   return (
     <div className="h-[80vh] flex flex-col gap-2 justify-center items-center ml-20">
       <h3>No Items found</h3>
-      <Button
-        label="Go Back to HomePage"
-        Icon={AiOutlineArrowRight}
-        onClick={() => router.push("/")}
-      />
+      <div className="w-1/3 mx-auto">
+        <Button
+          label="Go Back to HomePage"
+          Icon={AiOutlineArrowRight}
+          onClick={() => router.push("/")}
+        />
+      </div>
     </div>
   );
 };
