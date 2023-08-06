@@ -35,13 +35,16 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
           router.push(`/item/${itemID}`);
         }}
       >
-        <Image src={image} alt="picture of product" width={200} height={200} />
-        <div className="flex flex-col items-center">
-          <h3>{itemName},</h3>
-          <h3>{optionType.label}</h3>
-          <div>
-            <h3>{orderQuantity}</h3>
-          </div>
+        <Image
+          src="https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
+          alt="picture of product"
+          width={200}
+          height={200}
+        />
+        <div className="flex flex-col justify-center">
+          <h3 className="text-lg">Name: {itemName},</h3>
+          <h3 className="text-lg">Item Option: {optionType.label}</h3>
+          <h3 className="text-lg">Quantity: {orderQuantity}</h3>
         </div>
         <div className="flex gap-4 items-center">
           <h3 className="text-2xl">${orderAmount}</h3>
