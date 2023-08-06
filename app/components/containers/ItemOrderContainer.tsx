@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { Item, UserParams } from "@/app/types/types";
 
@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import ClientContainer from "./ClientContainer";
 import ItemOrderCard from "../cards/ItemOrderCard";
 import Button from "../input/Button";
+import axios from "axios";
 
 interface ItemOrderContainerProps {
   userID: UserParams;
@@ -39,6 +40,10 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
       toast.error("Error, could not remove item from cart.");
     }
   };
+
+  const orderItem = useCallback(() => {
+    axios.post("/api/payment", { userCart });
+  }, [userCart]);
 
   if (!userCart.length) {
     return (
@@ -72,7 +77,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
             {(totalAmount + totalAmount * 0.13).toFixed(2)}
           </div>
         </div>
-        <Button label="Checkout" onClick={() => {}} />
+        <Button label="Checkout" onClick={() => orderItem} />
       </div>
     </ClientContainer>
   );
