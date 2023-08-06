@@ -46,7 +46,8 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
         <div className="flex gap-4 items-center">
           <h3 className="text-2xl">${orderAmount}</h3>
           <FcCancel
-            size={20}
+            size={40}
+            className="hover:cursor-pointer"
             onClick={() => removeItem(itemID, optionType.label)}
           />
         </div>
