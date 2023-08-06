@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 import { Item, UserParams } from "@/app/types/types";
 
@@ -11,6 +11,8 @@ import ClientContainer from "./ClientContainer";
 import ItemOrderCard from "../cards/ItemOrderCard";
 import Button from "../input/Button";
 import axios from "axios";
+import { data } from "autoprefixer";
+import { getStripe } from "@/app/stripe/getStripe";
 
 interface ItemOrderContainerProps {
   userID: UserParams;
@@ -42,9 +44,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   };
 
   const orderCart = async () => {
-    const result = await axios.post("/api/checkout-session", {
-      cart,
-    });
+    const result = await axios.post("/api/checkout-session", { cart });
 
     if (!result) {
       toast.error("Unable to checkout");
