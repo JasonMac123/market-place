@@ -15,7 +15,7 @@ const StoreCart = () => {
   if (!user) {
     return (
       <div
-        className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg"
+        className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg hover:cursor-pointer"
         onClick={() => router.push("/cart")}
       >
         Cart
@@ -26,7 +26,7 @@ const StoreCart = () => {
 
   return (
     <div
-      className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg"
+      className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 rounded-lg hover:cursor-pointer"
       onClick={() => router.push(`/cart/${user.uid}`)}
     >
       Cart
