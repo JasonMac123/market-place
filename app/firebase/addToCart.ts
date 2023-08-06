@@ -36,8 +36,9 @@ export default async function addToCart(params: Params) {
       image,
       itemName,
       maxQuantity,
-      stripeID,
     } = params;
+
+    console.log(params);
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
@@ -58,7 +59,7 @@ export default async function addToCart(params: Params) {
             image: image,
             itemName: itemName,
             orderAmount: orderAmount,
-            stripeID: stripeID,
+            stripeID: optionType.stripeID,
           },
         ],
       });
@@ -101,7 +102,7 @@ export default async function addToCart(params: Params) {
       itemID: itemID,
       image: image,
       itemName: itemName,
-      stripeID: stripeID,
+      stripeID: optionType.stripeID,
     });
 
     await setDoc(docRef, cart, { merge: true });
