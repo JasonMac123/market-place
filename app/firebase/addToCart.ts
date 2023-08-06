@@ -38,8 +38,6 @@ export default async function addToCart(params: Params) {
       maxQuantity,
     } = params;
 
-    console.log(params);
-
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
 
