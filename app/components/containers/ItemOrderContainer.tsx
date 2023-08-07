@@ -13,6 +13,7 @@ import Button from "../input/Button";
 import axios from "axios";
 import { data } from "autoprefixer";
 import { getStripe } from "@/app/stripe/getStripe";
+import { loadStripe } from "@stripe/stripe-js";
 
 interface ItemOrderContainerProps {
   userID: UserParams;
@@ -44,12 +45,26 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   };
 
   const orderCart = async () => {
-    const result = await axios.post("/api/checkout-session", { cart });
+    try {
+      const stripe = await loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+      );
+      const result = await axios.post("/api/checkout-session", { cart });
 
-    if (!result) {
-      toast.error("Unable to checkout");
+      if (!result) {
+        toast.error("Unable to checkout");
+      }
+
+      const checkoutCart = await stripe!.redirectToCheckout({
+        sessionId: result.data,
+      });
+
+      if (checkoutCart.error) {
+        toast.error(checkoutCart.error.message);
+      }
+    } catch (e: any) {
+      console.log(e);
     }
-    console.log(result);
   };
 
   if (!userCart.length) {
