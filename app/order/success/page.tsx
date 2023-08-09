@@ -1,4 +1,4 @@
-const OrderSuccess = () => {
+const OrderPage = () => {
   return (
     <div className="w-9/11 mx-auto flex justify-center items-center">
       <div className="border-[1px] border-green-300">
@@ -9,4 +9,4 @@ const OrderSuccess = () => {
   );
 };
 
-export default OrderSuccess;
+export default OrderPage;
