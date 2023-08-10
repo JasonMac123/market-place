@@ -27,7 +27,11 @@ export default async function createOrder(params: Params) {
     const cartSnapShot = collection(db, "cart");
     const orderSnapShot = collection(db, "orders");
 
-    let order = await addDoc(orderSnapShot, { order: orderNumber, cart: cart });
+    let order = await addDoc(orderSnapShot, {
+      order: orderNumber,
+      cart: cart,
+      status: "incomplete",
+    });
 
     const queryUserCart = await query(
       cartSnapShot,
