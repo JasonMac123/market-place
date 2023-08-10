@@ -1,9 +1,11 @@
 import { useRouter } from "next/router";
 
-const OrderPage = () => {
+const OrderPage = async () => {
   const {
     query: { sessionID },
   } = useRouter();
+
+  const { data: checkoutSession, error } = await fetchPriceData(sessionID);
 
   return (
     <div className="w-9/11 mx-auto flex justify-center items-center">
