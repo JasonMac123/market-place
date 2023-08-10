@@ -14,6 +14,8 @@ import axios from "axios";
 import { data } from "autoprefixer";
 import { getStripe } from "@/app/stripe/getStripe";
 import { loadStripe } from "@stripe/stripe-js";
+import createOrder from "@/app/firebase/createOrder";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 interface ItemOrderContainerProps {
   userID: UserParams;
@@ -57,6 +59,12 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
 
       const checkoutCart = await stripe!.redirectToCheckout({
         sessionId: result.data,
+      });
+
+      await createOrder({
+        cart: cart,
+        orderNumber: result.data,
+        userID: userID.userID,
       });
 
       if (checkoutCart.error) {
