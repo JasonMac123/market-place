@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useRouter } from "next/router";
 
 const OrderPage = async () => {
@@ -5,7 +6,7 @@ const OrderPage = async () => {
     query: { sessionID },
   } = useRouter();
 
-  const { data: checkoutSession, error } = await fetchPriceData(sessionID);
+  const data = await axios.get(`/api/session/${sessionID}`);
 
   return (
     <div className="w-9/11 mx-auto flex justify-center items-center">
