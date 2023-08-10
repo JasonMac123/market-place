@@ -56,20 +56,6 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
       if (!result) {
         toast.error("Unable to checkout");
       }
-
-      const checkoutCart = await stripe!.redirectToCheckout({
-        sessionId: result.data,
-      });
-
-      await createOrder({
-        cart: cart,
-        orderNumber: result.data,
-        userID: userID.userID,
-      });
-
-      if (checkoutCart.error) {
-        toast.error(checkoutCart.error.message);
-      }
     } catch (e: any) {
       console.log(e);
     }

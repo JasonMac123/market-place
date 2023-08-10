@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       success_url: `http://localhost:3000/order/success?sessionID={CHECKOUT_SESSION_ID}`,
     });
 
-    return NextResponse.json(session.id);
+    return NextResponse.redirect(session.url!);
   } catch (e: any) {
     throw new Error(e);
   }
