@@ -22,10 +22,10 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       line_items: newCart,
       mode: "payment",
-      success_url: `http://localhost:3000/order/success?sessionID={CHECKOUT_SESSION_ID}`,
+      success_url: `http://localhost:3000/order/success/{CHECKOUT_SESSION_ID}`,
     });
 
-    return NextResponse.redirect(session.url!);
+    return NextResponse.json(session.url);
   } catch (e: any) {
     throw new Error(e);
   }
