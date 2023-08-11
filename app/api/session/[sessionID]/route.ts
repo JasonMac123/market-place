@@ -11,16 +11,15 @@ interface SessionParams {
 export async function GET(req: NextRequest, context: any) {
   try {
     const sessionID = context.params.sessionID;
-    console.log(sessionID);
-    // if (!sessionID) {
-    //   throw new Error("No session ID specificed");
-    // }
+    if (!sessionID) {
+      throw new Error("No session ID specificed");
+    }
 
-    // const checkoutSession = await stripe.checkout.sessions.retrieve(sessionID, {
-    //   expand: ["paymend_intent", "line_items.data.price.product"],
-    // });
+    const checkoutSession = await stripe.checkout.sessions.retrieve(sessionID, {
+      expand: ["paymend_intent", "line_items.data.price.product"],
+    });
 
-    return NextResponse.json({ hi: "HI" });
+    return NextResponse.json(checkoutSession);
   } catch (e: any) {
     throw new Error(e);
   }
