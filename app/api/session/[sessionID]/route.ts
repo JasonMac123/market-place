@@ -4,10 +4,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-11-15",
 });
 
-interface SessionParams {
-  sessionID: string;
-}
-
 export async function GET(req: NextRequest, context: any) {
   try {
     const sessionID = context.params.sessionID;
@@ -15,9 +11,9 @@ export async function GET(req: NextRequest, context: any) {
       throw new Error("No session ID specificed");
     }
 
-    const checkoutSession = await stripe.checkout.sessions.retrieve(sessionID, {
-      expand: ["paymend_intent", "line_items.data.price.product"],
-    });
+    const checkoutSession = await stripe.checkout.sessions.listLineItems(
+      sessionID
+    );
 
     return NextResponse.json(checkoutSession);
   } catch (e: any) {
