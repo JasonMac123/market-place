@@ -8,7 +8,7 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
   const result = await axios.get(
     `http://localhost:3000/api/session/${params.sessionID}`
   );
-  console.log(result.data);
+
   if (!result.data) {
     return (
       <div className="w-9/11 mx-auto flex justify-center items-center">
