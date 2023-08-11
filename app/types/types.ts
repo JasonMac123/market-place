@@ -1,3 +1,5 @@
+// item types from firebase databases
+
 export interface Option {
   option: string;
   stripeID: string;
@@ -19,9 +21,17 @@ export interface Item {
   stripeID: string;
 }
 
+export interface ItemQuantity {
+  [key: string]: number;
+}
+
+// types for user carts
+
 export interface ItemOrderContainerProps {
   userCart: Item[];
 }
+
+// types for item queries in api routes
 
 export interface UserParams {
   userID: string;
@@ -31,6 +41,4 @@ export interface ItemQuery {
   itemID: string;
 }
 
-export interface ItemQuantity {
-  [key: string]: number;
-}
+// stripe types
