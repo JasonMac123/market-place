@@ -16,6 +16,7 @@ import { getStripe } from "@/app/stripe/getStripe";
 import { loadStripe } from "@stripe/stripe-js";
 import createOrder from "@/app/firebase/createOrder";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useRouter } from "next/navigation";
 
 interface ItemOrderContainerProps {
   userID: UserParams;
@@ -26,6 +27,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   userCart,
   userID,
 }) => {
+  const router = useRouter();
   const [cart, setCart] = useState(userCart);
 
   const removeItem = async (name: string, label: string) => {
@@ -56,6 +58,8 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
       if (!result) {
         toast.error("Unable to checkout");
       }
+
+      router.push(result.data);
     } catch (e: any) {
       console.log(e);
     }
