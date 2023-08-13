@@ -1,6 +1,7 @@
 "use client";
 
 import { StripeItem } from "../types/types";
+
 import StripeItemCard from "./cards/StripeItemCard";
 
 interface StripeItemsProps {

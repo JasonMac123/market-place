@@ -1,7 +1,4 @@
-import { NextResponse } from "next/server";
-import { Item } from "../types/types";
 import firebase_app from "./config";
-
 import {
   getFirestore,
   collection,
@@ -12,6 +9,9 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
+
+import { NextResponse } from "next/server";
+import { Item } from "../types/types";
 
 interface Params {
   cart: Item[];

@@ -1,9 +1,10 @@
-import axios from "axios";
 import StripeItems from "@/app/components/StripeItems";
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import Button from "@/app/components/input/Button";
 
 import { GrRefresh } from "react-icons/gr";
+
+import axios from "axios";
 import { useRouter } from "next/router";
 
 interface sessionParams {
