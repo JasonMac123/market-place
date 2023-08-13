@@ -1,6 +1,10 @@
 import axios from "axios";
 import StripeItems from "@/app/components/StripeItems";
 import ClientContainer from "@/app/components/containers/ClientContainer";
+import Button from "@/app/components/input/Button";
+
+import { GrRefresh } from "react-icons/gr";
+import { useRouter } from "next/router";
 
 interface sessionParams {
   sessionID: string;
@@ -11,12 +15,24 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
     `http://localhost:3000/api/session/${params.sessionID}`
   );
 
+  const router = useRouter();
+
   if (!result.data) {
     return (
-      <div className="w-9/11 mx-auto flex justify-center items-center">
-        <div className="border-[1px] border-green-300">
+      <div className="w-9/12 mx-auto flex flex-col justify-center items-center">
+        <div className="border-[1px] border-red-300 p-8 space-y-4 rounded-lg">
           <h1>Thanks for your order!</h1>
-          <h2>Your order number is {params.sessionID}</h2>
+          <h2>
+            There was an error fetching your order details. Try refreshing the
+            page!
+          </h2>
+          <ClientContainer>
+            <Button
+              label="Refresh!"
+              Icon={GrRefresh}
+              onClick={() => router.reload()}
+            />
+          </ClientContainer>
         </div>
         <div className="flex flex-col"></div>
       </div>
