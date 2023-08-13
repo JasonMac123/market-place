@@ -30,7 +30,7 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
           <h2>Your order number is {params.sessionID}</h2>
         </div>
         <div className="flex flex-col">
-          <StripeItems data={result.data} />
+          <StripeItems data={result.data.data} />
         </div>
       </div>
     </ClientContainer>
