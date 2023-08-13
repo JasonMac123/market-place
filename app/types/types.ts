@@ -42,3 +42,16 @@ export interface ItemQuery {
 }
 
 // stripe types
+
+export interface StripeItem {
+  id: string;
+  object: string;
+  amount_discount: number;
+  amount_subtotal: number;
+  amount_tax: number;
+  amount_total: number;
+  currency: string;
+  description: string;
+  price: Object;
+  quantity: number;
+}
