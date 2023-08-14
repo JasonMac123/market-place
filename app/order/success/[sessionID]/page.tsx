@@ -5,7 +5,6 @@ import Button from "@/app/components/input/Button";
 import { GrRefresh } from "react-icons/gr";
 
 import axios from "axios";
-import { useRouter } from "next/navigation";
 
 interface sessionParams {
   sessionID: string;
