@@ -5,7 +5,7 @@ import Button from "@/app/components/input/Button";
 import { GrRefresh } from "react-icons/gr";
 
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface sessionParams {
   sessionID: string;
@@ -15,8 +15,6 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
   const result = await axios.get(
     `http://localhost:3000/api/session/${params.sessionID}`
   );
-
-  const router = useRouter();
 
   if (!result.data) {
     return (
@@ -28,11 +26,7 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
             page!
           </h2>
           <ClientContainer>
-            <Button
-              label="Refresh!"
-              Icon={GrRefresh}
-              onClick={() => router.reload()}
-            />
+            <Button label="Refresh!" Icon={GrRefresh} />
           </ClientContainer>
         </div>
         <div className="flex flex-col"></div>
