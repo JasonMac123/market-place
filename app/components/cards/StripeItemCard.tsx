@@ -1,5 +1,10 @@
 "use client";
 
+import Image from "next/image";
+
+import { PriceObject } from "@/app/types/types";
+import convertSIDToImage from "@/app/util/convertSIDToImage";
+
 interface StripeItemCardProps {
   id: string;
   object: string;
@@ -9,17 +14,28 @@ interface StripeItemCardProps {
   amount_total: number;
   currency: string;
   description: string;
-  price: Object;
+  price: PriceObject;
   quantity: number;
 }
 
 const StripeItemCard: React.FC<StripeItemCardProps> = ({
-  id,
   amount_total,
   description,
   quantity,
+  price,
 }) => {
-  return <div></div>;
+  const image = convertSIDToImage(price.id);
+
+  return (
+    <div className="flex justify-between items-center">
+      <div>
+        <Image src={image} width={200} height={200} alt="Item Order Picture" />
+      </div>
+      <div>Price: {amount_total / 100}</div>
+      <div>{description}</div>
+      <div>{quantity}</div>
+    </div>
+  );
 };
 
 export default StripeItemCard;
