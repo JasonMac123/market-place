@@ -52,6 +52,11 @@ export interface StripeItem {
   amount_total: number;
   currency: string;
   description: string;
-  price: Object;
+  price: PriceObject;
   quantity: number;
+}
+
+export interface PriceObject {
+  billing_scheme: string;
+  id: string;
 }
