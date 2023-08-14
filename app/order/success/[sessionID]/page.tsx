@@ -43,7 +43,7 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
           </h2>
         </div>
         <hr className="border-black w-3/4 my-8" />
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-8">
           <h2 className="text-3xl w-full">Your Items</h2>
           <StripeItems data={result.data.data} />
         </div>
