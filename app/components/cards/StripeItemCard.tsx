@@ -27,7 +27,7 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
   const image = convertSIDToImage(price.id);
 
   return (
-    <div className="flex justify-between items-center border-[1px] p-8 rounded-lg">
+    <div className="w-3/4 flex justify-between items-center border-[1px] p-8 rounded-lg">
       <div className="w-1/2 h-full">
         <Image
           src={image}
@@ -36,7 +36,7 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
           alt="Item Order Picture"
         />
       </div>
-      <div className="flex flex-col p-4">
+      <div className="flex flex-col p-4 border-[1px] space-y-4">
         <div>Price: {amount_total / 100}</div>
         <div>Name: {description}</div>
         <div>Quantity: {quantity}</div>
