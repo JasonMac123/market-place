@@ -25,7 +25,6 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
   price,
 }) => {
   const image = convertSIDToImage(price.id);
-
   return (
     <div className="flex justify-between items-center border-[1px] p-8 rounded-lg">
       <div>
