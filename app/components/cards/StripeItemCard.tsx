@@ -31,9 +31,11 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
       <div>
         <Image src={image} width={200} height={200} alt="Item Order Picture" />
       </div>
-      <div>Price: {amount_total / 100}</div>
-      <div>{description}</div>
-      <div>{quantity}</div>
+      <div className="flex flex-col p-4">
+        <div>Price: {amount_total / 100}</div>
+        <div>Name: {description}</div>
+        <div>Quantity: {quantity}</div>
+      </div>
     </div>
   );
 };
