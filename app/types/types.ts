@@ -37,8 +37,20 @@ export interface UserParams {
   userID: string;
 }
 
+export interface cartParams {
+  searchParams: ErrorMessage;
+}
+
 export interface ItemQuery {
   itemID: string;
+}
+
+export interface Query {
+  category: string;
+}
+
+export interface ErrorMessage {
+  error: string;
 }
 
 // stripe types
