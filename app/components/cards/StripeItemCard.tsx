@@ -27,21 +27,31 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
   const image = convertSIDToImage(price.id);
 
   return (
-    <div className="w-3/4 flex justify-between items-center border-[1px] p-8 rounded-lg">
-      <div className="w-1/2 h-full">
-        <Image
-          src={image}
-          layout="fill"
-          objectFit="cover"
-          alt="Item Order Picture"
-        />
+    <>
+      <div className="w-3/4 flex justify p-16 rounded-md bg-white">
+        <div className="w-1/3 h-1/3 relative border-[1px] rounded-lg overflow-hidden">
+          <Image
+            src={image}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full h-auto"
+            objectFit="cover"
+            alt="Item Order Picture"
+          />
+        </div>
+        <div className="flex flex-col justify-between p-8 space-y-4 rounded-md">
+          <div className="text-4xl">{description}</div>
+          <div className="flex justify-between items-center space-x-8">
+            <div className="border-r-[1px] border-black pr-8">
+              Price: {amount_total / 100}
+            </div>
+            <div>Quantity: {quantity}</div>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col p-4 border-[1px] space-y-4">
-        <div>Price: {amount_total / 100}</div>
-        <div>Name: {description}</div>
-        <div>Quantity: {quantity}</div>
-      </div>
-    </div>
+      <hr className="border-black w-3/4 my-8" />
+    </>
   );
 };
 
