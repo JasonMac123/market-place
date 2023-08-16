@@ -28,7 +28,7 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
 
   return (
     <>
-      <div className="w-3/4 flex justify p-16 rounded-md bg-white">
+      <div className="w-3/4 flex justify p-16 rounded-md">
         <div className="w-1/3 h-1/3 relative border-[1px] rounded-lg overflow-hidden">
           <Image
             src={image}
