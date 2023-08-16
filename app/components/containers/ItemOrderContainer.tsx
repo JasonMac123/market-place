@@ -26,6 +26,14 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   const router = useRouter();
   const [cart, setCart] = useState(userCart);
 
+  const { errorMessage } = searchParams;
+
+  if (errorMessage) {
+    toast.error(
+      "There was an error processing your checkout. Please try again."
+    );
+  }
+
   const removeItem = async (name: string, label: string) => {
     const result = await removeItemFromCart({
       userParams: userID,
