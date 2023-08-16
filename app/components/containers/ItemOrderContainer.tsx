@@ -1,31 +1,27 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 
-import { Item, UserParams } from "@/app/types/types";
+import { Item, UserParams, CartParams } from "@/app/types/types";
+
+import Button from "../input/Button";
+import ItemOrderCard from "../cards/ItemOrderCard";
 
 import removeItemFromCart from "@/app/firebase/removeItemFromCart";
-
-import { toast } from "react-toastify";
-
-import ClientContainer from "./ClientContainer";
-import ItemOrderCard from "../cards/ItemOrderCard";
-import Button from "../input/Button";
-import axios from "axios";
-import { data } from "autoprefixer";
-import { getStripe } from "@/app/stripe/getStripe";
-import { loadStripe } from "@stripe/stripe-js";
-import createOrder from "@/app/firebase/createOrder";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useRouter } from "next/navigation";
 
 interface ItemOrderContainerProps {
   userID: UserParams;
   userCart: Item[];
+  searchParams: CartParams;
 }
 
 const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   userCart,
   userID,
+  searchParams,
 }) => {
   const router = useRouter();
   const [cart, setCart] = useState(userCart);

@@ -37,7 +37,7 @@ export interface UserParams {
   userID: string;
 }
 
-export interface cartParams {
+export interface CartParams {
   searchParams: ErrorMessage;
 }
 
