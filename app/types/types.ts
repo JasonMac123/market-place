@@ -38,7 +38,7 @@ export interface UserParams {
 }
 
 export interface CartParams {
-  searchParams: ErrorMessage;
+  errorMessage: string;
 }
 
 export interface ItemQuery {
@@ -47,10 +47,6 @@ export interface ItemQuery {
 
 export interface Query {
   category: string;
-}
-
-export interface ErrorMessage {
-  error: string;
 }
 
 // stripe types
