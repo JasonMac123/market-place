@@ -11,10 +11,11 @@ interface StripeItemsProps {
 const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
   const totalPrice =
     data.reduce((acc, item) => item.amount_subtotal + acc, 0) / 100;
-
   const totalTax = data.reduce((acc, item) => item.amount_tax + acc, 0) / 100;
+
   return (
     <>
+      <hr className="border-black w-3/4 my-8" />
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} />;
       })}
