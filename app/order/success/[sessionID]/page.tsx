@@ -35,15 +35,21 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
   return (
     <ClientContainer>
       <div className="w-9/12 mx-auto flex flex-col justify-center items-center">
-        <div className="w-full border-[4px] border-green-300 p-8 space-y-4 rounded-lg">
-          <h1 className="text-5xl underline">Thanks for your order!</h1>
-          <h2 className="text-md">
-            Your order number is{" "}
-            <b className="text-lg hover:underline">{params.sessionID}</b>
+        <div className="w-full border-[4px] border-green-500 p-8 space-y-2 rounded-lg">
+          <h1 className="text-2xl text-green-900">Payment successful</h1>
+          <h1 className="text-4xl underline">Thanks for your order!</h1>
+          <h2>
+            We appreciate your order, we're currently processing it. So hang
+            tight and we'll send you confirmation very soon!
           </h2>
+          <div className="pt-4">
+            <h2 className="text-md font-bold">Order number</h2>
+            <h3 className="text-lg hover:underline text-cerulean">
+              {params.sessionID}
+            </h3>
+          </div>
         </div>
-        <hr className="border-black w-3/4 my-20" />
-        <div className="flex flex-col gap-8 items-center">
+        <div className="flex flex-col gap-8 items-center mt-16">
           <h2 className="text-3xl w-3/4 text-left">Your Items</h2>
           <StripeItems data={result.data.data} />
         </div>
