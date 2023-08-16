@@ -5,7 +5,7 @@ import { Item } from "@/app/types/types";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { cart } = body;
+    const { cart, userID } = body;
 
     if (!cart) {
       return NextResponse.error();
@@ -23,6 +23,7 @@ export async function POST(req: NextRequest) {
       line_items: newCart,
       mode: "payment",
       success_url: `http://localhost:3000/order/success/{CHECKOUT_SESSION_ID}`,
+      cancel_url: `http://localhost:3000/cart/${userID}`,
     });
 
     return NextResponse.json(session.url);
