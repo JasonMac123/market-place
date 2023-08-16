@@ -42,9 +42,9 @@ const OrderPage = async ({ params }: { params: sessionParams }) => {
             <b className="text-lg hover:underline">{params.sessionID}</b>
           </h2>
         </div>
-        <hr className="border-black w-3/4 my-8" />
-        <div className="flex flex-col gap-8">
-          <h2 className="text-3xl w-full">Your Items</h2>
+        <hr className="border-black w-3/4 my-20" />
+        <div className="flex flex-col gap-8 items-center">
+          <h2 className="text-3xl w-3/4 text-left">Your Items</h2>
           <StripeItems data={result.data.data} />
         </div>
       </div>
