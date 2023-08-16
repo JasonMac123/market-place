@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       line_items: newCart,
       mode: "payment",
       success_url: `http://localhost:3000/order/success/{CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/cart/${userID}`,
+      cancel_url: `http://localhost:3000/cart/${userID}?error=true`,
     });
 
     return NextResponse.json(session.url);
