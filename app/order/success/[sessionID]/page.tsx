@@ -2,11 +2,11 @@ import StripeItems from "@/app/components/StripeItems";
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import Button from "@/app/components/input/Button";
 
-import { GrRefresh } from "react-icons/gr";
-
 import axios from "axios";
-import { SessionParams, UserParams } from "@/app/types/types";
+import { GrRefresh } from "react-icons/gr";
 import createOrder from "@/app/firebase/createOrder";
+
+import { SessionParams, UserParams } from "@/app/types/types";
 
 const OrderPage = async ({
   params,
