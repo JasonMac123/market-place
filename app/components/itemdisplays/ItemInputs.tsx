@@ -14,16 +14,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import addToCart from "@/app/firebase/addToCart";
 
 import { useRouter } from "next/navigation";
-import { ItemQuantity } from "@/app/types/types";
+import { ItemQuantity, Option } from "@/app/types/types";
 
 interface ItemInputsProps {
   quantity: ItemQuantity;
   imageSrc: string;
   itemName: string;
   price: number;
-  options: [Object, ...Object[]];
+  options: [Option, ...Option[]];
   id: string;
-  stripeID: number;
 }
 
 const ItemInputs: React.FC<ItemInputsProps> = ({
@@ -33,7 +32,6 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   itemName,
   options,
   id,
-  stripeID,
 }) => {
   const auth = getAuth(firebase_app);
   const [user] = useAuthState(auth);
@@ -43,7 +41,11 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   const { handleSubmit, setValue, watch, reset } = useForm<FieldValues>({
     defaultValues: {
       counter: 1,
-      option: { label: options[0], value: options[0] },
+      option: {
+        label: options[0].option,
+        value: options[0].option,
+        stripeID: options[0].stripeID,
+      },
     },
   });
 
@@ -83,7 +85,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
       maxQuantity: quantity,
       image: imageSrc,
       itemName: itemName,
-      stripeID: stripeID,
+      stripeID: option.stripeID,
     });
 
     if (addItem === "Successfully added item to cart!") {
@@ -103,7 +105,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
         value={option}
         onChange={(value) => setFormValue("option", value)}
       />
-      {quantity[option.value] < 10 ? (
+      {quantity[option.value] < 10 && quantity[option.value] > 0 && (
         <div className="flex gap-2 items-center">
           <h3 className="text-lg">Only</h3>
           <h3 className="text-xl text-red-600">
@@ -111,9 +113,11 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
           </h3>
           <h3 className="text-lg">now.</h3>
         </div>
-      ) : (
-        <h3>In stock now!</h3>
       )}
+      {quantity[option.value] <= 0 && (
+        <h2 className="text-3xl text-red-600">Sold-Out</h2>
+      )}
+      {quantity[option.value] >= 0 && <h2 className="text-3xl">In Stock!</h2>}
       <QuantityCounter
         title="How many?"
         maxValue={quantity[option.value]}

@@ -13,7 +13,7 @@ const Logo: React.FC<LogoProps> = ({ alt }) => {
   return (
     <Image
       alt="logo"
-      className="block coursor-pointer w-auto h-auto object-scale-down"
+      className="block hover:cursor-pointer w-auto h-auto object-scale-down"
       height="0"
       width="0"
       sizes={alt ? "400px" : "200px"}

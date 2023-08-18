@@ -14,6 +14,7 @@ interface Item {
   quantity: ItemQuantity;
   region: string;
   id: string;
+  shortDescription: string;
 }
 
 interface ItemQuantity {
