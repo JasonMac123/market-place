@@ -37,6 +37,8 @@ export default async function createOrder(params: Params) {
       return;
     }
 
+    // order does not hold any order items, as the stripe session ID holds all checkout information.
+
     let order = await addDoc(orderSnapShot, {
       order: sessionID,
       userID: userID,
