@@ -14,23 +14,21 @@ import { NextResponse } from "next/server";
 import { Item } from "../types/types";
 
 interface Params {
-  cart: Item[];
-  orderNumber: string;
+  sessionID: string;
   userID: string;
 }
 
 export default async function createOrder(params: Params) {
   try {
-    const { cart, orderNumber, userID } = params;
+    const { sessionID, userID } = params;
 
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
     const orderSnapShot = collection(db, "orders");
 
     let order = await addDoc(orderSnapShot, {
-      order: orderNumber,
+      order: sessionID,
       userID: userID,
-      cart: cart,
       status: "incomplete",
     });
 
