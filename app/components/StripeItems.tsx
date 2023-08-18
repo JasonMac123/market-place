@@ -19,9 +19,8 @@ const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} />;
       })}
-      <div className="flex flex-col w-full justify-center items-center">
-        <h3>Pricing summary</h3>
-        <div></div>
+      <div className="flex flex-col w-full justify-center items-center bg-white">
+        <h3 className="text-3xl text-center">Pricing summary</h3>
         <h4 className="text-lg">Subtotal: {totalPrice}</h4>
         <h4 className="text-lg">Tax: {totalTax}</h4>
         <h4 className="text-lg">Total Price: {totalPrice + totalTax}</h4>
