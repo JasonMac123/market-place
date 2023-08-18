@@ -86,7 +86,7 @@ const UserMenu = () => {
                   label="My past orders"
                   onClick={() => {
                     toggleOpen();
-                    router.push("/orders");
+                    router.push(`/order/history/${user.uid}`);
                   }}
                   Icon={AiOutlineHistory}
                 />

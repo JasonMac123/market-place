@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/api/session"
+    "app/api/session",
+    "app/api/multiple-sessions/[customerID]"
   ],
   "exclude": ["node_modules"]
 }
