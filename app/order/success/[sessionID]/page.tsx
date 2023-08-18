@@ -5,12 +5,21 @@ import Button from "@/app/components/input/Button";
 import { GrRefresh } from "react-icons/gr";
 
 import axios from "axios";
-import { SessionParams } from "@/app/types/types";
+import { SessionParams, UserParams } from "@/app/types/types";
+import createOrder from "@/app/firebase/createOrder";
 
-const OrderPage = async ({ params }: { params: SessionParams }) => {
+const OrderPage = async ({
+  params,
+  searchParams,
+}: {
+  params: SessionParams;
+  searchParams: UserParams;
+}) => {
   const result = await axios.get(
     `http://localhost:3000/api/session/${params.sessionID}`
   );
+
+  createOrder({ userID: searchParams.userID, sessionID: params.sessionID });
 
   if (!result.data) {
     return (
