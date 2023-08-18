@@ -5,12 +5,9 @@ import Button from "@/app/components/input/Button";
 import { GrRefresh } from "react-icons/gr";
 
 import axios from "axios";
+import { SessionParams } from "@/app/types/types";
 
-interface sessionParams {
-  sessionID: string;
-}
-
-const OrderPage = async ({ params }: { params: sessionParams }) => {
+const OrderPage = async ({ params }: { params: SessionParams }) => {
   const result = await axios.get(
     `http://localhost:3000/api/session/${params.sessionID}`
   );

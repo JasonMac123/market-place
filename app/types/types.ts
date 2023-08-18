@@ -41,6 +41,12 @@ export interface CartParams {
   errorMessage: string;
 }
 
+// params for queries
+
+export interface SessionParams {
+  sessionID: string;
+}
+
 export interface ItemQuery {
   itemID: string;
 }
