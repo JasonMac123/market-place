@@ -29,6 +29,7 @@ export default async function createOrder(params: Params) {
 
     let order = await addDoc(orderSnapShot, {
       order: orderNumber,
+      userID: userID,
       cart: cart,
       status: "incomplete",
     });
