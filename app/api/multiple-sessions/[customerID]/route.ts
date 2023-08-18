@@ -7,13 +7,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function GET(context: any) {
   try {
-    const userID = context.params.userID;
-    if (!userID) {
+    const customerID = context.params.customerID;
+    if (!customerID) {
       throw new Error("No session ID specificed");
     }
 
     const checkoutSession = await stripe.checkout.sessions.list({
-      customer: userID,
+      customer: customerID,
     });
 
     return NextResponse.json(checkoutSession);
