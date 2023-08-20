@@ -8,6 +8,7 @@ import {
   getDocs,
   doc,
   deleteDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 
 import { NextResponse } from "next/server";
@@ -43,6 +44,7 @@ export default async function createOrder(params: Params) {
       order: sessionID,
       userID: userID,
       status: "incomplete",
+      createdAt: serverTimestamp(),
     });
 
     const queryUserCart = await query(
