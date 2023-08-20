@@ -13,9 +13,16 @@ export async function GET(context: any) {
       throw new Error("No session ID specificed");
     }
 
-    const userStripeSessions = getOrdersByUserID({ userID: userID });
+    const userStripeSessions = await getOrdersByUserID({ userID: userID });
 
-    return NextResponse.json("");
+    const orders: any = [];
+
+    for (const session of userStripeSessions) {
+      let sessionData = await stripe.checkout.sessions.listLineItems(session);
+      orders.push(sessionData);
+    }
+
+    return NextResponse.json(orders);
   } catch (e: any) {
     throw new Error(e);
   }
