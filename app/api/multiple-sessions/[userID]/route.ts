@@ -1,3 +1,4 @@
+import getOrdersByUserID from "@/app/firebase/getOrdersByUserID";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -11,6 +12,8 @@ export async function GET(context: any) {
     if (!userID) {
       throw new Error("No session ID specificed");
     }
+
+    const userStripeSessions = getOrdersByUserID({ userID: userID });
 
     return NextResponse.json("");
   } catch (e: any) {
