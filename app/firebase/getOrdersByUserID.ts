@@ -5,6 +5,7 @@ import {
   collection,
   query,
   where,
+  orderBy,
 } from "firebase/firestore";
 
 import { UserParams } from "../types/types";
@@ -20,7 +21,8 @@ export default async function getOrdersByUserID(params: UserParams) {
 
     const queryOrders = await query(
       orderSnapShot,
-      where("userid", "==", userID)
+      where("userid", "==", userID),
+      orderBy("createdAt")
     );
 
     const userOrders = await getDocs(queryOrders);
