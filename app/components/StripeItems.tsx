@@ -34,7 +34,7 @@ const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
             <h4 className="text-lg">${totalPrice + totalTax}</h4>
           </div>
         </div>
-        <h6 className="text-right">
+        <h6 className="text-right mr-40">
           Note: tax is calculated as 0.00 due to stripe calculations{" "}
         </h6>
       </div>
