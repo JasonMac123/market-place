@@ -41,8 +41,6 @@ export default async function addToCart(params: Params) {
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
 
-    console.log("hi");
-
     const queryUserCart = await query(
       cartSnapShot,
       where("userid", "==", userID)
@@ -85,7 +83,10 @@ export default async function addToCart(params: Params) {
         orderedItem?.itemID === itemID &&
         orderedItem?.optionType.value === optionType.value
       ) {
-        if (orderAmount + orderedItem.orderQuantity <= maxQuantity.optionType) {
+        if (
+          orderQuantity + orderedItem.orderQuantity <=
+          maxQuantity[optionType.value]
+        ) {
           orderedItem.orderQunaity += orderQuantity;
           orderedItem.orderAmount += orderAmount;
 
