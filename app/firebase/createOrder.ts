@@ -24,6 +24,7 @@ export default async function createOrder(params: Params) {
     const { sessionID, userID } = params;
 
     const db = getFirestore(firebase_app);
+
     const cartSnapShot = collection(db, "cart");
     const orderSnapShot = collection(db, "orders");
 
@@ -34,7 +35,7 @@ export default async function createOrder(params: Params) {
 
     const orderSnapShotResults = await getDocs(queryOrder);
 
-    if (orderSnapShotResults) {
+    if (!orderSnapShotResults.empty) {
       return;
     }
 
