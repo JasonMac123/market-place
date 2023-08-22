@@ -19,12 +19,14 @@ const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} />;
       })}
-      <div className="flex flex-col w-full justify-center items-center bg-white">
+      <div className="flex flex-col w-full px-4">
         <h3 className="text-3xl text-center">Pricing summary</h3>
-        <h4 className="text-lg">Subtotal: {totalPrice}</h4>
-        <h4 className="text-lg">Tax: {totalTax}</h4>
-        <h4 className="text-lg">Total Price: {totalPrice + totalTax}</h4>
-        <h6>note: tax is calculated as 0.00 due to stripe calculations </h6>
+        <div>
+          <h4 className="text-lg">Subtotal: {totalPrice}</h4>
+          <h4 className="text-lg">Tax: {totalTax}</h4>
+          <h4 className="text-lg">Total Price: {totalPrice + totalTax}</h4>
+          <h6>note: tax is calculated as 0.00 due to stripe calculations </h6>
+        </div>
       </div>
     </>
   );

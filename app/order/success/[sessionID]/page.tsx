@@ -58,7 +58,7 @@ const OrderPage = async ({
             </h3>
           </div>
         </div>
-        <div className="flex flex-col gap-8 items-center mt-16">
+        <div className="flex flex-col gap-8 items-center mt-16 bg-white py-8">
           <h2 className="text-3xl w-3/4 text-left">Your Items</h2>
           <StripeItems data={result.data.data} />
         </div>
