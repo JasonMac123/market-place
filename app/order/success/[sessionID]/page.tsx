@@ -18,7 +18,7 @@ const OrderPage = async ({
   const result = await axios.get(
     `http://localhost:3000/api/session/${params.sessionID}`
   );
-
+  // currently creates double entry in database due to double rerender
   createOrder({ userID: searchParams.userID, sessionID: params.sessionID });
 
   if (!result.data) {
