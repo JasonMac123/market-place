@@ -54,9 +54,6 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
 
   const orderCart = async () => {
     try {
-      const stripe = await loadStripe(
-        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-      );
       const result = await axios.post("/api/checkout-session", {
         cart,
         userID,
