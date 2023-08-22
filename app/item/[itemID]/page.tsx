@@ -27,7 +27,7 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
 
   return (
     <ClientContainer>
-      <div className="relative flex w-4/5 mx-auto py-12 gap-8">
+      <div className="relative flex w-4/5 mx-auto py-12 gap-8 bg-white p-8 rounded-lg">
         <ItemReturn />
         <Image
           src={

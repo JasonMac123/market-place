@@ -41,7 +41,7 @@ const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
   }
 
   return (
-    <div className="flex flex-wrap gap-16 w-3/4 mx-auto h-full">
+    <div className="flex flex-wrap gap-16 w-4/5 mx-auto h-full bg-white p-16 rounded-md">
       {items.map((item: Item) => {
         return <ItemCard key={item.id} {...item} />;
       })}
