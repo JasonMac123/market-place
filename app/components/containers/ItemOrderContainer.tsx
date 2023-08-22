@@ -71,7 +71,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
 
   if (!userCart.length) {
     return (
-      <div className="flex flex-col w-4/5 mx-auto items-center justify-center space-y-4 bg-white rounded-lg p-8">
+      <div className="flex flex-col w-4/5 h-[30rem] mx-auto items-center justify-center space-y-4 bg-white rounded-lg p-8">
         <h1 className="text-4xl">You have no items currently!</h1>
         <h2 className="text-3xl">Add some items</h2>
       </div>
