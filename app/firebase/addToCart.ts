@@ -41,12 +41,16 @@ export default async function addToCart(params: Params) {
     const db = getFirestore(firebase_app);
     const cartSnapShot = collection(db, "cart");
 
+    console.log("hi");
+
     const queryUserCart = await query(
       cartSnapShot,
       where("userid", "==", userID)
     );
 
-    if (!queryUserCart) {
+    const queryUserCartResults = await getDocs(queryUserCart);
+
+    if (queryUserCartResults.empty) {
       await addDoc(cartSnapShot, {
         userid: userID,
         items: [
