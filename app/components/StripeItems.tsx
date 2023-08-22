@@ -21,12 +21,22 @@ const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
       })}
       <div className="flex flex-col w-full px-4">
         <h3 className="text-3xl text-center">Pricing summary</h3>
-        <div>
-          <h4 className="text-lg">Subtotal: {totalPrice}</h4>
-          <h4 className="text-lg">Tax: {totalTax}</h4>
-          <h4 className="text-lg">Total Price: {totalPrice + totalTax}</h4>
-          <h6>note: tax is calculated as 0.00 due to stripe calculations </h6>
+        <div className="flex space-x-2 justify-end mr-40">
+          <div className="flex flex-col items-end">
+            <h4 className="text-lg">Subtotal:</h4>
+            <h4 className="text-lg">Tax:</h4>
+            <h4 className="text-lg">Total Price:</h4>
+          </div>
+          <div className="flex flex-col items-end">
+            <h4 className="text-lg">${totalPrice}</h4>
+            <h4 className="text-lg">${totalTax}</h4>
+            <hr className="border-black w-full" />
+            <h4 className="text-lg">${totalPrice + totalTax}</h4>
+          </div>
         </div>
+        <h6 className="text-right">
+          Note: tax is calculated as 0.00 due to stripe calculations{" "}
+        </h6>
       </div>
     </>
   );
