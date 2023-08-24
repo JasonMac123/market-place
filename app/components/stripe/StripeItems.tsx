@@ -1,8 +1,8 @@
 "use client";
 
-import { StripeItem } from "../types/types";
+import { StripeItem } from "../../types/types";
 
-import StripeItemCard from "./cards/StripeItemCard";
+import StripeItemCard from "../cards/StripeItemCard";
 
 interface StripeItemsProps {
   data: StripeItem[];
