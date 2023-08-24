@@ -22,6 +22,7 @@ export async function GET(req: NextRequest, context: any) {
       let sessionData = await stripe.checkout.sessions.listLineItems(
         session.order
       );
+      session.data.timestamp = session.timestamp;
       orders.push(sessionData.data);
     }
 
