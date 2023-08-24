@@ -1,4 +1,4 @@
-import StripeItems from "@/app/components/StripeItems";
+import StripeItems from "@/app/components/stripe/StripeItems";
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import Button from "@/app/components/input/Button";
 
