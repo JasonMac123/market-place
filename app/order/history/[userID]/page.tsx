@@ -3,7 +3,7 @@ import axios from "axios";
 import { UserParams } from "@/app/types/types";
 
 import ClientContainer from "@/app/components/containers/ClientContainer";
-import StripeItemCard from "@/app/components/cards/StripeItemCard";
+import OrderHistoryContainer from "@/app/components/containers/OrderHistoryContainer";
 
 const Page = async ({ params }: { params: UserParams }) => {
   const result = await axios.get(
