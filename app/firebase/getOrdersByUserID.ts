@@ -15,7 +15,6 @@ export default async function getOrdersByUserID(params: UserParams) {
   try {
     const { userID } = params;
 
-    console.log(userID);
     const items: any = [];
 
     const db = getFirestore(firebase_app);
