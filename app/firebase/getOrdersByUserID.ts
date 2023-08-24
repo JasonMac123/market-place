@@ -14,6 +14,8 @@ import { NextResponse } from "next/server";
 export default async function getOrdersByUserID(params: UserParams) {
   try {
     const { userID } = params;
+
+    console.log(userID);
     const items: any = [];
 
     const db = getFirestore(firebase_app);
@@ -21,7 +23,7 @@ export default async function getOrdersByUserID(params: UserParams) {
 
     const queryOrders = await query(
       orderSnapShot,
-      where("userid", "==", userID),
+      where("userID", "==", userID),
       orderBy("createdAt")
     );
 
@@ -30,7 +32,7 @@ export default async function getOrdersByUserID(params: UserParams) {
       items.push({ ...doc.data(), id: doc.id });
     });
 
-    return NextResponse.json(items);
+    return items;
   } catch (e: any) {
     throw new Error(e);
   }
