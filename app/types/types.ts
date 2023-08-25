@@ -1,5 +1,7 @@
 // item types from firebase databases
 
+import { Timestamp } from "firebase/firestore";
+
 export interface Option {
   option: string;
   stripeID: string;
@@ -73,4 +75,9 @@ export interface StripeItem {
 export interface PriceObject {
   billing_scheme: string;
   id: string;
+}
+
+export interface OrderObject {
+  data: StripeItem[];
+  orderTimestamp: Timestamp;
 }

@@ -25,7 +25,10 @@ export async function GET(req: NextRequest, context: any) {
       let sessionData = await stripe.checkout.sessions.listLineItems(
         session.order
       );
-      let order = { data: sessionData.data, orderTimestamp: session.Timestamp };
+      let order = {
+        data: sessionData.data,
+        orderTimestamp: session.createdAt.Timestamp,
+      };
       orders.push(order);
     }
 
