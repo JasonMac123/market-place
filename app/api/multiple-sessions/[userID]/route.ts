@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import getOrdersByUserID from "@/app/firebase/getOrdersByUserID";
 import Stripe from "stripe";
 
+import { LineItem } from "@stripe/stripe-js";
+import { Timestamp } from "firebase/firestore";
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-11-15",
 });
@@ -22,8 +25,8 @@ export async function GET(req: NextRequest, context: any) {
       let sessionData = await stripe.checkout.sessions.listLineItems(
         session.order
       );
-      session.data.timestamp = session.timestamp;
-      orders.push(sessionData.data);
+      let order = { data: sessionData.data, orderTimestamp: session.Timestamp };
+      orders.push(order);
     }
 
     return NextResponse.json(orders);
