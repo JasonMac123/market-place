@@ -80,4 +80,5 @@ export interface PriceObject {
 export interface OrderObject {
   data: StripeItem[];
   orderTimestamp: Timestamp;
+  orderID: string;
 }

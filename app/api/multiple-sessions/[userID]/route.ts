@@ -28,6 +28,7 @@ export async function GET(req: NextRequest, context: any) {
       let order = {
         data: sessionData.data,
         orderTimestamp: session.createdAt.Timestamp,
+        orderID: session.order,
       };
       orders.push(order);
     }
