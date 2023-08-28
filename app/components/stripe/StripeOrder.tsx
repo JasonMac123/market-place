@@ -18,8 +18,8 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className="w-3/4 mx-auto">
-      <div className="w-full h-20 bg-cerulean flex justify-between">
+    <div className="w-3/4 mx-auto border-[1px] rounded-xl">
+      <div className="w-full h-20 bg-neutral-200 flex justify-between">
         <div>
           Order Number -{" "}
           <div
