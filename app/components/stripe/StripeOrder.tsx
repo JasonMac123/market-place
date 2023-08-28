@@ -11,9 +11,17 @@ interface StripeOrderProps {
   orderID: string;
 }
 
-const StripeOrder: React.FC<StripeOrderProps> = ({ data }) => {
+const StripeOrder: React.FC<StripeOrderProps> = ({
+  data,
+  timeStamp,
+  orderID,
+}) => {
   return (
     <div className="w-3/4 mx-auto">
+      <div className="w-full h-20 bg-cerulean flex justify-between">
+        <div>Order Number - {orderID}</div>
+        <div>Ordered on {timeStamp.toDate().toDateString()}</div>
+      </div>
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} />;
       })}
