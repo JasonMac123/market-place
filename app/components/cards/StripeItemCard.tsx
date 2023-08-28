@@ -27,8 +27,8 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
   const image = convertSIDToImage(price.id);
 
   return (
-    <>
-      <div className="w-3/4 flex justify px-16 py-2 rounded-md">
+    <div className="w-1/2">
+      <div className="w-full flex justify px-16 py-2 rounded-md">
         <div className="w-1/3 h-1/3 relative border-[1px] rounded-lg overflow-hidden">
           <Image
             src={image}
@@ -50,8 +50,8 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
           </div>
         </div>
       </div>
-      <hr className="border-black w-3/4 my-8" />
-    </>
+      <hr className="border-black w-full my-8" />
+    </div>
   );
 };
 
