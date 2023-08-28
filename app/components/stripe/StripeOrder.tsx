@@ -4,6 +4,7 @@ import { StripeItem } from "@/app/types/types";
 import { Timestamp } from "firebase/firestore";
 
 import StripeItemCard from "../cards/StripeItemCard";
+import { useRouter } from "next/navigation";
 
 interface StripeOrderProps {
   data: StripeItem[];
@@ -16,10 +17,20 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
   timeStamp,
   orderID,
 }) => {
+  const router = useRouter();
+
   return (
     <div className="w-3/4 mx-auto">
       <div className="w-full h-20 bg-cerulean flex justify-between">
-        <div>Order Number - {orderID}</div>
+        <div>
+          Order Number -{" "}
+          <div
+            className="hover:underline hover:text-celestial"
+            onClick={() => router.push(`/order/success/${orderID}`)}
+          >
+            {orderID}
+          </div>
+        </div>
         <div>Ordered on {timeStamp.toDate().toDateString()}</div>
       </div>
       {data.map((item) => {
