@@ -1,14 +1,13 @@
 "use client";
 
 import { StripeItem } from "@/app/types/types";
-import { Timestamp } from "firebase/firestore";
 
 import StripeItemCard from "../cards/StripeItemCard";
 import { useRouter } from "next/navigation";
 
 interface StripeOrderProps {
   data: StripeItem[];
-  timeStamp: Timestamp;
+  timeStamp: string;
   orderID: string;
 }
 
@@ -18,7 +17,6 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
   orderID,
 }) => {
   const router = useRouter();
-
   return (
     <div className="w-3/4 mx-auto">
       <div className="w-full h-20 bg-cerulean flex justify-between">
@@ -31,7 +29,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
             {orderID}
           </div>
         </div>
-        <div>Ordered on {timeStamp.toDate().toDateString()}</div>
+        <div>Ordered on {timeStamp}</div>
       </div>
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} />;

@@ -19,6 +19,7 @@ const OrderHistoryContainer: React.FC<OrderHistoryContainerProps> = ({
             key={uuid()}
             data={order.data}
             timeStamp={order.orderTimestamp}
+            orderID={order.orderID}
           />
         );
       })}
