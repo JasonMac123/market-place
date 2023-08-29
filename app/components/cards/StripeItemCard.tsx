@@ -36,7 +36,6 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
             height={0}
             sizes="100vw"
             className="w-full h-auto"
-            objectFit="cover"
             alt="Item Order Picture"
           />
         </div>
