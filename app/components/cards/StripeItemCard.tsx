@@ -51,7 +51,7 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
           </div>
         </div>
       </div>
-      <hr className="border-black w-full my-8" />
+      {small && <hr className="border-black w-full my-8" />}
     </div>
   );
 };
