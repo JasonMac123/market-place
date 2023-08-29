@@ -24,7 +24,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   const router = useRouter();
 
   return (
-    <div className="w-1/4 h-[70vh] space-y-4">
+    <div className="md:w-[80%] lg:w-[45%] xl:w-1/3 2xl:w-1/4 w-[90%] h-[80vh] lg:h-[70vh] space-y-4">
       <div className="w-full h-full flex flex-col justify-between items-center bg-neutral-200 hover:bg-neutral-300 cursor-pointer rounded-lg">
         <div
           className="w-full h-full flex flex-col p-4 items-center"
