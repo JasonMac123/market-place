@@ -18,12 +18,12 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className="w-3/4 mx-auto border-[1px] rounded-xl">
-      <div className="w-full h-20 bg-neutral-200 flex justify-between">
-        <div>
-          Order Number -{" "}
+    <div className="w-3/4 mx-auto border-[1px] border-black rounded-xl p-4">
+      <div className="w-full h-20 bg-gradient-to-b from-neutral-400 to-neutral-300 flex justify-between items-center p-4 rounded-xl overflow-hidden">
+        <div className="flex">
+          Order Number -
           <div
-            className="hover:underline hover:text-celestial"
+            className="hover:underline hover:text-celestial ml-2"
             onClick={() => router.push(`/order/success/${orderID}`)}
           >
             {orderID}
