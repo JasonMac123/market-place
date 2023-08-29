@@ -1,7 +1,7 @@
 "use client";
 
-import { uuid } from "uuidv4";
-import { OrderObject, StripeItem } from "@/app/types/types";
+import { v4 } from "uuid";
+import { OrderObject } from "@/app/types/types";
 import StripeOrder from "../stripe/StripeOrder";
 
 interface OrderHistoryContainerProps {
@@ -16,7 +16,7 @@ const OrderHistoryContainer: React.FC<OrderHistoryContainerProps> = ({
       {data.map((order) => {
         return (
           <StripeOrder
-            key={uuid()}
+            key={v4()}
             data={order.data}
             timeStamp={order.orderTimestamp}
             orderID={order.orderID}
