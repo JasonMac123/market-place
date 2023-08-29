@@ -32,7 +32,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
         <div>Ordered on {timeStamp}</div>
       </div>
       {data.map((item) => {
-        return <StripeItemCard key={item.id} {...item} />;
+        return <StripeItemCard key={item.id} {...item} small />;
       })}
     </div>
   );

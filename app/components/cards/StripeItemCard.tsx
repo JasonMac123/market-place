@@ -16,6 +16,7 @@ interface StripeItemCardProps {
   description: string;
   price: PriceObject;
   quantity: number;
+  small?: Boolean;
 }
 
 const StripeItemCard: React.FC<StripeItemCardProps> = ({
@@ -23,11 +24,12 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
   description,
   quantity,
   price,
+  small,
 }) => {
   const image = convertSIDToImage(price.id);
 
   return (
-    <div className="w-1/2">
+    <div className={`${small ? "w-1/2" : "w-3/4"}`}>
       <div className="w-full flex justify px-16 py-2 rounded-md">
         <div className="w-1/3 h-1/3 relative border-[1px] rounded-lg overflow-hidden">
           <Image
