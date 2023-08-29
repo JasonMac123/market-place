@@ -23,7 +23,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
         <div className="flex">
           Order Number -
           <div
-            className="hover:underline hover:text-celestial ml-2"
+            className="hover:underline hover:cursor-pointer hover:text-celestial ml-2"
             onClick={() => router.push(`/order/success/${orderID}`)}
           >
             {orderID}
