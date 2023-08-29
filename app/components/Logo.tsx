@@ -16,6 +16,7 @@ const Logo: React.FC<LogoProps> = ({ alt }) => {
       className="block hover:cursor-pointer w-auto h-auto object-scale-down"
       height="0"
       width="0"
+      priority
       sizes={alt ? "400px" : "200px"}
       src={alt ? "/images/LogoAlt.png" : "/images/Logo.png"}
       onClick={() => router.push("/")}
