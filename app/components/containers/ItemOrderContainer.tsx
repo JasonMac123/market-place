@@ -28,12 +28,6 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
 
   const { errorMessage } = searchParams;
 
-  if (errorMessage) {
-    toast.error(
-      "There was an error processing your checkout. Please try again."
-    );
-  }
-
   const removeItem = async (name: string, label: string) => {
     const result = await removeItemFromCart({
       userParams: userID,
@@ -54,9 +48,6 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
 
   const orderCart = async () => {
     try {
-      const stripe = await loadStripe(
-        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-      );
       const result = await axios.post("/api/checkout-session", {
         cart,
         userID,
@@ -74,7 +65,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
 
   if (!userCart.length) {
     return (
-      <div className="flex flex-col w-full items-center justify-center space-y-4 bg-white rounded-lg p-8">
+      <div className="flex flex-col w-4/5 h-[30rem] mx-auto items-center justify-center space-y-4 bg-white rounded-lg p-8">
         <h1 className="text-4xl">You have no items currently!</h1>
         <h2 className="text-3xl">Add some items</h2>
       </div>
@@ -84,32 +75,44 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   const totalAmount = cart.reduce((acc, value) => value.orderAmount + acc, 0);
 
   return (
-    <div className="mx-auto my-4 p-4 w-3/4">
-      <h1 className="text-4xl mb-8">Cart</h1>
-      <div className="flex justify-between items-center">
-        <h2 className="text-3xl">Image</h2>
-        <h2 className="text-3xl">Description</h2>
-        <h2 className="text-3xl">Price</h2>
-      </div>
-      <hr className="border-black w-full mb-4" />
-      {userCart.map((item) => {
-        return (
-          <ItemOrderCard {...item} removeItem={removeItem} key={item.itemID} />
-        );
-      })}
-      <div className="flex flex-col jusitfy-end items-end mb-4">
-        <div className="text-2xl">Your Subtotal : {totalAmount}</div>
-        <div className="text-2xl">
-          Your tax : {(totalAmount * 0.13).toFixed(2)}
+    <div className="bg-white w-4/5 mx-auto rounded-lg p-16">
+      {errorMessage && (
+        <div className="border-[1px] rouned-lg border-red-600">
+          There was an error in checking out. Payment step is incomplete, please
+          try again.
         </div>
-        <div className="text-2xl">
-          Your Total including tax (GST + HST) :
-          {(totalAmount + totalAmount * 0.13).toFixed(2)}
+      )}
+      <div className="mx-auto my-4 p-4 w-3/4">
+        <h1 className="text-4xl mb-8">Cart</h1>
+        <div className="flex justify-between items-center">
+          <h2 className="text-3xl">Image</h2>
+          <h2 className="text-3xl">Description</h2>
+          <h2 className="text-3xl">Price</h2>
         </div>
-      </div>
-      <div className="flex justify-end">
-        <div className="flex w-1/3">
-          <Button label="Checkout" onClick={orderCart} />
+        <hr className="border-black w-full mb-4" />
+        {userCart.map((item) => {
+          return (
+            <ItemOrderCard
+              {...item}
+              removeItem={removeItem}
+              key={item.itemID}
+            />
+          );
+        })}
+        <div className="flex flex-col jusitfy-end items-end mb-4">
+          <div className="text-2xl">Your Subtotal : {totalAmount}</div>
+          <div className="text-2xl">
+            Your tax : {(totalAmount * 0.13).toFixed(2)}
+          </div>
+          <div className="text-2xl">
+            Your Total including tax (GST + HST) :
+            {(totalAmount + totalAmount * 0.13).toFixed(2)}
+          </div>
+        </div>
+        <div className="flex justify-end">
+          <div className="flex w-1/3">
+            <Button label="Checkout" onClick={orderCart} />
+          </div>
         </div>
       </div>
     </div>

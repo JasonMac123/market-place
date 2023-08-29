@@ -1,12 +1,12 @@
-import StripeItems from "@/app/components/StripeItems";
+import StripeItems from "@/app/components/stripe/StripeItems";
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import Button from "@/app/components/input/Button";
 
-import { GrRefresh } from "react-icons/gr";
-
 import axios from "axios";
-import { SessionParams, UserParams } from "@/app/types/types";
+import { GrRefresh } from "react-icons/gr";
 import createOrder from "@/app/firebase/createOrder";
+
+import { SessionParams, UserParams } from "@/app/types/types";
 
 const OrderPage = async ({
   params,
@@ -19,7 +19,10 @@ const OrderPage = async ({
     `http://localhost:3000/api/session/${params.sessionID}`
   );
 
-  createOrder({ userID: searchParams.userID, sessionID: params.sessionID });
+  await createOrder({
+    userID: searchParams.userID,
+    sessionID: params.sessionID,
+  });
 
   if (!result.data) {
     return (
@@ -40,7 +43,7 @@ const OrderPage = async ({
   }
   return (
     <ClientContainer>
-      <div className="w-9/12 mx-auto flex flex-col justify-center items-center">
+      <div className="w-9/12 mx-auto flex flex-col justify-center items-center bg-white px-16 py-20 rounded-xl">
         <div className="w-full border-[4px] border-green-500 p-8 space-y-2 rounded-lg">
           <h1 className="text-2xl text-green-900">Payment successful</h1>
           <h1 className="text-4xl underline">Thanks for your order!</h1>

@@ -74,3 +74,9 @@ export interface PriceObject {
   billing_scheme: string;
   id: string;
 }
+
+export interface OrderObject {
+  data: StripeItem[];
+  orderTimestamp: string;
+  orderID: string;
+}

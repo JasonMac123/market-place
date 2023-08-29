@@ -46,7 +46,9 @@ export default async function addToCart(params: Params) {
       where("userid", "==", userID)
     );
 
-    if (!queryUserCart) {
+    const queryUserCartResults = await getDocs(queryUserCart);
+
+    if (queryUserCartResults.empty) {
       await addDoc(cartSnapShot, {
         userid: userID,
         items: [
@@ -81,7 +83,10 @@ export default async function addToCart(params: Params) {
         orderedItem?.itemID === itemID &&
         orderedItem?.optionType.value === optionType.value
       ) {
-        if (orderAmount + orderedItem.orderQuantity <= maxQuantity.optionType) {
+        if (
+          orderQuantity + orderedItem.orderQuantity <=
+          maxQuantity[optionType.value]
+        ) {
           orderedItem.orderQunaity += orderQuantity;
           orderedItem.orderAmount += orderAmount;
 
