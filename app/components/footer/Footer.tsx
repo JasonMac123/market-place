@@ -19,8 +19,8 @@ const Footer = () => {
       <div className="flex justify-around pb-8">
         <div className="flex lg:flex-row flex-col">
           <Logo alt />
-          <div className="flex md:flex-row space-y-4 md:space-y-0 flex-col justify-between mx-8 mt-4">
-            <div className="flex flex-col gap-6 mr-4 justify-start">
+          <div className="flex md:flex-row space-y-16 md:space-y-0 flex-col justify-between items-center md:items-start mx-8 mt-4">
+            <div className="flex flex-col gap-6 mr-4 justify-start lg:w-1/3 w-[80%]">
               <h3 className="text-4xl">Visit us at our physical stores</h3>
               <StoreLocation
                 streetName="Steeles Avenue West"
@@ -38,7 +38,7 @@ const Footer = () => {
               />
               <h3 className="text-white text-xl">More coming soon!</h3>
             </div>
-            <div className="mr-4">
+            <div className="mr-4 lg:w-1/3 w-[80%]">
               <div className="text-4xl mb-16">Contact us!</div>
               <div className="space-y-2">
                 <div className="flex gap-2 items-center hover:text-blue-700 hover:cursor-pointer">
@@ -51,7 +51,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col lg:w-1/3 w-[80%]">
               <div className="text-4xl mb-4">Follow our social media!</div>
               <div className="space-y-3">
                 <MediaLink Icon={AiFillFacebook} label="FaceBook" />
