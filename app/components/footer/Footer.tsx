@@ -41,11 +41,11 @@ const Footer = () => {
             <div className="mr-4">
               <div className="text-4xl mb-16">Contact us!</div>
               <div className="space-y-2">
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center hover:text-blue-700 hover:cursor-pointer">
                   <AiFillPhone size={20} />
                   <h3> (416) - 111 - 1111</h3>
                 </div>
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center hover:text-blue-700 hover:cursor-pointer">
                   <MdEmail size={20} />
                   <h3> Jason@LookOfJapan.com</h3>
                 </div>
