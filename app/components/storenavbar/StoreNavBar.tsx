@@ -21,7 +21,7 @@ const StoreNavBar = () => {
   const category = params?.get("category");
 
   return (
-    <div className="flex flex-wrap w-full mx-auto items-center justify-center lg:justify-between bg-alice lg:bg-celestial px-12 py-4 gap-4 rounded-lg my-12">
+    <div className="flex flex-wrap w-full lg:w-4/5 mx-auto items-center justify-center lg:justify-between bg-alice lg:bg-celestial px-12 py-4 gap-4 rounded-lg my-12">
       {categories.map((item) => {
         return (
           <StoreCategory
