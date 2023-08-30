@@ -21,7 +21,7 @@ const StoreCart = () => {
 
   return (
     <div
-      className="flex items-center text-alice gap-4 hover:bg-cerulean h-3/4 px-4 py-4 rounded-lg hover:cursor-pointer"
+      className="flex items-center w-[45%] justify-center text-alice gap-4 hover:bg-cerulean lg:bg-none bg-celestial h-3/4 px-4 py-4 rounded-lg hover:cursor-pointer"
       onClick={redirectUser}
     >
       Cart
