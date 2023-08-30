@@ -99,7 +99,7 @@ const ItemInputs: React.FC<ItemInputsProps> = ({
   };
 
   return (
-    <div className="flex flex-col border-[1px] m-8 gap-4 p-8">
+    <div className="flex flex-col border-[1px] md:m-8 gap-4 md:p-8 py-4 px-4">
       <MultiSelect
         optionList={options}
         value={option}

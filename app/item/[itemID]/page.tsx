@@ -43,7 +43,7 @@ const ItemPage = async ({ params }: { params: itemParams }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col lg:w-1/2 w-full bg-white border-[1px] rounded-lg">
+        <div className="flex flex-col lg:w-1/2 w-full bg-white md:border-[1px] rounded-lg space-y-8 pb-8">
           <ItemFront
             name={item.name}
             description={item.description}
