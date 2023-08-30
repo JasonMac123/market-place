@@ -8,7 +8,7 @@ const ItemReturn = () => {
 
   return (
     <div
-      className="relative group bg-celestial rounded-xl text-white w-1/12 h-20 flex items-center justify-center hover:cursor-pointer hover:bg-cerulean"
+      className="relative group bg-celestial rounded-xl text-white w-20 h-20 lg:flex items-center justify-center hover:cursor-pointer hover:bg-cerulean hidden"
       onClick={() => {
         router.push("/");
       }}
