@@ -39,7 +39,7 @@ const Footer = () => {
               <h3 className="text-white text-xl">More coming soon!</h3>
             </div>
             <div className="mr-4">
-              <div className="text-4xl mb-2">Contact us!</div>
+              <div className="text-4xl mb-16">Contact us!</div>
               <div className="space-y-2">
                 <div className="flex gap-2 items-center">
                   <AiFillPhone size={20} />
