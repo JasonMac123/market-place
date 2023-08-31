@@ -13,7 +13,7 @@ const categories = [
   { label: "Food", Icon: LuUtensilsCrossed },
   { label: "Clothing", Icon: FaTshirt },
   { label: "Stationary", Icon: FaPenFancy },
-  { label: "Kitchen-Ware", Icon: MdKitchen },
+  { label: "Kitchen", Icon: MdKitchen },
 ];
 
 const StoreNavBar = () => {
