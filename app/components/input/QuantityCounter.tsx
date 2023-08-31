@@ -62,7 +62,7 @@ const QuantityCounter: React.FC<QuantityCounterProps> = ({
           <AiOutlinePlus />
         </div>
         <input
-          className="border-[1px] px-8 py-4 focus:border-blue-200 w-1/2 text-center"
+          className="border-[1px] px-8 py-4 focus:border-blue-200 w-1/2 text-center min-w-[5rem]"
           type="number"
           value={value}
           onChange={(e: any) => changeValue(e.target.value)}
