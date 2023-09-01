@@ -12,7 +12,7 @@ const OrderHistoryContainer: React.FC<OrderHistoryContainerProps> = ({
   data,
 }) => {
   return (
-    <div className="flex flex-col space-y-4 mx-auto">
+    <div className="flex flex-col space-y-4 mx-auto bg-white w-[90%] rounded-xl p-8">
       {data.map((order) => {
         return (
           <StripeOrder
