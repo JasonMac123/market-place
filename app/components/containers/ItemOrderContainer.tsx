@@ -94,7 +94,7 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
           try again.
         </div>
       )}
-      <div className="mx-auto my-4 p-4 w-3/4">
+      <div className="mx-auto my-4 p-4 w-4/5">
         <h1 className="text-4xl mb-8">Cart</h1>
         <div className="flex justify-between items-center">
           <h2 className="text-3xl">Image</h2>
