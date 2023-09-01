@@ -87,14 +87,14 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   const totalAmount = cart.reduce((acc, value) => value.orderAmount + acc, 0);
 
   return (
-    <div className="bg-white w-[95%] lg:w-[90%] xl:w-4/5 mx-auto rounded-lg p-4 lg:p-8 xl:p-16">
+    <div className="bg-white w-[95%] lg:w-[90%] xl:w-4/5 mx-auto rounded-lg p-4 lg:p-8 xl:p-12">
       {errorMessage && (
         <div className="border-[1px] rouned-lg border-red-600">
           There was an error in checking out. Payment step is incomplete, please
           try again.
         </div>
       )}
-      <div className="mx-auto my-4 p-4 w-4/5">
+      <div className="mx-auto my-4 p-4 w-full lg:w-[90%] xl:w-4/5">
         <h1 className="text-4xl mb-8">Cart</h1>
         <div className="flex justify-between items-center">
           <h2 className="text-3xl">Image</h2>
