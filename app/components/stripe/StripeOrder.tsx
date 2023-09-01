@@ -19,7 +19,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
   const router = useRouter();
   return (
     <div className="w-[9/10] mx-auto border-[1px] border-black rounded-xl p-4">
-      <div className="w-full bg-gradient-to-b from-neutral-400 to-neutral-300 flex lg:flex-row flex-col h-auto 2xl:h-20 justify-between space-y-4 lg:space-y-0 lg:items-center p-4 rounded-xl overflow-hidden">
+      <div className="w-full bg-gradient-to-b from-neutral-400 to-neutral-300 flex lg:flex-row flex-col 2xl:h-20 justify-between space-y-4 lg:space-y-0 lg:items-center p-4 rounded-xl overflow-hidden">
         <div className="flex lg:flex-row flex-col w-full">
           Order Number -
           <div
