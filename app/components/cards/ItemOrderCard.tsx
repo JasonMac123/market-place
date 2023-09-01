@@ -30,7 +30,7 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
   return (
     <>
       <div
-        className="flex my-4 p-4 mx-auto justify-between"
+        className="flex flex-col md:flex-row my-4 p-4 mx-auto justify-between"
         onClick={() => {
           router.push(`/item/${itemID}`);
         }}
@@ -41,7 +41,7 @@ const ItemOrderCard: React.FC<ItemOrderCardProps> = ({
           width={200}
           height={200}
         />
-        <div className="flex flex-col justify-center">
+        <div className="flex w-full md:w-auto flex-col justify-center">
           <h3 className="text-lg">Name: {itemName},</h3>
           <h3 className="text-lg">Item Option: {optionType.label}</h3>
           <h3 className="text-lg">Quantity: {orderQuantity}</h3>
