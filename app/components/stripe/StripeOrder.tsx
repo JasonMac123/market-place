@@ -22,7 +22,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
 
   return (
     <div className="w-full mx-auto border-[1px] border-black rounded-xl p-4 lg:p-8">
-      <div className="w-full bg-neutral-300 flex flex-col 2xl:h-28 justify-between space-y-4 lg:space-y-0 lg:items-center p-4 rounded-xl overflow-hidden">
+      <div className="w-full bg-neutral-300 flex flex-col 2xl:h-32 justify-between space-y-2 lg:items-center p-4 rounded-xl overflow-hidden">
         <div className="w-full flex space-x-4">
           <div className="flex lg:flex-row flex-col w-full space-x-4 text-sm">
             Order Number -
