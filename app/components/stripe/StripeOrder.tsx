@@ -33,7 +33,9 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
               {orderID}
             </div>
           </div>
-          <div>Ordered on {timeStamp}</div>
+          <div>
+            <h2 className="xl:whitespace-nowrap">Ordered on {timeStamp}</h2>
+          </div>
         </div>
         <div className="w-full">
           <h2 className="text-right">Order total - ${total}</h2>
