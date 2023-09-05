@@ -18,7 +18,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
 }) => {
   const router = useRouter();
 
-  const total = data.reduce((acc, item) => item.amount_total + acc, 0);
+  const total = data.reduce((acc, item) => item.amount_total / 100 + acc, 0);
 
   return (
     <div className="w-full mx-auto border-[1px] border-black rounded-xl p-4 lg:p-8">
@@ -40,7 +40,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
           </div>
         </div>
         <div className="w-full">
-          <h2 className="text-right text-sm">Order total - ${total}</h2>
+          <h2 className="text-right text-sm">Order total - $ {total}</h2>
         </div>
       </div>
       <div className="grid grid-cols-1 2xl:grid-cols-2 w-full h-fit">
