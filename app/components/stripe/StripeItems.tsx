@@ -24,18 +24,18 @@ const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
         <h3 className="text-3xl text-center mb-4">Pricing summary</h3>
         <div className="flex space-x-2 justify-end md:mr-4 lg-mr-8 xl:mr-16 2xl:mr-24">
           <div className="flex flex-col items-end">
-            <h4 className="text-lg">Subtotal:</h4>
-            <h4 className="text-lg">Tax:</h4>
-            <h4 className="text-lg">Total Price:</h4>
+            <h4 className="text-md md:text-lg">Subtotal:</h4>
+            <h4 className="text-md md:text-lg">Tax:</h4>
+            <h4 className="text-md md:text-lg">Total Price:</h4>
           </div>
           <div className="flex flex-col items-end">
-            <h4 className="text-lg">${totalPrice}</h4>
-            <h4 className="text-lg">${totalTax}</h4>
+            <h4 className="text-md md:text-lg">${totalPrice}</h4>
+            <h4 className="text-md md:text-lg">${totalTax}</h4>
             <hr className="border-black w-full" />
-            <h4 className="text-lg">${totalPrice + totalTax}</h4>
+            <h4 className="text-md md:text-lg">${totalPrice + totalTax}</h4>
           </div>
         </div>
-        <h6 className="text-right md:mr-4 lg-mr-8 xl:mr-16 2xl:mr-24 mb-8">
+        <h6 className="text-right md:mr-4 lg-mr-8 xl:mr-16 2xl:mr-24 mb-8 text-md md:-text-lg">
           Note: tax is calculated as 0.00 due to stripe calculations{" "}
         </h6>
       </div>
