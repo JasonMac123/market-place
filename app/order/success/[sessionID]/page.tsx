@@ -44,7 +44,7 @@ const OrderPage = async ({
 
   return (
     <ClientContainer>
-      <div className="w-9/12 mx-auto flex flex-col justify-center items-center bg-white px-16 py-20 rounded-xl">
+      <div className="w-[90%] xl:w-9/12 mx-auto flex flex-col justify-center items-center bg-white p-2 lg:px-16 lg:py-20 rounded-xl">
         <div className="w-full border-[4px] border-green-500 p-8 space-y-2 rounded-lg">
           <h1 className="text-2xl text-green-900">Payment successful</h1>
           <h1 className="text-4xl underline">Thanks for your order!</h1>
@@ -59,7 +59,7 @@ const OrderPage = async ({
             </h3>
           </div>
         </div>
-        <div className="flex flex-col gap-8 items-center mt-16">
+        <div className="flex flex-col gap-8 w-full items-center mt-16">
           <h2 className="text-3xl w-3/4 text-left">Your Items</h2>
           <StripeItems data={result.data.data} />
         </div>
