@@ -34,7 +34,6 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} small />;
       })}
-      <div className="w-full flex bg-green-400 lg:glex-row flex-col 2xl:h-20 justify-end space-x-2 lg:space-y-0 lg:items-center p-4 rounded-xl overflow-hidden"></div>
     </div>
   );
 };
