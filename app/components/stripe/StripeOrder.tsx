@@ -40,7 +40,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
           </div>
         </div>
         <div className="w-full">
-          <h2 className="text-right text-sm">Order total - $ {total}</h2>
+          <h2 className="text-right text-sm">Order total - $ {total} CAD</h2>
         </div>
       </div>
       {data.map((item) => {
