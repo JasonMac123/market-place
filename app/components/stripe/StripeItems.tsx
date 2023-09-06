@@ -19,7 +19,7 @@ const StripeItems: React.FC<StripeItemsProps> = ({ data }) => {
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} />;
       })}
-      <hr className="border-black w-3/4 my-8" />
+      <hr className="border-black w-3/4 my-4 lg:my-8" />
       <div className="flex flex-col w-full px-4">
         <h3 className="text-3xl text-center mb-4">Pricing summary</h3>
         <div className="flex space-x-2 justify-end md:mr-4 lg-mr-8 xl:mr-16 2xl:mr-24">
