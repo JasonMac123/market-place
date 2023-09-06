@@ -34,6 +34,7 @@ const UserMenu = () => {
 
   const logOut = useCallback(() => {
     auth.signOut();
+    router.push("/");
   }, [auth]);
 
   return (
