@@ -45,12 +45,6 @@ const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
       {items.map((item: Item) => {
         return <ItemCard key={item.id} {...item} />;
       })}
-      {items.map((item: Item) => {
-        return <ItemCard key={item.id} {...item} />;
-      })}
-      {items.map((item: Item) => {
-        return <ItemCard key={item.id} {...item} />;
-      })}
     </div>
   );
 };
