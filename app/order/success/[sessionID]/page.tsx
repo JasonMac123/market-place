@@ -48,7 +48,7 @@ const OrderPage = async ({
         <div className="w-full border-[4px] border-green-500 p-8 space-y-2 rounded-lg">
           <h1 className="text-2xl text-green-900">Payment successful</h1>
           <h1 className="text-4xl underline">Thanks for your order!</h1>
-          <h2>
+          <h2 className="text-md mt-4">
             We appreciate your order, we're currently processing it. So hang
             tight and we'll send you confirmation very soon!
           </h2>
