@@ -53,7 +53,7 @@ const OrderPage = async ({
           </h2>
           <div className="pt-4">
             <h2 className="text-md font-bold">Order number</h2>
-            <h3 className="text-lg hover:underline text-cerulean">
+            <h3 className="text-lg hover:underline text-cerulean break-words">
               {params.sessionID}
             </h3>
           </div>
