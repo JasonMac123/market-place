@@ -24,30 +24,34 @@ const ItemCard: React.FC<ItemCardProps> = ({
   const router = useRouter();
 
   return (
-    <div className="w-1/4 h-[70vh] space-y-4">
-      <div className="w-full h-full flex flex-col justify-between items-center bg-neutral-200 hover:bg-neutral-300 cursor-pointer rounded-lg">
+    <div className="w-full h-fit">
+      <div className="w-full h-max flex flex-col justify-between items-start bg-neutral-200 hover:bg-neutral-300 cursor-pointer rounded-lg">
         <div
-          className="w-full h-full flex flex-col p-4 items-center"
+          className="w-full h-full flex flex-col p-4 items-start"
           onClick={() => {
             router.push(`/item/${id}`);
           }}
         >
-          <Image
-            src={
-              "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
-            }
-            alt="picture of item"
-            width={400}
-            height={400}
-          />
+          <div className="w-full h-full p-0 relative border-[1px] max-w-md max-h-[28rem]">
+            <Image
+              src={
+                "https://cb.scene7.com/is/image/Crate/TondoChopsticksSSS22/$web_pdp_main_carousel_med$/211116170028/tondo-chopsticks.jpg"
+              }
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="w-full h-full min-w-[150px] min-h-[150x]"
+              alt="Item Order Picture"
+            />
+          </div>
           <h3 className="text-lg mt-4 text-left w-full ml-2">{label}</h3>
-          <h4 className="text-mg text-left w-full ml-2 mt-4">
+          <h4 className="text-sm text-left w-full ml-2 mt-4">
             {shortDescription}
           </h4>
         </div>
-        <div className="flex w-full justify-end mr-4 mb-4">
+        <div className="flex w-full justify-end items-center mb-4">
           <h4 className="text-3xl text-green-600">$</h4>
-          <h4 className="text-3xl text-green-600">{price}</h4>
+          <h4 className="text-3xl text-green-600 mr-4">{price}</h4>
         </div>
       </div>
     </div>

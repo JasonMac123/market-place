@@ -16,11 +16,11 @@ const StoreLocation: React.FC<StoreLocationProps> = ({
   postalCode,
 }) => {
   return (
-    <div>
-      <h4>
+    <div className="text-neutral-400 hover:text-purple-900">
+      <h4 className="hover:cursor-pointer">
         {streetNumber}, {streetName}
       </h4>
-      <h4>
+      <h4 className="hover:cursor-pointer">
         {city}, {region} {postalCode}
       </h4>
     </div>

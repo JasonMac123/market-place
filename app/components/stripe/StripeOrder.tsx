@@ -17,19 +17,31 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
   orderID,
 }) => {
   const router = useRouter();
+
+  const total = data.reduce((acc, item) => item.amount_total / 100 + acc, 0);
+
   return (
-    <div className="w-3/4 mx-auto border-[1px] border-black rounded-xl p-4">
-      <div className="w-full h-20 bg-gradient-to-b from-neutral-400 to-neutral-300 flex justify-between items-center p-4 rounded-xl overflow-hidden">
-        <div className="flex">
-          Order Number -
-          <div
-            className="hover:underline hover:cursor-pointer hover:text-celestial ml-2"
-            onClick={() => router.push(`/order/success/${orderID}`)}
-          >
-            {orderID}
+    <div className="w-full mx-auto border-[1px] border-black rounded-xl p-4 lg:p-8">
+      <div className="w-full bg-neutral-300 flex flex-col justify-between space-y-2 lg:items-center p-4 rounded-xl overflow-hidden mb-4">
+        <div className="w-full flex space-x-4">
+          <div className="flex lg:flex-row flex-col w-full space-x-4 text-sm">
+            Order Number -
+            <div
+              className="hover:underline hover:cursor-pointer hover:text-celestial lg:ml-2 ml-0 break-all"
+              onClick={() => router.push(`/order/success/${orderID}`)}
+            >
+              {orderID}
+            </div>
+          </div>
+          <div>
+            <h2 className="lg:whitespace-nowrap text-sm">
+              Ordered on {timeStamp}
+            </h2>
           </div>
         </div>
-        <div>Ordered on {timeStamp}</div>
+        <div className="w-full">
+          <h2 className="text-right text-sm">Order total - $ {total} CAD</h2>
+        </div>
       </div>
       {data.map((item) => {
         return <StripeItemCard key={item.id} {...item} small />;

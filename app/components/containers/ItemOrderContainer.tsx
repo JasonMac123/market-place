@@ -75,19 +75,19 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   const totalAmount = cart.reduce((acc, value) => value.orderAmount + acc, 0);
 
   return (
-    <div className="bg-white w-4/5 mx-auto rounded-lg p-16">
+    <div className="bg-white w-[95%] lg:w-[90%] xl:w-4/5 mx-auto rounded-lg p-4 lg:p-8 xl:p-12">
       {errorMessage && (
         <div className="border-[1px] rouned-lg border-red-600">
           There was an error in checking out. Payment step is incomplete, please
           try again.
         </div>
       )}
-      <div className="mx-auto my-4 p-4 w-3/4">
+      <div className="mx-auto my-4 p-4 w-full lg:w-[90%] xl:w-4/5">
         <h1 className="text-4xl mb-8">Cart</h1>
         <div className="flex justify-between items-center">
           <h2 className="text-3xl">Image</h2>
-          <h2 className="text-3xl">Description</h2>
-          <h2 className="text-3xl">Price</h2>
+          <h2 className="text-3xl hidden lg:block">Description</h2>
+          <h2 className="text-3xl hidden lg:block">Price</h2>
         </div>
         <hr className="border-black w-full mb-4" />
         {userCart.map((item) => {
@@ -100,17 +100,18 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
           );
         })}
         <div className="flex flex-col jusitfy-end items-end mb-4">
-          <div className="text-2xl">Your Subtotal : {totalAmount}</div>
-          <div className="text-2xl">
-            Your tax : {(totalAmount * 0.13).toFixed(2)}
+          <div className="text-sm md:text-lg lg:text-2xl">
+            Subtotal : ${totalAmount}
           </div>
-          <div className="text-2xl">
-            Your Total including tax (GST + HST) :
-            {(totalAmount + totalAmount * 0.13).toFixed(2)}
+          <div className="text-sm md:text-lg lg:text-2xl">
+            Tax : ${(totalAmount * 0.13).toFixed(2)}
+          </div>
+          <div className="text-sm md:text-lg lg:text-2xl">
+            Total : ${(totalAmount + totalAmount * 0.13).toFixed(2)}
           </div>
         </div>
         <div className="flex justify-end">
-          <div className="flex w-1/3">
+          <div className="flex w-1/3 min-w-min max-w-xs">
             <Button label="Checkout" onClick={orderCart} />
           </div>
         </div>

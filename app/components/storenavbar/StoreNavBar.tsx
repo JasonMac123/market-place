@@ -13,7 +13,7 @@ const categories = [
   { label: "Food", Icon: LuUtensilsCrossed },
   { label: "Clothing", Icon: FaTshirt },
   { label: "Stationary", Icon: FaPenFancy },
-  { label: "Kitchen-Ware", Icon: MdKitchen },
+  { label: "Kitchen", Icon: MdKitchen },
 ];
 
 const StoreNavBar = () => {
@@ -21,19 +21,17 @@ const StoreNavBar = () => {
   const category = params?.get("category");
 
   return (
-    <div className="flex w-4/5 h-20 mx-auto items-center justify-between bg-celestial px-12 rounded-lg my-12">
-      <div className="flex gap-4 w-1/2 h-full items-center">
-        {categories.map((item) => {
-          return (
-            <StoreCategory
-              key={item.label}
-              label={item.label}
-              selected={category === item.label}
-              Icon={item.Icon}
-            />
-          );
-        })}
-      </div>
+    <div className="flex flex-wrap w-full lg:w-4/5 mx-auto items-center justify-center lg:justify-between bg-alice lg:bg-celestial px-12 py-4 gap-4 rounded-lg my-12">
+      {categories.map((item) => {
+        return (
+          <StoreCategory
+            key={item.label}
+            label={item.label}
+            selected={category === item.label}
+            Icon={item.Icon}
+          />
+        );
+      })}
       <StoreCart />
     </div>
   );
