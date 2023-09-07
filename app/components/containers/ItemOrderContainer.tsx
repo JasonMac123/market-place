@@ -2,8 +2,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+import firebase_app from "@/app/firebase/config";
 
 import { Item, UserParams, CartParams } from "@/app/types/types";
 
@@ -27,6 +30,16 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   const [cart, setCart] = useState(userCart);
 
   const { errorMessage } = searchParams;
+
+  const auth = getAuth(firebase_app);
+
+  const [user] = useAuthState(auth);
+
+  if (!user || user.uid !== userID.userID) {
+    toast.error("You do not have permissions to access this page");
+    router.push("/");
+    return;
+  }
 
   const removeItem = async (name: string, label: string) => {
     const result = await removeItemFromCart({
