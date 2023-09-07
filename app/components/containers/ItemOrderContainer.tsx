@@ -32,7 +32,6 @@ const ItemOrderContainer: React.FC<ItemOrderContainerProps> = ({
   const { errorMessage } = searchParams;
 
   const auth = getAuth(firebase_app);
-
   const [user] = useAuthState(auth);
 
   if (!user || user.uid !== userID.userID) {
