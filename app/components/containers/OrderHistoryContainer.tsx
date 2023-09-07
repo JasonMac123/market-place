@@ -26,7 +26,7 @@ const OrderHistoryContainer: React.FC<OrderHistoryContainerProps> = ({
   const [user] = useAuthState(auth);
 
   if (!user || user.uid !== userID) {
-    toast.error("You do not have permissions");
+    toast.error("You do not have permissions to access this page");
     router.push("/");
     return;
   }
