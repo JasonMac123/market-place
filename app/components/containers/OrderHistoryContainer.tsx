@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { v4 } from "uuid";
 
 import firebase_app from "@/app/firebase/config";
@@ -32,7 +32,7 @@ const OrderHistoryContainer: React.FC<OrderHistoryContainerProps> = ({
   }
 
   return (
-    <div className="flex flex-col space-y-4 mx-auto">
+    <div className="flex flex-col space-y-4 mx-auto bg-white w-10/12 p-4 rounded-lg">
       {data.map((order) => {
         return (
           <StripeOrder

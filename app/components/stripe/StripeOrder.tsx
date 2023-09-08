@@ -18,7 +18,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
 }) => {
   const router = useRouter();
   return (
-    <div className="w-3/4 mx-auto border-[1px] border-black rounded-xl p-4">
+    <div className="w-full mx-auto border-[1px] border-black rounded-xl p-4">
       <div className="w-full h-20 bg-gradient-to-b from-neutral-400 to-neutral-300 flex justify-between items-center p-4 rounded-xl overflow-hidden">
         <div className="flex">
           Order Number -
@@ -31,9 +31,14 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
         </div>
         <div>Ordered on {timeStamp}</div>
       </div>
-      {data.map((item) => {
-        return <StripeItemCard key={item.id} {...item} small />;
-      })}
+      <div className="grid grid-cols-1 2xl:grid-cols-2 w-full h-fit">
+        {data.map((item) => {
+          return <StripeItemCard key={item.id} {...item} small />;
+        })}
+        {data.map((item) => {
+          return <StripeItemCard key={item.id} {...item} small />;
+        })}
+      </div>
     </div>
   );
 };
