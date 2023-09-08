@@ -1,4 +1,4 @@
-import firebase_app from "./config";
+import firebase_app from "../config";
 import {
   getFirestore,
   getDocs,
@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 
 import { NextResponse } from "next/server";
-import { Query } from "../types/types";
+import { Query } from "../../types/types";
 
 export default async function getItems(searchParams: Query) {
   try {

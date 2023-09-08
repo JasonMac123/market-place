@@ -1,5 +1,5 @@
-import { UserParams } from "../types/types";
-import firebase_app from "./config";
+import { UserParams } from "../../types/types";
+import firebase_app from "../config";
 import {
   collection,
   getFirestore,

@@ -1,4 +1,4 @@
-import firebase_app from "./config";
+import firebase_app from "../config";
 import {
   getFirestore,
   getDocs,
@@ -8,7 +8,7 @@ import {
   orderBy,
 } from "firebase/firestore";
 
-import { UserParams } from "../types/types";
+import { UserParams } from "../../types/types";
 import { NextResponse } from "next/server";
 
 export default async function getOrdersByUserID(params: UserParams) {

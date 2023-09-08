@@ -1,7 +1,7 @@
-import firebase_app from "./config";
+import firebase_app from "../config";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
-import { ItemQuery } from "../types/types";
+import { ItemQuery } from "../../types/types";
 
 export default async function getSpecificItemByID(searchParams: ItemQuery) {
   try {
