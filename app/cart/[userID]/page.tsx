@@ -1,6 +1,7 @@
 import ClientContainer from "@/app/components/containers/ClientContainer";
 import ItemOrderContainer from "@/app/components/containers/ItemOrderContainer";
-import getUserCart from "@/app/firebase/getUserCart";
+
+import getUserCart from "@/app/firebase/cart/getUserCart";
 
 import { UserParams, CartParams } from "@/app/types/types";
 

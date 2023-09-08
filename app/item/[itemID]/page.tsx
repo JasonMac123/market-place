@@ -4,7 +4,7 @@ import ItemFront from "@/app/components/itemdisplays/ItemFront";
 import ItemInputs from "@/app/components/itemdisplays/ItemInputs";
 import ItemReturn from "@/app/components/itemdisplays/ItemReturn";
 
-import getSpecificItemByID from "@/app/firebase/getSpecificItemByID";
+import getSpecificItemByID from "@/app/firebase/item/getSpecificItemByID";
 
 import Image from "next/image";
 

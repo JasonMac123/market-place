@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import firebase_app from "@/app/firebase/config";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import addToCart from "@/app/firebase/addToCart";
+import addToCart from "@/app/firebase/cart/addToCart";
 
 import { useRouter } from "next/navigation";
 import { ItemQuantity, Option } from "@/app/types/types";

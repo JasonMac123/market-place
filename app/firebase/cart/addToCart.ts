@@ -1,4 +1,4 @@
-import firebase_app from "./config";
+import firebase_app from "../config";
 
 import {
   getFirestore,
@@ -11,7 +11,7 @@ import {
   doc,
 } from "firebase/firestore";
 
-import { OptionSelect, ItemQuantity } from "../types/types";
+import { OptionSelect, ItemQuantity } from "../../types/types";
 
 interface Params {
   orderQuantity: number;

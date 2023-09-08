@@ -29,15 +29,15 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
   const image = convertSIDToImage(price.id);
 
   return (
-    <div className={`${small ? "w-full lg:w-3/4 xl:w-1/2" : "w-3/4"}`}>
-      <div className="w-full lg:flex-row flex-col flex items-center lg:px-4 lg:py-2 mt-2 lg:mt-0 rounded-md">
+    <div className={`${small ? "w-full mx-auto" : "w-3/4"}`}>
+      <div className="w-full flex sm:flex-row flex-col items-center lg:px-4 lg:py-2 mt-2 lg:mt-0 rounded-md">
         <div className="w-full h-full p-0 lg:w-1/3 lg:h-1/3 relative border-[1px] rounded-lg overflow-hidden max-w-md max-h-[28rem]">
           <Image
             src={image}
             width={0}
             height={0}
             sizes="100vw"
-            className="w-full h-auto min-w-[200px] min-h-[200px]"
+            className="w-full h-auto min-h-[100px] min-w-[100px]"
             alt="Item Order Picture"
           />
         </div>
@@ -51,7 +51,7 @@ const StripeItemCard: React.FC<StripeItemCardProps> = ({
           </div>
         </div>
       </div>
-      {small && <hr className="border-black w-full my-8" />}
+      {small && <hr className="border-black w-3/4 my-8 mx-auto" />}
     </div>
   );
 };

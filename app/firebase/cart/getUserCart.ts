@@ -1,4 +1,4 @@
-import firebase_app from "./config";
+import firebase_app from "../config";
 import {
   getFirestore,
   getDocs,
@@ -8,7 +8,7 @@ import {
   addDoc,
 } from "firebase/firestore";
 
-import { UserParams } from "../types/types";
+import { UserParams } from "../../types/types";
 
 export default async function getUserCart(params: UserParams) {
   try {

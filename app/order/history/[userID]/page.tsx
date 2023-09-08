@@ -13,7 +13,7 @@ const Page = async ({ params }: { params: UserParams }) => {
   return (
     <div>
       <ClientContainer>
-        <OrderHistoryContainer data={result.data} />
+        <OrderHistoryContainer data={result.data} userID={params.userID} />
       </ClientContainer>
     </div>
   );
