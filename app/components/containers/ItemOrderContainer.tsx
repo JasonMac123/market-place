@@ -13,7 +13,7 @@ import { Item, UserParams, CartParams } from "@/app/types/types";
 import Button from "../input/Button";
 import ItemOrderCard from "../cards/ItemOrderCard";
 
-import removeItemFromCart from "@/app/firebase/removeItemFromCart";
+import removeItemFromCart from "@/app/firebase/cart/removeItemFromCart";
 
 interface ItemOrderContainerProps {
   userID: UserParams;

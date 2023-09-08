@@ -4,7 +4,7 @@ import Button from "@/app/components/input/Button";
 
 import axios from "axios";
 import { GrRefresh } from "react-icons/gr";
-import createOrder from "@/app/firebase/createOrder";
+import createOrder from "@/app/firebase/order/createOrder";
 
 import { SessionParams, UserParams } from "@/app/types/types";
 
@@ -41,6 +41,7 @@ const OrderPage = async ({
       </div>
     );
   }
+
   return (
     <ClientContainer>
       <div className="w-9/12 mx-auto flex flex-col justify-center items-center bg-white px-16 py-20 rounded-xl">

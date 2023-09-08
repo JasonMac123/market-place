@@ -1,4 +1,5 @@
-import getItems from "@/app/firebase/getItems";
+import getItems from "../firebase/item/getItems";
+
 import ItemCard from "./cards/ItemCard";
 import NoItems from "./NoItems";
 
