@@ -38,6 +38,14 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
               Ordered on {timeStamp}
             </h2>
           </div>
+          <div>
+            <h2 className="lg:whitespace-nowrap text-sm">
+              Ordered on {timeStamp}
+            </h2>
+          </div>
+        </div>
+        <div className="w-full">
+          <h2 className="text-right text-sm">Order total - $ {total} CAD</h2>
         </div>
         <div className="w-full">
           <h2 className="text-right text-sm">Order total - $ {total} CAD</h2>
