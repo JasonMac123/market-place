@@ -43,10 +43,7 @@ const StripeOrder: React.FC<StripeOrderProps> = ({
           <h2 className="text-right text-sm">Order total - $ {total} CAD</h2>
         </div>
       </div>
-      <div className="grid grid-cols-1 2xl:grid-cols-2 w-full h-fit">
-        {data.map((item) => {
-          return <StripeItemCard key={item.id} {...item} small />;
-        })}
+      <div className="grid grid-cols-1 xl:grid-cols-2 w-full h-fit">
         {data.map((item) => {
           return <StripeItemCard key={item.id} {...item} small />;
         })}
