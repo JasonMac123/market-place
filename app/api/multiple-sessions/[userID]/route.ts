@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import getOrdersByUserID from "@/app/firebase/getOrdersByUserID";
+import getOrdersByUserID from "@/app/firebase/order/getOrdersByUserID";
 import Stripe from "stripe";
-
-import { LineItem } from "@stripe/stripe-js";
-import { Timestamp } from "firebase/firestore";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-11-15",
