@@ -8,7 +8,7 @@ const LoginPage = () => {
     <ClientContainer>
       <Container>
         <div>
-          <div className="my-10 mx-auto flex h-[100vh] w-2/3 items-center justify-center rounded-xl overflow-hidden bg-white">
+          <div className="my-10 mx-auto flex h-[80vh] xl:h-[100vh] w-2/3 items-center justify-center rounded-xl overflow-hidden bg-white">
             <LoginContainer />
             <InfoCard />
           </div>
