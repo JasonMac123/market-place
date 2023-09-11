@@ -6,7 +6,7 @@ import { GrCheckmark } from "react-icons/gr";
 
 const InfoCard = () => {
   return (
-    <div className="relative w-1/2 h-full flex flex-col items-center justify-center gap-4">
+    <div className="relative w-1/2 xl:flex h-full hidden md:flex-col md:items-center md:justify-center gap-4">
       <Image
         alt="Japanese Shrine"
         src={"/images/InfoCard.jpg"}

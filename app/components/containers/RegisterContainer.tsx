@@ -44,10 +44,14 @@ const RegisterContainer = () => {
   }, []);
 
   return (
-    <div className="w-1/2 px-20 h-full space-y-4 relative flex flex-col items-center justify-center">
+    <div className="w-[95%] xl:w-1/2 px-4 xl:px-20 h-full space-y-4 relative flex flex-col xl:items-center xl:justify-center pt-16">
       <div className="mb-8 space-y-4">
-        <h1 className="w-full text-center text-3xl">Create a new account!</h1>
-        <h2 className="text-md text-left w-full">START FOR FREE</h2>
+        <h1 className="w-full text-center text-lg sm:text-2xl md:text-3xl">
+          Create a new account!
+        </h1>
+        <h2 className="text-sm sm:text-md md:text-lg text-left w-full">
+          START FOR FREE
+        </h2>
       </div>
       <FormInput
         id="email"
@@ -69,7 +73,7 @@ const RegisterContainer = () => {
         label={"Register your Account!"}
         onClick={handleSubmit(registerWithNative)}
       />
-      <div className="flex absolute bottom-3 left-4 gap-2 text-gray-600">
+      <div className="mt-4 flex flex-col xl:flex-row absolute bottom-3 left-4 gap-2 text-gray-600">
         <h4>Already have an Account?</h4>
         <h4
           onClick={redirectLogin}
