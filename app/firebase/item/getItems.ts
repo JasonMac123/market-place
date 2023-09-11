@@ -7,7 +7,6 @@ import {
   where,
 } from "firebase/firestore";
 
-import { NextResponse } from "next/server";
 import { Query } from "../../types/types";
 
 export default async function getItems(searchParams: Query) {
@@ -36,7 +35,7 @@ export default async function getItems(searchParams: Query) {
       items.push({ ...doc.data(), id: doc.id });
     });
 
-    return NextResponse.json(items);
+    return items;
   } catch (e) {
     return e;
   }
