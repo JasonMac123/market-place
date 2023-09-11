@@ -46,7 +46,7 @@ const StoreCategory: React.FC<StoreCategoryProps> = ({
 
   return (
     <div
-      className={`text-alice w-[45%] lg:w-auto text-lg hover:bg-cerulean lg:bg-none bg-celestial h-3/4 flex items-center justify-center px-2 py-4 rounded-lg gap-4 cursor-pointer hover:text-neutral-200
+      className={`text-alice w-[45%] lg:w-auto text-lg hover:bg-cerulean lg:bg-none bg-celestial h-3/4 flex items-center justify-center px-2 py-4 rounded-lg gap-4 cursor-pointer hover:text-neutral-200 font-playfair 
       ${selected ? "bg-cerulean" : ""}`}
       onClick={handleClick}
     >
