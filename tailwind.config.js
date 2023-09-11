@@ -13,6 +13,9 @@ module.exports = {
         celestial: "#1B98E0",
         alice: "#E8F1F2",
       },
+      fontFamily: {
+        playfair: ["var(--font-playfair)"],
+      },
     },
   },
   plugins: [],
