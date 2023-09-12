@@ -4,9 +4,26 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import StoreNavBar from "./components/storenavbar/StoreNavBar";
 import "./globals.css";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Playfair_Display, Roboto, Lato } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: "400",
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
+  weight: "400",
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  variable: "--font-roboto",
+  weight: "400",
+});
 
 export const metadata = {
   title: "Look of Japan",
@@ -20,7 +37,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-alice">
+      <body
+        className={`${playfair.variable} ${lato.variable} ${roboto.variable} bg-alice font-lato`}
+      >
         <ClientContainer>
           <Header />
           <NotificationContainer />

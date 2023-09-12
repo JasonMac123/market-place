@@ -6,7 +6,7 @@ import { GrCheckmark } from "react-icons/gr";
 
 const InfoCard = () => {
   return (
-    <div className="relative w-1/2 h-full flex flex-col items-center justify-center gap-4">
+    <div className="relative w-1/2 xl:flex h-full hidden md:flex-col md:items-center md:justify-center gap-4">
       <Image
         alt="Japanese Shrine"
         src={"/images/InfoCard.jpg"}
@@ -14,10 +14,12 @@ const InfoCard = () => {
         className="z-10 opacity-80"
       />
       <div className="flex flex-col justify-between items-center z-20 w-3/4 h-full my-8 rounded-xl">
-        <div className="bg-white bg-opacity-80 rounded-lg px-2 py-8">
-          <h2 className="text-black text-3xl">Get Started with an Account!</h2>
+        <div className="bg-white bg-opacity-90 rounded-lg px-2 py-8">
+          <h2 className="text-black text-3xl font-playfair">
+            Become a member!
+          </h2>
         </div>
-        <div className="flex flex-col bg-white bg-opacity-80 rounded-lg px-2 py-8 space-y-4">
+        <div className="flex flex-col bg-white bg-opacity-90 rounded-lg px-2 py-8 space-y-4">
           <div className="flex items-center space-x-2">
             <GrCheckmark size={20} className="text-white" />
             <h3 className="text-2xl text-black">One click shopping stop!</h3>

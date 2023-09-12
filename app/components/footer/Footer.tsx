@@ -64,9 +64,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-end w-full pr-4">
-        <div className="mr-4 text-gray-600 hover:underline">Terms</div>
-        <div className="mr-4 text-gray-600 hover:underline">Privacy</div>@ 2023
-        - Jason Mac All rights reserved
+        <div className="mr-4 text-gray-600 hover:underline hover:cursor-pointer">
+          Terms
+        </div>
+        <div className="mr-4 text-gray-600 hover:underline hover:cursor-pointer">
+          Privacy
+        </div>
+        @ 2023 - Jason Mac All rights reserved
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ interface Query {
 const StoreItems: React.FC<StoreItemsProps> = async ({ searchParams }) => {
   const items = await getItems(searchParams);
 
-  if (items.length === 0) {
+  if (!items || items.length === 0) {
     return (
       <div>
         <NoItems />
