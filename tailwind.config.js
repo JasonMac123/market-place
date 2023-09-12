@@ -15,7 +15,8 @@ module.exports = {
       },
       fontFamily: {
         playfair: ["var(--font-playfair)"],
-        lato: ["var(--font-lato"],
+        lato: ["var(--font-lato)"],
+        roboto: ["var(--font-roboto)"],
       },
     },
   },
