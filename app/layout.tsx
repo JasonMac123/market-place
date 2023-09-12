@@ -6,10 +6,17 @@ import StoreNavBar from "./components/storenavbar/StoreNavBar";
 import "./globals.css";
 
 import { Playfair_Display } from "next/font/google";
+import { Lato } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+  weight: "400",
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
   weight: "400",
 });
 
@@ -25,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} bg-alice`}>
+      <body className={`${playfair.variable} ${lato.variable} bg-alice`}>
         <ClientContainer>
           <Header />
           <NotificationContainer />
