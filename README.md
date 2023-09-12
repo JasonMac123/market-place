@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Animal Pals
 
-## Getting Started
+A website for people who couldn't get the perfect souvernir while traveling Japan!
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This app is a place where users can find souvernirs from all over japan or exotic items from asia. The user can filter through item categories, select specific items and option types for that item and add to cart. Users can checkout out through stripe to finish their order and check their past orders.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Animal-Pals is built with the next.js app version to have both server side and client side rendering. The project uses typescript to aid in fixing run-time errors and making sure props are used with the correct types. The back-end is built with firebase. Users can register or sign in with their google accounts using firebase authentication or register using regular email and password. The app is styled for mobile and desktop using taliwindCSS. Other packages such as react-firebase-hooks, axios, next/fonts, react-toast provide features to show notifcations, and create http requests.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ScreenShots
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![Home Page](https://imgur.com/rsa63Vy.png "HomePage")
+![Store Item](https://imgur.com/kNWMVEZ.png "Creating a Post")
+![Cart](https://imgur.com/z0VkxCW.png "Individual Post")
 
-## Learn More
+# Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project requires node.js to be installed in order to be run
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Installing
 
-## Deploy on Vercel
+- Clone the project
+- Create a firebase database
+- Create an env file including the environmental variables
+- Run the command npm install to install packages
+- Run the website using command "npm run dev"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Executing program
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- To execute run the command "npm run dev"
+
+## Authors
+
+Jason mac  
+[@JasonMaC](https://github.com/JasonMac123/)
+
+## Version History
+
+- 0.1
+  - Initial Release
