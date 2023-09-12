@@ -58,8 +58,8 @@ const LoginContainer = () => {
   }, []);
 
   return (
-    <div className="w-[95%] xl:w-1/2 px-4 xl:px-20 h-full space-y-4 relative flex flex-col xl:items-center xl:justify-center pt-16">
-      <h2 className="w-full text-center text-lg sm:text-2xl md:text-3xl lg:mb-8 xl:mb-12">
+    <div className="w-[95%] xl:w-1/2 px-4 xl:px-20 h-full space-y-4 relative flex flex-col xl:items-center xl:justify-center pt-12 xl:pt-0">
+      <h2 className="w-full text-center text-lg sm:text-2xl md:text-3xl lg:text-4xl lg:mb-8 xl:text-6xl xl:mb-12">
         Welcome Back!
       </h2>
       <h3 className="text-sm sm:text-md md:text-lg text-left w-full">
