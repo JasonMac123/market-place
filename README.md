@@ -1,4 +1,4 @@
-# Animal Pals
+# Marketplace - Look of Japan
 
 A website for people who couldn't get the perfect souvernir while traveling Japan!
 
@@ -6,7 +6,7 @@ A website for people who couldn't get the perfect souvernir while traveling Japa
 
 This app is a place where users can find souvernirs from all over japan or exotic items from asia. The user can filter through item categories, select specific items and option types for that item and add to cart. Users can checkout out through stripe to finish their order and check their past orders.
 
-Animal-Pals is built with the next.js app version to have both server side and client side rendering. The project uses typescript to aid in fixing run-time errors and making sure props are used with the correct types. The back-end is built with firebase. Users can register or sign in with their google accounts using firebase authentication or register using regular email and password. The app is styled for mobile and desktop using taliwindCSS. Other packages such as react-firebase-hooks, axios, next/fonts, react-toast provide features to show notifcations, and create http requests.
+Look of Japan is built with the next.js app version to have both server side and client side rendering. The project uses typescript to aid in fixing run-time errors and making sure props are used with the correct types. The back-end is built with firebase. Users can register or sign in with their google accounts using firebase authentication or register using regular email and password. The app is styled for mobile and desktop using taliwindCSS. Other packages such as react-firebase-hooks, axios, next/fonts, react-toast provide features to show notifcations, and create http requests.
 
 ## ScreenShots
 
