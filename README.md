@@ -10,10 +10,6 @@ Look of Japan is built with the next.js app version to have both server side and
 
 ## ScreenShots
 
-![Home Page](https://imgur.com/rsa63Vy.png "HomePage")
-![Store Item](https://imgur.com/kNWMVEZ.png "Creating a Post")
-![Cart](https://imgur.com/z0VkxCW.png "Individual Post")
-
 # Getting Started
 
 ### Dependencies
