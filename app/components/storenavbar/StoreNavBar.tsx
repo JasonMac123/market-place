@@ -12,7 +12,7 @@ const categories = [
   { label: "All-items" },
   { label: "Food", Icon: LuUtensilsCrossed },
   { label: "Clothing", Icon: FaTshirt },
-  { label: "Stationary", Icon: FaPenFancy },
+  { label: "Stationery", Icon: FaPenFancy },
   { label: "Kitchen", Icon: MdKitchen },
 ];
 
